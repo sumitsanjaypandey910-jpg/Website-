@@ -9,13 +9,1149 @@
     <meta property="og:description" content="Horizon Secure Investments (HSI) - Your trusted partner for Mutual Funds, Life & Health Insurance, Stocks, Bonds, Fractional Real Estate, Loans, and Advisory Services." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body class="bg-slate-50 text-slate-800 antialiased font-sans">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-amber-200 selection:text-slate-900">
+    
+    <!-- TOP REGULATORY & CONTACT BAR -->
+    <header class="bg-[#0b192c] text-slate-300 text-xs py-2 border-b border-slate-800 hidden sm:block">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-4 text-[11px] tracking-wide">
+          <div class="flex items-center gap-1.5 text-amber-400 font-semibold">
+            <span>🛡️ AMFI Reg: ARN-284910</span>
+          </div>
+          <span class="text-slate-600">|</span>
+          <div class="flex items-center gap-1 text-slate-300">
+            <span>IRDAI No: CA-0821/2022</span>
+          </div>
+          <span class="text-slate-600 hidden md:inline">|</span>
+          <div class="items-center gap-1 text-slate-300 hidden md:flex">
+            <span>🕒 Mon–Sat: 9:30 AM – 6:30 PM IST</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-5">
+          <a href="tel:+919820012345" class="flex items-center gap-1.5 hover:text-amber-400 transition-colors">
+            <span class="text-amber-400">📞</span>
+            <span class="font-medium">+91 98200 12345</span>
+          </a>
+          <a href="mailto:contact@horizonsecureinvestments.com" class="hidden lg:flex items-center gap-1.5 hover:text-amber-400 transition-colors">
+            <span class="text-amber-400">✉️</span>
+            <span>contact@horizonsecureinvestments.com</span>
+          </a>
+          <button id="topReviewBtn" class="inline-flex items-center gap-1 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-2.5 py-0.5 rounded text-[11px] transition-all cursor-pointer">
+            <span>✨ Free Portfolio Review</span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- STICKY NAVIGATION BAR -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-xs border-b border-slate-200 py-3 transition-all">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          
+          <!-- HSI Logo Emblem -->
+          <a href="#" class="flex items-center gap-3 select-none group focus:outline-none">
+            <svg width="44" height="44" viewBox="0 0 200 200" class="shrink-0 drop-shadow-sm transition-transform group-hover:scale-105" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="navGoldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#e5c05d" />
+                  <stop offset="35%" stopColor="#fdf3cd" />
+                  <stop offset="70%" stopColor="#c59b27" />
+                  <stop offset="100%" stopColor="#8d6614" />
+                </linearGradient>
+                <linearGradient id="navNavyInner" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0a192f" />
+                  <stop offset="60%" stopColor="#0f2b48" />
+                  <stop offset="100%" stopColor="#061224" />
+                </linearGradient>
+                <linearGradient id="navGoldFill" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#c59b27" />
+                  <stop offset="50%" stopColor="#fae99e" />
+                  <stop offset="100%" stopColor="#b3821a" />
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="92" r="82" stroke="url(#navGoldRing)" stroke-width="6" fill="url(#navNavyInner)" />
+              <circle cx="100" cy="92" r="74" stroke="url(#navGoldRing)" stroke-width="1.5" stroke-opacity="0.4" fill="none" />
+              <!-- Rising Sun Rays -->
+              <g stroke="url(#navGoldRing)" stroke-width="2" stroke-linecap="round" opacity="0.85">
+                <line x1="100" y1="126" x2="100" y2="114" />
+                <line x1="86" y1="128" x2="80" y2="118" />
+                <line x1="114" y1="128" x2="120" y2="118" />
+                <line x1="74" y1="133" x2="65" y2="125" />
+                <line x1="126" y1="133" x2="135" y2="125" />
+              </g>
+              <path d="M 68 135 Q 100 120 132 135" stroke="url(#navGoldRing)" stroke-width="3.5" fill="none" />
+              <!-- Chart bars -->
+              <rect x="94" y="62" width="10" height="20" rx="1.5" fill="url(#navGoldFill)" opacity="0.8" />
+              <rect x="108" y="52" width="10" height="30" rx="1.5" fill="url(#navGoldFill)" opacity="0.9" />
+              <rect x="122" y="42" width="10" height="40" rx="1.5" fill="url(#navGoldFill)" />
+              <!-- Arrow -->
+              <path d="M 86 86 C 102 78, 120 66, 140 46" stroke="url(#navGoldRing)" stroke-width="4" stroke-linecap="round" />
+              <polygon points="144,42 132,46 138,58" fill="url(#navGoldRing)" />
+              <text x="100" y="114" text-anchor="middle" font-family="Cinzel, serif" font-size="48" font-weight="800" letter-spacing="2" fill="#ffffff">HSI</text>
+              <path d="M 38 145 Q 100 130 162 145 C 150 168, 50 168, 38 145 Z" fill="url(#navGoldFill)" />
+              <path d="M 44 148 Q 100 134 156 148 C 146 163, 54 163, 44 148 Z" fill="#0a192f" />
+            </svg>
+            <div class="flex flex-col leading-none">
+              <span class="font-heading text-xl font-black tracking-[0.18em] text-slate-900">HORIZON</span>
+              <span class="text-[10.5px] font-bold tracking-[0.22em] text-amber-600 uppercase mt-0.5">SECURE INVESTMENTS</span>
+              <span class="text-[8.5px] font-medium tracking-[0.2em] text-slate-500 uppercase mt-1">Securing Tomorrow's Wealth</span>
+            </div>
+          </a>
+
+          <!-- Navigation Links -->
+          <div class="hidden lg:flex items-center space-x-1">
+            <a href="#hero" class="px-3 py-2 text-xs font-bold text-slate-700 hover:text-amber-700 transition-colors">Home</a>
+            <a href="#products" class="px-3 py-2 text-xs font-bold text-slate-700 hover:text-amber-700 transition-colors">Our Products</a>
+            <a href="#insurance-partners" class="px-3 py-2 text-xs font-bold text-slate-700 hover:text-amber-700 transition-colors">Nature of Work</a>
+            <a href="#calculators" class="px-3 py-2 text-xs font-bold text-slate-700 hover:text-amber-700 transition-colors">Calculators</a>
+            <a href="#partner-benefits" class="px-3 py-2 text-xs font-bold text-amber-700 bg-amber-50 rounded-md hover:bg-amber-100 transition-colors">Partner With Us</a>
+            <a href="#about" class="px-3 py-2 text-xs font-bold text-slate-700 hover:text-amber-700 transition-colors">Pillars</a>
+            <a href="#contact" class="px-3 py-2 text-xs font-bold text-slate-700 hover:text-amber-700 transition-colors">Contact</a>
+          </div>
+
+          <!-- CTAs -->
+          <div class="hidden sm:flex items-center gap-3">
+            <button id="navConsultationBtn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#0b192c] hover:bg-[#152e4e] text-white text-xs font-bold shadow-sm transition-all cursor-pointer border border-amber-500/30">
+              <span>Book Free Advisory</span>
+            </button>
+          </div>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobileMenuToggle" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none cursor-pointer" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 mt-2">
+        <a href="#hero" class="block py-2 text-sm font-bold text-slate-800">Home</a>
+        <a href="#products" class="block py-2 text-sm font-bold text-slate-800">Our Products (Mutual Funds, Insurance, Loans)</a>
+        <a href="#insurance-partners" class="block py-2 text-sm font-bold text-slate-800">Nature of Work (25+ Insurers)</a>
+        <a href="#calculators" class="block py-2 text-sm font-bold text-slate-800">SIP & Loan Calculators</a>
+        <a href="#partner-benefits" class="block py-2 text-sm font-bold text-amber-800 bg-amber-50 px-2 rounded">Partner's Benefits (Leadership Track)</a>
+        <a href="#about" class="block py-2 text-sm font-bold text-slate-800">Trust Pillars</a>
+        <a href="#contact" class="block py-2 text-sm font-bold text-slate-800">Contact Us</a>
+        <div class="pt-3 flex flex-col gap-2">
+          <button id="mobileConsultBtn" class="w-full py-2.5 rounded-lg bg-[#0b192c] text-white font-bold text-xs">Book Advisory Session</button>
+          <button id="mobilePartnerBtn" class="w-full py-2.5 rounded-lg border border-amber-600 text-amber-800 font-bold text-xs bg-amber-50">Join as Partner / Leader</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-[#081220] via-[#0d1e34] to-[#0a182b] text-white py-16 md:py-24 border-b border-amber-500/20">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Value Prop -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-wide">
+              <span>✨ AMFI & IRDAI Registered Wealth & Insurance Advisory</span>
+            </div>
+
+            <div class="space-y-2">
+              <h1 class="text-3xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight">
+                Securing <span class="text-gold-gradient">Tomorrow's</span> Wealth
+              </h1>
+              <p class="text-amber-400 font-semibold text-lg sm:text-xl font-heading tracking-wide">
+                Plan Today. Protect Tomorrow. Prosper Always.
+              </p>
+            </div>
+
+            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+              Horizon Secure Investments delivers multi-asset wealth accumulation, risk shields, and institutional credit facilities. Partnering with 25+ premier insurance companies and leading asset management houses to build and protect your family's future.
+            </p>
+
+            <!-- Quick Filter Tags -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1 text-xs">
+              <span class="text-slate-400 text-[11px] uppercase tracking-wider font-semibold mr-1">Products:</span>
+              <a href="#products" class="px-2.5 py-1 rounded bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200">Mutual Funds</a>
+              <a href="#products" class="px-2.5 py-1 rounded bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200">Life & Health Insurance</a>
+              <a href="#products" class="px-2.5 py-1 rounded bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200">Stocks & Bonds</a>
+              <a href="#products" class="px-2.5 py-1 rounded bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200">Fractional Property</a>
+              <a href="#products" class="px-2.5 py-1 rounded bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200">Loans & Credit</a>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <button id="heroConsultBtn" class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-slate-950 font-extrabold text-xs sm:text-sm tracking-wide shadow-lg shadow-amber-500/20 hover:scale-[1.02] transition-all cursor-pointer">
+                Book Free Financial Consultation →
+              </button>
+              <a href="#calculators" class="w-full sm:w-auto px-5 py-3.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-white font-semibold text-xs sm:text-sm border border-slate-600 transition-all text-center">
+                🧮 Calculate SIP & Returns
+              </a>
+              <button id="heroPartnerBtn" class="w-full sm:w-auto px-4 py-3.5 rounded-lg border border-amber-500/50 hover:bg-amber-500/10 text-amber-300 font-semibold text-xs sm:text-sm transition-all cursor-pointer">
+                👥 Partner With Us
+              </button>
+            </div>
+
+            <div class="pt-2 text-xs text-slate-400 font-medium tracking-wide">
+              <span>Motto: </span>
+              <strong class="text-slate-200 font-semibold">YOUR TRUST, OUR COMMITMENT.</strong>
+            </div>
+          </div>
+
+          <!-- Right Emblem Card -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="w-full max-w-md p-8 rounded-2xl bg-gradient-to-b from-slate-900/90 to-[#0c1a2e]/95 border border-amber-500/30 shadow-2xl backdrop-blur-sm text-center relative">
+              <div class="flex flex-col items-center">
+                <svg width="90" height="90" viewBox="0 0 200 200" class="drop-shadow-lg mb-3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="100" cy="92" r="82" stroke="url(#navGoldRing)" stroke-width="6" fill="url(#navNavyInner)" />
+                  <circle cx="100" cy="92" r="74" stroke="url(#navGoldRing)" stroke-width="1.5" stroke-opacity="0.4" fill="none" />
+                  <g stroke="url(#navGoldRing)" stroke-width="2" stroke-linecap="round" opacity="0.85">
+                    <line x1="100" y1="126" x2="100" y2="114" />
+                    <line x1="86" y1="128" x2="80" y2="118" />
+                    <line x1="114" y1="128" x2="120" y2="118" />
+                    <line x1="74" y1="133" x2="65" y2="125" />
+                    <line x1="126" y1="133" x2="135" y2="125" />
+                  </g>
+                  <path d="M 68 135 Q 100 120 132 135" stroke="url(#navGoldRing)" stroke-width="3.5" fill="none" />
+                  <rect x="94" y="62" width="10" height="20" rx="1.5" fill="url(#navGoldFill)" opacity="0.8" />
+                  <rect x="108" y="52" width="10" height="30" rx="1.5" fill="url(#navGoldFill)" opacity="0.9" />
+                  <rect x="122" y="42" width="10" height="40" rx="1.5" fill="url(#navGoldFill)" />
+                  <path d="M 86 86 C 102 78, 120 66, 140 46" stroke="url(#navGoldRing)" stroke-width="4" stroke-linecap="round" />
+                  <polygon points="144,42 132,46 138,58" fill="url(#navGoldRing)" />
+                  <text x="100" y="114" text-anchor="middle" font-family="Cinzel, serif" font-size="48" font-weight="800" letter-spacing="2" fill="#ffffff">HSI</text>
+                  <path d="M 38 145 Q 100 130 162 145 C 150 168, 50 168, 38 145 Z" fill="url(#navGoldFill)" />
+                  <path d="M 44 148 Q 100 134 156 148 C 146 163, 54 163, 44 148 Z" fill="#0a192f" />
+                </svg>
+                <h2 class="font-heading text-2xl font-extrabold tracking-[0.22em] text-white">HORIZON</h2>
+                <div class="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase mt-1">— SECURE INVESTMENTS —</div>
+                <div class="text-[10px] font-medium tracking-[0.2em] text-slate-300 uppercase mt-1">Securing Tomorrow's Wealth</div>
+              </div>
+
+              <div class="mt-6 pt-6 border-t border-slate-800 grid grid-cols-2 gap-3 text-center">
+                <div class="p-2.5 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                  <div class="text-xl font-bold text-amber-400">25+</div>
+                  <div class="text-[11px] text-slate-300 uppercase font-medium">Insurance Partners</div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                  <div class="text-xl font-bold text-amber-400">100%</div>
+                  <div class="text-[11px] text-slate-300 uppercase font-medium">Fiduciary Focus</div>
+                </div>
+              </div>
+
+              <div class="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-center">
+                <div class="text-xs text-amber-200 font-semibold">Dealing with All Major Life, Health & General Insurers</div>
+                <a href="#insurance-partners" class="mt-1 inline-block text-[11px] text-amber-400 hover:text-amber-300 underline font-medium">View Nature of Work Directory →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Trust Stats Bar -->
+        <div class="mt-16 pt-8 border-t border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white">15+</div>
+            <div class="text-xs text-slate-400 uppercase font-semibold">Years of Wealth Leadership</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-amber-400">₹650+ Cr</div>
+            <div class="text-xs text-slate-400 uppercase font-semibold">Advisory Assets (AUM)</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white">18,500+</div>
+            <div class="text-xs text-slate-400 uppercase font-semibold">Protected Families & MSMEs</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-amber-400">350+</div>
+            <div class="text-xs text-slate-400 uppercase font-semibold">Active Business Partners</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4 CORE PILLARS (Page 2 & 3 Footer) -->
+    <section id="about" class="py-16 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <span>🛡️ Our Foundation</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+            Built on Uncompromising Principles
+          </h2>
+          <p class="mt-3 text-slate-600 text-sm sm:text-base">
+            At Horizon Secure Investments, our fiduciary ethos puts your long-term prosperity first.
+          </p>
+          <div class="mt-2 text-xs font-bold tracking-widest text-amber-700 uppercase">
+            YOUR TRUST, OUR COMMITMENT.
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="hsi-card p-6 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="text-3xl mb-3">🎓</div>
+            <h3 class="text-base font-black text-slate-900 tracking-wide font-heading">EXPERT ADVICE</h3>
+            <div class="text-xs font-bold text-amber-600 mb-2">Certified Specialists</div>
+            <p class="text-xs text-slate-600 leading-relaxed">Personalized portfolio guidance curated by seasoned investment advisors and wealth managers.</p>
+          </div>
+
+          <div class="hsi-card p-6 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="text-3xl mb-3">⚖️</div>
+            <h3 class="text-base font-black text-slate-900 tracking-wide font-heading">TRUST & INTEGRITY</h3>
+            <div class="text-xs font-bold text-amber-600 mb-2">Uncompromising Ethics</div>
+            <p class="text-xs text-slate-600 leading-relaxed">Complete transparency with zero hidden charges, objective product comparisons, and fiduciary commitment.</p>
+          </div>
+
+          <div class="hsi-card p-6 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="text-3xl mb-3">⚙️</div>
+            <h3 class="text-base font-black text-slate-900 tracking-wide font-heading">CUSTOMIZED SOLUTIONS</h3>
+            <div class="text-xs font-bold text-amber-600 mb-2">Tailored to Your Lifecycle</div>
+            <p class="text-xs text-slate-600 leading-relaxed">Bespoke wealth strategies crafted specifically for your risk tolerance, cash flow, and generational goals.</p>
+          </div>
+
+          <div class="hsi-card p-6 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="text-3xl mb-3">📈</div>
+            <h3 class="text-base font-black text-slate-900 tracking-wide font-heading">WEALTH & PROTECTION</h3>
+            <div class="text-xs font-bold text-amber-600 mb-2">Growth + Safety Shield</div>
+            <p class="text-xs text-slate-600 leading-relaxed">Dual-engine financial strategy: aggressive wealth accumulation combined with airtight family insurance shields.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 rounded-2xl bg-gradient-to-r from-[#0b192c] via-[#102b4c] to-[#0b192c] p-6 sm:p-8 text-white text-center shadow-lg border border-amber-500/30">
+          <div class="max-w-3xl mx-auto space-y-2">
+            <span class="text-xs font-semibold tracking-widest uppercase text-amber-400">The Horizon Secure Investments Creed</span>
+            <div class="text-xl sm:text-2xl md:text-3xl font-heading font-extrabold italic text-slate-100">
+              "Plan Today. Protect Tomorrow. Prosper Always."
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300">
+              YOUR TRUST, OUR COMMITMENT. — Navigating volatile markets with disciplined risk architecture.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OUR PRODUCTS SECTION (Brochure Pages 2 & 3) -->
+    <section id="products" class="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <span>💼 Comprehensive Product Basket</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+            Our Financial Products & Solutions
+          </h2>
+          <p class="mt-3 text-slate-600 text-sm sm:text-base">
+            Extracted directly from the official Horizon Secure Investments portfolio brochure.
+          </p>
+        </div>
+
+        <!-- Controls: Category Filter + Search -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 bg-white p-3.5 rounded-2xl shadow-xs border border-slate-200">
+          <div class="flex flex-wrap items-center gap-1.5 w-full md:w-auto" id="productTabContainer">
+            <button data-cat="all" class="prod-tab-btn active px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#0b192c] text-white cursor-pointer">All Products</button>
+            <button data-cat="wealth" class="prod-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer">Mutual Funds & Stocks</button>
+            <button data-cat="insurance" class="prod-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer">Insurance Shields</button>
+            <button data-cat="bonds" class="prod-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer">Bonds</button>
+            <button data-cat="property" class="prod-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer">Fraction of Property</button>
+            <button data-cat="loans" class="prod-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer">Loans & Credit</button>
+          </div>
+
+          <div class="relative w-full md:w-72 shrink-0">
+            <input
+              type="text"
+              id="productSearchInput"
+              placeholder="Search SIP, ULIP, LAP, Bonds..."
+              class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500"
+            />
+            <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs">🔍</span>
+          </div>
+        </div>
+
+        <!-- Product Cards Container (Rendered dynamically by vanilla JS) -->
+        <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- JavaScript will inject cards here -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINANCIAL CALCULATORS (Vanilla JS) -->
+    <section id="calculators" class="py-16 md:py-24 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <span>🧮 Financial Calculators</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+            Calculate Your Wealth & Loan EMI
+          </h2>
+          <p class="mt-3 text-slate-600 text-sm sm:text-base">
+            Real-time compounding projections for Mutual Fund SIPs and fast EMI estimates for Home, LAP, and Business Loans.
+          </p>
+        </div>
+
+        <!-- Calculator Tabs -->
+        <div class="flex justify-center mb-8">
+          <div class="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200 shadow-xs" id="calcTypeSelector">
+            <button data-calc="sip" class="calc-tab-btn active px-5 py-2 rounded-lg text-xs sm:text-sm font-bold bg-[#0b192c] text-white cursor-pointer">SIP Calculator</button>
+            <button data-calc="lump" class="calc-tab-btn px-5 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 cursor-pointer">Lumpsum Calculator</button>
+            <button data-calc="loan" class="calc-tab-btn px-5 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 cursor-pointer">Loan EMI Calculator</button>
+          </div>
+        </div>
+
+        <!-- Calculator Card Container -->
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+          
+          <!-- SIP Calculator View -->
+          <div id="sipCalcView" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Monthly SIP Amount (₹)</label>
+                  <span id="sipAmountDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">₹10,000</span>
+                </div>
+                <input type="range" id="sipAmountSlider" min="500" max="150000" step="500" value="10000" class="w-full" />
+                <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                  <span>₹500</span>
+                  <span>₹50,000</span>
+                  <span>₹1,50,000</span>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Expected Annual Return Rate (%)</label>
+                  <span id="sipRateDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">12%</span>
+                </div>
+                <input type="range" id="sipRateSlider" min="6" max="22" step="0.5" value="12" class="w-full" />
+                <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                  <span>6% (Debt)</span>
+                  <span>12-15% (Equity)</span>
+                  <span>22%</span>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Investment Horizon (Years)</label>
+                  <span id="sipYearsDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">15 Years</span>
+                </div>
+                <input type="range" id="sipYearsSlider" min="1" max="30" step="1" value="15" class="w-full" />
+                <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                  <span>1 Year</span>
+                  <span>15 Years</span>
+                  <span>30 Years</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SIP Result Box -->
+            <div class="lg:col-span-5 bg-[#0b192c] text-white p-6 sm:p-7 rounded-2xl shadow-lg border border-amber-500/30 flex flex-col justify-between">
+              <div>
+                <div class="text-xs text-amber-400 font-bold uppercase tracking-wider mb-1">Maturity Wealth Forecast</div>
+                <div id="sipMaturityVal" class="text-3xl sm:text-4xl font-black text-white font-heading">₹50,45,760</div>
+
+                <!-- Visual Bar -->
+                <div class="mt-6">
+                  <div class="h-3 w-full bg-slate-800 rounded-full overflow-hidden flex">
+                    <div id="sipInvestedBar" style="width: 35%" class="bg-slate-400"></div>
+                    <div id="sipGainsBar" style="width: 65%" class="bg-amber-400"></div>
+                  </div>
+                  <div class="flex justify-between text-[11px] mt-2">
+                    <span class="text-slate-300">Invested: <span id="sipInvestedVal" class="font-bold">₹18,00,000</span></span>
+                    <span class="text-amber-300">Returns: <span id="sipGainsVal" class="font-bold">+₹32,45,760</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <button id="sipActionBtn" class="mt-6 w-full py-3 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs shadow-md transition-all cursor-pointer">
+                Start This SIP with HSI Advisor →
+              </button>
+            </div>
+          </div>
+
+          <!-- Lumpsum Calculator View -->
+          <div id="lumpCalcView" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Lumpsum Investment (₹)</label>
+                  <span id="lumpAmountDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">₹2,00,000</span>
+                </div>
+                <input type="range" id="lumpAmountSlider" min="10000" max="5000000" step="10000" value="200000" class="w-full" />
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Expected Annual Return (%)</label>
+                  <span id="lumpRateDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">12%</span>
+                </div>
+                <input type="range" id="lumpRateSlider" min="6" max="22" step="0.5" value="12" class="w-full" />
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Time Horizon (Years)</label>
+                  <span id="lumpYearsDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">10 Years</span>
+                </div>
+                <input type="range" id="lumpYearsSlider" min="1" max="25" step="1" value="10" class="w-full" />
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-[#0b192c] text-white p-6 sm:p-7 rounded-2xl shadow-lg border border-amber-500/30 flex flex-col justify-between">
+              <div>
+                <div class="text-xs text-amber-400 font-bold uppercase tracking-wider mb-1">Total Maturity Value</div>
+                <div id="lumpMaturityVal" class="text-3xl sm:text-4xl font-black text-white font-heading">₹6,21,170</div>
+                <div class="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
+                  <div class="flex justify-between text-slate-300"><span>Principal Invested:</span><span id="lumpInvestedVal" class="font-bold text-white">₹2,00,000</span></div>
+                  <div class="flex justify-between text-slate-300"><span>Capital Growth:</span><span id="lumpGainsVal" class="font-bold text-emerald-400">+₹4,21,170</span></div>
+                </div>
+              </div>
+              <button id="lumpActionBtn" class="mt-6 w-full py-3 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 text-slate-950 font-bold text-xs cursor-pointer">
+                Deploy Lumpsum Portfolio →
+              </button>
+            </div>
+          </div>
+
+          <!-- Loan EMI Calculator View -->
+          <div id="loanCalcView" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Loan Amount (₹)</label>
+                  <span id="loanAmountDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">₹30,00,000</span>
+                </div>
+                <input type="range" id="loanAmountSlider" min="100000" max="20000000" step="100000" value="3000000" class="w-full" />
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Interest Rate (% p.a.)</label>
+                  <span id="loanRateDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">8.75%</span>
+                </div>
+                <input type="range" id="loanRateSlider" min="7" max="18" step="0.25" value="8.75" class="w-full" />
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Loan Tenure (Years)</label>
+                  <span id="loanYearsDisplay" class="text-base font-extrabold text-slate-900 bg-white px-3 py-1 rounded-md border border-slate-200">20 Years</span>
+                </div>
+                <input type="range" id="loanYearsSlider" min="1" max="30" step="1" value="20" class="w-full" />
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-[#0b192c] text-white p-6 sm:p-7 rounded-2xl shadow-lg border border-amber-500/30 flex flex-col justify-between">
+              <div>
+                <div class="text-xs text-amber-400 font-bold uppercase tracking-wider mb-1">Monthly Loan EMI</div>
+                <div id="loanEmiVal" class="text-3xl sm:text-4xl font-black text-white font-heading">₹26,511<span class="text-xs font-normal text-slate-400">/mo</span></div>
+                <div class="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
+                  <div class="flex justify-between text-slate-300"><span>Principal Amount:</span><span id="loanPrincipalVal" class="font-bold text-white">₹30,00,000</span></div>
+                  <div class="flex justify-between text-slate-300"><span>Total Interest:</span><span id="loanInterestVal" class="font-bold text-amber-400">₹33,62,711</span></div>
+                  <div class="flex justify-between text-slate-300 border-t border-slate-800 pt-1"><span>Total Repayment:</span><span id="loanTotalVal" class="font-bold text-white">₹63,62,711</span></div>
+                </div>
+              </div>
+              <button id="loanActionBtn" class="mt-6 w-full py-3 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 text-slate-950 font-bold text-xs cursor-pointer">
+                Apply for Loan Sanction →
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NATURE OF WORK — ALL MAJOR INSURANCE COMPANIES (Page 4) -->
+    <section id="insurance-partners" class="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <span>🏛️ Official Alliances</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+            NATURE OF WORK
+          </h2>
+          <p class="mt-2 text-base sm:text-lg font-bold text-amber-700">
+            Dealing with all Major Insurance Companies
+          </p>
+          <p class="mt-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
+            Direct institutional tie-ups across Life, Health, and General insurance sectors.
+          </p>
+        </div>
+
+        <!-- 3-Column Layout from Page 4 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Column 1: Life Insurance -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="bg-[#0f2b48] text-white p-5 border-b-2 border-amber-400 flex items-center justify-between">
+                <div>
+                  <h3 class="text-base font-black tracking-wide font-heading">LIFE INSURANCE</h3>
+                  <p class="text-[11px] text-blue-200">Term, ULIP, Savings & Pension</p>
+                </div>
+                <span class="text-xs bg-blue-900 px-2 py-0.5 rounded text-blue-200 font-semibold">8 Companies</span>
+              </div>
+              <ul class="p-4 divide-y divide-slate-100 text-xs" id="lifeInsList">
+                <!-- Injected via JS -->
+              </ul>
+            </div>
+            <div class="p-4 bg-slate-50 border-t border-slate-100 text-center">
+              <button class="open-quote-btn w-full py-2 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 cursor-pointer" data-partner="Life Insurance Multi-Quote">
+                Compare Life Insurance Plans
+              </button>
+            </div>
+          </div>
+
+          <!-- Column 2: Health Insurance -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="bg-[#0f2b48] text-white p-5 border-b-2 border-emerald-400 flex items-center justify-between">
+                <div>
+                  <h3 class="text-base font-black tracking-wide font-heading">HEALTH INSURANCE</h3>
+                  <p class="text-[11px] text-emerald-200">Mediclaim, GMC, GPA & Senior Care</p>
+                </div>
+                <span class="text-xs bg-emerald-900 px-2 py-0.5 rounded text-emerald-200 font-semibold">8 Companies</span>
+              </div>
+              <ul class="p-4 divide-y divide-slate-100 text-xs" id="healthInsList">
+                <!-- Injected via JS -->
+              </ul>
+            </div>
+            <div class="p-4 bg-slate-50 border-t border-slate-100 text-center">
+              <button class="open-quote-btn w-full py-2 rounded-lg bg-emerald-800 text-white text-xs font-bold hover:bg-emerald-900 cursor-pointer" data-partner="Health Insurance Cashless Quote">
+                Find Cashless Hospital Network
+              </button>
+            </div>
+          </div>
+
+          <!-- Column 3: General Insurance -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="bg-[#0f2b48] text-white p-5 border-b-2 border-amber-500 flex items-center justify-between">
+                <div>
+                  <h3 class="text-base font-black tracking-wide font-heading">GENERAL INSURANCE</h3>
+                  <p class="text-[11px] text-amber-200">Motor, Fire, Marine, WC & D&O</p>
+                </div>
+                <span class="text-xs bg-amber-900 px-2 py-0.5 rounded text-amber-200 font-semibold">9 Companies</span>
+              </div>
+              <ul class="p-4 divide-y divide-slate-100 text-xs" id="generalInsList">
+                <!-- Injected via JS -->
+              </ul>
+            </div>
+            <div class="p-4 bg-slate-50 border-t border-slate-100 text-center">
+              <button class="open-quote-btn w-full py-2 rounded-lg bg-amber-700 text-white text-xs font-bold hover:bg-amber-800 cursor-pointer" data-partner="General & Commercial Assets Quote">
+                Insure Business & Fleet Assets
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 24/7 Claim Concierge -->
+        <div class="mt-12 rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-xs flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🛟</div>
+            <div>
+              <h4 class="text-base font-bold text-slate-900 font-heading">Dedicated 24/7 Claim Concierge Desk</h4>
+              <p class="text-xs text-slate-600 mt-1 max-w-xl">
+                When an emergency strikes, you never stand alone against the insurance company. Horizon Secure Investments provides on-ground hospital coordination and fast-track claim settlement advocacy.
+              </p>
+            </div>
+          </div>
+          <a href="tel:18002098899" class="shrink-0 px-4 py-2.5 rounded-lg border border-slate-300 text-slate-800 hover:bg-slate-50 text-xs font-bold transition-all">
+            📞 Claims Helpline: 1800 209 8899
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PARTNER'S BENEFITS (Brochure Page 5) -->
+    <section id="partner-benefits" class="py-16 md:py-24 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <span>👥 Entrepreneurial Track</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+            PARTNER’S BENEFITS
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-600 font-medium">
+            A partnership opportunity built around leadership, growth and long-term income.
+          </p>
+        </div>
+
+        <!-- 5 Numbered Benefits Cards -->
+        <div class="space-y-6 max-w-4xl mx-auto">
+          
+          <div class="hsi-card p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0b192c] to-[#15345a] text-white flex items-center justify-center font-black text-2xl font-heading shadow-md shrink-0 border border-amber-500/30">
+              1
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-black text-slate-900 font-heading">PARTNER / LEADERSHIP ROLE</h3>
+              <div class="text-xs font-bold text-amber-700 mb-1">This is purely a Partner Basis / Leadership Role</div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Take command as an equity-style business associate. You are not an employee — you operate as an entrepreneurial leader with full access to HSI's brand, licensed infrastructure, and multi-product institutional contracts.
+              </p>
+            </div>
+            <button class="open-partner-btn px-4 py-2 rounded-lg bg-white border border-slate-300 text-slate-800 hover:bg-slate-900 hover:text-white text-xs font-bold cursor-pointer">
+              Apply →
+            </button>
+          </div>
+
+          <div class="hsi-card p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0b192c] to-[#15345a] text-white flex items-center justify-center font-black text-2xl font-heading shadow-md shrink-0 border border-amber-500/30">
+              2
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-black text-slate-900 font-heading">REVENUE GENERATION</h3>
+              <div class="text-xs font-bold text-amber-700 mb-1">Revenue Generation / PASSIVE Income</div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Monetize an exhaustive catalog of financial products from day one. Enjoy lucrative upfront revenues across Mutual Funds, Life, Health, General Insurance, Stocks, Bonds, Fractional Property, and Loans.
+              </p>
+            </div>
+            <button class="open-partner-btn px-4 py-2 rounded-lg bg-white border border-slate-300 text-slate-800 hover:bg-slate-900 hover:text-white text-xs font-bold cursor-pointer">
+              Apply →
+            </button>
+          </div>
+
+          <div class="hsi-card p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0b192c] to-[#15345a] text-white flex items-center justify-center font-black text-2xl font-heading shadow-md shrink-0 border border-amber-500/30">
+              3
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-black text-slate-900 font-heading">TRAIL INCOME</h3>
+              <div class="text-xs font-bold text-amber-700 mb-1">Trail Income for long term HORIZON</div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Build an enduring generational financial annuity. Unlike one-time transaction models, your client AUM yields compound trail revenue month after month, year after year.
+              </p>
+            </div>
+            <button class="open-partner-btn px-4 py-2 rounded-lg bg-white border border-slate-300 text-slate-800 hover:bg-slate-900 hover:text-white text-xs font-bold cursor-pointer">
+              Apply →
+            </button>
+          </div>
+
+          <div class="hsi-card p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0b192c] to-[#15345a] text-white flex items-center justify-center font-black text-2xl font-heading shadow-md shrink-0 border border-amber-500/30">
+              4
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-black text-slate-900 font-heading">COMPANY CONTESTS</h3>
+              <div class="text-xs font-bold text-amber-700 mb-1">High-Voltage Challenges & Rewards</div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Participate in thrilling seasonal business challenges with luxury gadgets, motor vehicle incentives, Champion League trophies, and national recognition.
+              </p>
+            </div>
+            <button class="open-partner-btn px-4 py-2 rounded-lg bg-white border border-slate-300 text-slate-800 hover:bg-slate-900 hover:text-white text-xs font-bold cursor-pointer">
+              Apply →
+            </button>
+          </div>
+
+          <div class="hsi-card p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0b192c] to-[#15345a] text-white flex items-center justify-center font-black text-2xl font-heading shadow-md shrink-0 border border-amber-500/30">
+              5
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-black text-slate-900 font-heading">INTERNATIONAL CONVENTION</h3>
+              <div class="text-xs font-bold text-amber-700 mb-1">International Convention for Top Performers</div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Fly across the globe with all expenses paid. Celebrate your milestones with your family in luxury 5-star resorts at world-class destinations (London, Zurich, Dubai, Bali).
+              </p>
+            </div>
+            <button class="open-partner-btn px-4 py-2 rounded-lg bg-white border border-slate-300 text-slate-800 hover:bg-slate-900 hover:text-white text-xs font-bold cursor-pointer">
+              Apply →
+            </button>
+          </div>
+
+        </div>
+
+        <!-- GROW WITH HORIZON BANNER -->
+        <div class="mt-14 max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-[#081220] via-[#0d223c] to-[#081220] p-8 sm:p-10 text-white text-center shadow-2xl border-2 border-amber-500/40">
+          <span class="text-xs font-bold uppercase tracking-[0.25em] text-amber-400">HSI Entrepreneurial Network</span>
+          <h3 class="text-2xl sm:text-4xl font-extrabold font-heading tracking-wide text-white mt-2">
+            GROW WITH HORIZON
+          </h3>
+          <p class="text-sm sm:text-base font-semibold text-amber-200 mt-1">
+            Partner • Lead • Generate • Build a Long-Term Horizon
+          </p>
+          <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mt-3 leading-relaxed">
+            Unlock multi-product distribution codes across 25+ insurance partners and premier mutual fund AMCs. No franchise fee, full CRM access, and compounding trail income.
+          </p>
+          <div class="pt-6">
+            <button class="open-partner-btn px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 text-slate-950 font-black text-sm tracking-wide shadow-xl hover:scale-105 transition-all cursor-pointer">
+              Submit Partner / Leadership Application →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT & ENQUIRY SECTION -->
+    <section id="contact" class="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <span>📫 Advisory Desk</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+            Connect With Our Wealth Advisors
+          </h2>
+          <p class="mt-3 text-slate-600 text-sm sm:text-base">
+            Request custom insurance comparisons, portfolio reviews, or loan eligibility assessments.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Office Card -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="p-6 rounded-2xl bg-[#0b192c] text-white space-y-5 shadow-lg border border-amber-500/30">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Headquarters</span>
+                <h3 class="text-xl font-bold font-heading">Horizon Secure Investments</h3>
+                <p class="text-xs text-amber-200/90 font-medium mt-1">Plan Today. Protect Tomorrow. Prosper Always.</p>
+              </div>
+
+              <div class="space-y-3.5 text-xs text-slate-200 pt-3 border-t border-slate-800">
+                <div>📍 Horizon Financial Tower, 4th Floor, BKC, Mumbai - 400051</div>
+                <div>📞 Direct: <a href="tel:+919820012345" class="text-white font-bold hover:underline">+91 98200 12345</a></div>
+                <div>☎️ Toll-Free: <a href="tel:18002098899" class="text-white font-bold hover:underline">1800 209 8899</a></div>
+                <div>✉️ Email: <a href="mailto:contact@horizonsecureinvestments.com" class="text-white hover:underline">contact@horizonsecureinvestments.com</a></div>
+                <div>🕒 Hours: Monday – Saturday: 9:30 AM – 6:30 PM IST</div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-300">
+                <span>🛡️ AMFI ARN: ARN-284910</span>
+                <span>IRDAI: CA-0821/2022</span>
+              </div>
+            </div>
+
+            <!-- Standalone Plain Code Export Button -->
+            <div class="p-5 rounded-2xl bg-white border border-slate-200 text-center">
+              <div class="text-xs font-bold text-slate-900 mb-1">🚀 Built With Pure HTML, CSS & JavaScript</div>
+              <p class="text-[11px] text-slate-500 mb-3">Zero WordPress, zero runtime framework. 100% lightweight & portable.</p>
+              <button id="viewSourceBtn" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold border border-slate-300 cursor-pointer">
+                View & Copy Plain Code (HTML/CSS/JS)
+              </button>
+            </div>
+          </div>
+
+          <!-- HTML Contact Form -->
+          <div class="lg:col-span-7">
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+              <h3 class="text-xl font-black text-slate-900 font-heading mb-1">Direct Portfolio & Advisory Form</h3>
+              <p class="text-xs text-slate-500 mb-6">Our senior advisor will prepare a side-by-side comparison report for your requirements.</p>
+
+              <form id="contactEnquiryForm" class="space-y-4 text-xs">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block font-bold text-slate-700 mb-1">Full Name *</label>
+                    <input type="text" id="contactName" required placeholder="e.g. Rajesh Sharma" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-amber-500/20" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-slate-700 mb-1">Phone Number (WhatsApp) *</label>
+                    <input type="tel" id="contactPhone" required placeholder="+91 98200 12345" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-amber-500/20" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block font-bold text-slate-700 mb-1">Email Address *</label>
+                    <input type="email" id="contactEmail" required placeholder="name@example.com" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-amber-500/20" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-slate-700 mb-1">City / State *</label>
+                    <input type="text" id="contactCity" required placeholder="e.g. Mumbai, Pune" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-amber-500/20" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-bold text-slate-700 mb-1">Service / Product Segment *</label>
+                  <select id="contactProduct" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none">
+                    <option value="Mutual Funds (SIP / LUMPSUM / SWP / STP)">Mutual Funds (SIP / LUMPSUM / SWP / STP)</option>
+                    <option value="Life Insurance (SAVINGS / ULIP / TULIP / PENSION / CHILDREN)">Life Insurance (SAVINGS / ULIP / TULIP / PENSION / CHILDREN)</option>
+                    <option value="Health Insurance (GMC / GPA / SENIOR CITIZEN / CANCER CARE)">Health Insurance (GMC / GPA / SENIOR CITIZEN / CANCER CARE)</option>
+                    <option value="General Insurance (MOTOR / FIRE / MARINE / WC / D&O)">General Insurance (MOTOR / FIRE / MARINE / WC / D&O)</option>
+                    <option value="Stocks & Trading (NSE / BSE / FOREX / INTRADAY / F&O)">Stocks & Trading (NSE / BSE / FOREX / INTRADAY / F&O)</option>
+                    <option value="Bonds (GOVERNMENT / SECURED / TAX SAVING / SOVEREIGN)">Bonds (GOVERNMENT / SECURED / TAX SAVING / SOVEREIGN)</option>
+                    <option value="Fraction of Property (Commercial Real Estate)">Fraction of Property (Commercial Real Estate)</option>
+                    <option value="Loans (HOME / PERSONAL / BUSINESS / LAP / WORKING CAPITAL / LAS)">Loans (HOME / PERSONAL / BUSINESS / LAP / WORKING CAPITAL / LAS)</option>
+                    <option value="Become an HSI Partner / Channel Associate">Become an HSI Partner / Channel Associate</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block font-bold text-slate-700 mb-1">Message / Requirements (Optional)</label>
+                  <textarea id="contactMessage" rows="3" placeholder="Share your investment horizon or coverage needs..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-lg bg-[#0b192c] hover:bg-[#122a4a] text-white font-bold text-xs shadow-md transition-all cursor-pointer">
+                  Submit Enquiry & Schedule Call →
+                </button>
+              </form>
+
+              <!-- Form Success Box -->
+              <div id="contactSuccessBox" class="hidden text-center py-6 space-y-3">
+                <div class="text-4xl">✅</div>
+                <h4 class="text-base font-bold text-slate-900">Enquiry Received!</h4>
+                <p class="text-xs text-slate-600 max-w-md mx-auto" id="contactSuccessMsg">
+                  Thank you! Your reference number is <strong id="contactRefId" class="font-mono text-slate-900"></strong>. An advisor will contact you within 2 business hours.
+                </p>
+                <div class="pt-2">
+                  <a id="contactWhatsAppLink" href="#" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700">
+                    <span>💬 Chat on WhatsApp with Advisor</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#071220] text-slate-300 border-t border-slate-800 pt-16 pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+          <div class="lg:col-span-4 space-y-3">
+            <div class="font-heading text-xl font-bold tracking-[0.2em] text-white">HORIZON</div>
+            <div class="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">SECURE INVESTMENTS</div>
+            <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+              Securing Tomorrow's Wealth. Comprehensive Mutual Funds, Insurance, Stocks, Bonds, Fractional Real Estate, and Credit Advisory.
+            </p>
+            <div class="text-xs font-bold text-amber-400 italic">"Plan Today. Protect Tomorrow. Prosper Always."</div>
+          </div>
+
+          <div class="lg:col-span-3 space-y-2 text-xs text-slate-400">
+            <div class="font-bold uppercase tracking-widest text-amber-400 font-heading mb-2">Investments</div>
+            <div>• Mutual Funds (SIP / Lumpsum / SWP / STP)</div>
+            <div>• Stocks (NSE/BSE, Intraday, F&O)</div>
+            <div>• Bonds (Govt, 54EC, Sovereign)</div>
+            <div>• Fraction of Property (CRE Grade-A)</div>
+          </div>
+
+          <div class="lg:col-span-3 space-y-2 text-xs text-slate-400">
+            <div class="font-bold uppercase tracking-widest text-amber-400 font-heading mb-2">Protection & Loans</div>
+            <div>• Life Insurance (Savings, ULIP, TULIP, Pension)</div>
+            <div>• Health Insurance (GMC, GPA, Senior Care)</div>
+            <div>• General Insurance (Motor, Fire, Marine, WC)</div>
+            <div>• Loans (Home, LAP, LAS, Working Capital)</div>
+          </div>
+
+          <div class="lg:col-span-2 space-y-2 text-xs text-slate-400">
+            <div class="font-bold uppercase tracking-widest text-amber-400 font-heading mb-2">Partnership</div>
+            <div>• Partner / Leadership Role</div>
+            <div>• Compounding Trail Income</div>
+            <div>• Company Contests & Trips</div>
+            <button class="open-partner-btn mt-2 text-amber-400 font-bold hover:underline cursor-pointer">Grow With Horizon →</button>
+          </div>
+        </div>
+
+        <div class="py-6 text-[11px] text-slate-500 leading-relaxed border-b border-slate-800">
+          <strong>Compliance Notice:</strong> Horizon Secure Investments is an AMFI Registered Mutual Fund Distributor (ARN: ARN-284910) and IRDAI Authorized Insurance Channel Partner (Reg: CA-0821/2022). Mutual fund investments are subject to market risks; read all scheme related documents carefully. Insurance is the subject matter of solicitation.
+        </div>
+
+        <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div>© <span id="currentYear"></span> Horizon Secure Investments. All Rights Reserved.</div>
+          <div class="font-heading font-semibold text-slate-300">YOUR TRUST, OUR COMMITMENT.</div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- FLOATING ACTIONS -->
+    <div class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3 pointer-events-none">
+      <button id="floatingConsultBtn" class="pointer-events-auto hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#0b192c] hover:bg-[#153154] text-white text-xs font-bold shadow-xl border border-amber-500/40 transition-all hover:scale-105 cursor-pointer">
+        <span>✨ Free Advisory</span>
+      </button>
+      <a href="https://wa.me/919820012345?text=Hello%20Horizon%20Secure%20Investments,%20I%20would%20like%20to%20know%20more%20about%20your%20services" target="_blank" rel="noreferrer" class="pointer-events-auto w-12 h-12 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-all cursor-pointer text-xl" title="Chat with Advisor on WhatsApp">
+        💬
+      </a>
+    </div>
+
+    <!-- MODAL: CONSULTATION -->
+    <div id="consultationModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+      <div class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden max-h-[92vh] flex flex-col">
+        <div class="bg-[#0b192c] text-white p-5 relative border-b-2 border-amber-400">
+          <button class="close-modal-btn absolute top-4 right-4 w-7 h-7 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center text-xs font-bold cursor-pointer">✕</button>
+          <div class="text-xs text-amber-400 font-bold uppercase tracking-wider">Advisory Request</div>
+          <h3 class="text-xl font-bold font-heading">Book Free Advisory Session</h3>
+          <p class="text-xs text-slate-300 mt-0.5">Plan Today. Protect Tomorrow. Prosper Always.</p>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1">
+          <form id="modalConsultationForm" class="space-y-4 text-xs">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Your Name *</label>
+              <input type="text" id="modalName" required placeholder="e.g. Amit Patil" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none" />
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block font-bold text-slate-700 mb-1">Mobile Number *</label>
+                <input type="tel" id="modalPhone" required placeholder="+91 98200 00000" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none" />
+              </div>
+              <div>
+                <label class="block font-bold text-slate-700 mb-1">City *</label>
+                <input type="text" id="modalCity" required placeholder="e.g. Mumbai" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none" />
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Product of Interest *</label>
+              <input type="text" id="modalProduct" required class="w-full px-3 py-2 bg-slate-100 border border-slate-200 rounded-lg font-bold text-slate-900 focus:outline-none" />
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 text-slate-950 font-bold text-xs shadow-md cursor-pointer">
+              Confirm Advisory Call Request
+            </button>
+          </form>
+          <div id="modalConsultSuccess" class="hidden text-center py-6 space-y-3">
+            <div class="text-4xl">🎉</div>
+            <h4 class="text-base font-bold text-slate-900">Session Booked!</h4>
+            <p class="text-xs text-slate-600">Your advisory request has been logged. An HSI advisor will connect with you shortly.</p>
+            <button class="close-modal-btn px-4 py-2 bg-slate-900 text-white rounded-lg text-xs font-bold cursor-pointer">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: PARTNER APPLICATION -->
+    <div id="partnerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+      <div class="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden max-h-[92vh] flex flex-col">
+        <div class="bg-[#081220] text-white p-5 relative border-b-2 border-amber-500">
+          <button class="close-modal-btn absolute top-4 right-4 w-7 h-7 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center text-xs font-bold cursor-pointer">✕</button>
+          <div class="text-xs text-amber-400 font-bold uppercase tracking-wider">GROW WITH HORIZON</div>
+          <h3 class="text-xl font-black font-heading">Partner / Leadership Role Application</h3>
+          <p class="text-xs text-slate-300 mt-0.5">Partner • Lead • Generate • Build a Long-Term Horizon</p>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1">
+          <form id="partnerAppForm" class="space-y-4 text-xs">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block font-bold text-slate-700 mb-1">Full Name *</label>
+                <input type="text" id="partnerName" required placeholder="e.g. Ramesh Sharma" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none" />
+              </div>
+              <div>
+                <label class="block font-bold text-slate-700 mb-1">Mobile (WhatsApp) *</label>
+                <input type="tel" id="partnerPhone" required placeholder="+91 98765 43210" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none" />
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block font-bold text-slate-700 mb-1">Email Address *</label>
+                <input type="email" id="partnerEmail" required placeholder="partner@example.com" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none" />
+              </div>
+              <div>
+                <label class="block font-bold text-slate-700 mb-1">City / Region *</label>
+                <input type="text" id="partnerCity" required placeholder="e.g. Mumbai, Pune" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none" />
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Current Background</label>
+              <select id="partnerBg" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none">
+                <option value="Insurance Advisor">Insurance Advisor</option>
+                <option value="Mutual Fund Distributor">Mutual Fund Distributor (MFD)</option>
+                <option value="Chartered Accountant / Tax Consultant">Chartered Accountant / Tax Consultant</option>
+                <option value="Banker / Loan DSA">Banker / Loan DSA</option>
+                <option value="Real Estate Consultant">Real Estate Consultant</option>
+                <option value="Corporate Professional">Corporate Professional Seeking Passive Income</option>
+              </select>
+            </div>
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-[11px] text-amber-900">
+              ✓ Zero franchise fees. Access to all 25+ insurance licenses, AMC codes, and automated client CRM.
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-lg bg-[#0b192c] hover:bg-[#132c4e] text-white font-bold text-xs shadow-md cursor-pointer">
+              Submit Partner Application →
+            </button>
+          </form>
+          <div id="partnerSuccess" class="hidden text-center py-6 space-y-3">
+            <div class="text-4xl">🌟</div>
+            <h4 class="text-base font-bold text-slate-900">Application Submitted!</h4>
+            <p class="text-xs text-slate-600">Our Alliances Director will contact you within 24 business hours.</p>
+            <button class="close-modal-btn px-4 py-2 bg-slate-900 text-white rounded-lg text-xs font-bold cursor-pointer">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: PRODUCT DETAIL -->
+    <div id="productDetailModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+      <div class="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden max-h-[85vh] flex flex-col">
+        <div class="bg-[#0b192c] text-white p-5 relative border-b-2 border-amber-400">
+          <button class="close-modal-btn absolute top-4 right-4 w-7 h-7 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center text-xs font-bold cursor-pointer">✕</button>
+          <span id="detailBadge" class="text-[10px] font-bold uppercase tracking-wider text-amber-400">Category</span>
+          <h3 id="detailTitle" class="text-xl font-bold font-heading mt-0.5">Product Name</h3>
+          <p id="detailShortDesc" class="text-xs text-slate-300 mt-1 italic"></p>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1 space-y-4 text-xs">
+          <div>
+            <div class="font-bold uppercase tracking-wider text-slate-400 mb-2">Brochure Offerings:</div>
+            <div id="detailSubtypes" class="flex flex-wrap gap-1.5"></div>
+          </div>
+          <div>
+            <div class="font-bold uppercase tracking-wider text-slate-400 mb-1">Detailed Description:</div>
+            <p id="detailFullDesc" class="text-slate-700 leading-relaxed"></p>
+          </div>
+          <div>
+            <div class="font-bold uppercase tracking-wider text-slate-400 mb-2">Key Advantages:</div>
+            <ul id="detailBenefits" class="space-y-1 text-slate-700"></ul>
+          </div>
+        </div>
+        <div class="bg-slate-50 px-6 py-3 border-t border-slate-200 flex justify-between items-center">
+          <button class="close-modal-btn px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 cursor-pointer">Close</button>
+          <button id="detailEnquireBtn" class="px-5 py-2 rounded-lg bg-[#0b192c] text-white text-xs font-bold cursor-pointer">Enquire About This Product →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: CODE VIEWER (Plain HTML/CSS/JS Export) -->
+    <div id="codeViewerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+      <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+        <div class="bg-slate-900 text-white p-4 flex items-center justify-between border-b border-slate-800">
+          <div>
+            <h3 class="text-sm font-bold font-heading">Plain HTML, CSS & JavaScript Architecture</h3>
+            <p class="text-[11px] text-slate-400">Zero WordPress or backend dependencies. Ready for static hosting.</p>
+          </div>
+          <button class="close-modal-btn w-7 h-7 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center text-xs font-bold cursor-pointer">✕</button>
+        </div>
+        <div class="p-4 overflow-y-auto flex-1 text-xs space-y-3">
+          <div class="p-3 bg-slate-100 rounded-lg text-slate-700 leading-relaxed">
+            This website is built with <strong>pure HTML5, CSS3, and vanilla ES6 JavaScript</strong>. You can deploy this on any web server, GitHub Pages, Netlify, cPanel, or Apache simply by hosting these 3 files:
+            <ul class="list-disc pl-5 mt-2 space-y-1 font-mono text-[11px] text-slate-800">
+              <li><strong>index.html</strong> — Complete semantic markup, SVG emblems, brochure content</li>
+              <li><strong>style.css</strong> — Typography, gold gradients, sliders, and responsive styling</li>
+              <li><strong>app.js</strong> — Vanilla event listeners for SIP calculators, modals, and tabs</li>
+            </ul>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="copyAllHtmlBtn" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-bold cursor-pointer">
+              📋 Copy Current Page HTML
+            </button>
+            <span id="copyConfirmMsg" class="text-xs text-emerald-600 font-bold hidden">Copied to clipboard!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Entry Point (Vanilla ES6 TypeScript/JavaScript) -->
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
-
