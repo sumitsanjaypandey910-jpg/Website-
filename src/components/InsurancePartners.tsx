@@ -1,0 +1,299 @@
+import React, { useState } from 'react';
+import { ShieldCheck, HeartPulse, Umbrella, LifeBuoy, CheckCircle2, ArrowRight, PhoneCall, Sparkles } from 'lucide-react';
+import { INSURANCE_PARTNERS } from '../data/hsiData';
+import { InsuranceCompany } from '../types';
+
+interface InsurancePartnersProps {
+  onQuoteRequest: (companyName: string) => void;
+}
+
+export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteRequest }) => {
+  const [activeCategory, setActiveCategory] = useState<'all' | 'life' | 'health' | 'general'>('all');
+
+  const lifeCompanies = INSURANCE_PARTNERS.filter((c) => c.category === 'life');
+  const healthCompanies = INSURANCE_PARTNERS.filter((c) => c.category === 'health');
+  const generalCompanies = INSURANCE_PARTNERS.filter((c) => c.category === 'general');
+
+  return (
+    <section id="insurance-partners" className="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header from Brochure Page 4 */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Official Institutional Alliances</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+            NATURE OF WORK
+          </h2>
+          <p className="mt-2 text-base sm:text-lg font-bold text-amber-700">
+            Dealing with all Major Insurance Companies
+          </p>
+          <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
+            We are not tied to a single insurer. We compare policies across India's premier life, health, and general insurance corporations to guarantee the highest coverage at the lowest premium.
+          </p>
+        </div>
+
+        {/* Category Selector Tabs */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex p-1 bg-white rounded-xl border border-slate-200 shadow-xs">
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                activeCategory === 'all'
+                  ? 'bg-[#0b192c] text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              All 25+ Insurers (Brochure View)
+            </button>
+            <button
+              onClick={() => setActiveCategory('life')}
+              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                activeCategory === 'life'
+                  ? 'bg-blue-900 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              Life Insurance ({lifeCompanies.length})
+            </button>
+            <button
+              onClick={() => setActiveCategory('health')}
+              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                activeCategory === 'health'
+                  ? 'bg-emerald-900 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              Health Insurance ({healthCompanies.length})
+            </button>
+            <button
+              onClick={() => setActiveCategory('general')}
+              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                activeCategory === 'general'
+                  ? 'bg-amber-900 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              General Insurance ({generalCompanies.length})
+            </button>
+          </div>
+        </div>
+
+        {/* 3-Column Nature of Work Grid (Direct mapping of Page 4) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {/* COLUMN 1: LIFE INSURANCE */}
+          {(activeCategory === 'all' || activeCategory === 'life') && (
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between">
+              <div>
+                <div className="bg-[#0f2b48] text-white p-5 flex items-center justify-between border-b-2 border-amber-400">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center font-bold">
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-black tracking-wide font-heading">
+                        LIFE INSURANCE
+                      </h3>
+                      <p className="text-[11px] text-blue-200">Term, ULIP, Savings & Pension</p>
+                    </div>
+                  </div>
+                  <span className="text-xs bg-blue-900/80 px-2 py-0.5 rounded text-blue-200 font-semibold">
+                    {lifeCompanies.length} Partners
+                  </span>
+                </div>
+
+                <div className="p-4 divide-y divide-slate-100">
+                  {lifeCompanies.map((company, idx) => (
+                    <div
+                      key={idx}
+                      className="py-3 px-2 flex items-center justify-between hover:bg-slate-50 rounded-lg transition-colors group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                        <div>
+                          <div className="text-xs font-extrabold text-slate-900 group-hover:text-blue-900 transition-colors">
+                            {company.name}
+                          </div>
+                          <div className="text-[10px] text-slate-500">
+                            {company.speciality} {company.claimSettlementRatio ? `• CSR: ${company.claimSettlementRatio}` : ''}
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => onQuoteRequest(`${company.name} (Life Insurance)`)}
+                        className="text-[11px] font-bold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 px-2.5 py-1 rounded transition-colors"
+                      >
+                        Quote
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
+                <button
+                  onClick={() => onQuoteRequest('Life Insurance Comparison')}
+                  className="w-full py-2 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-colors"
+                >
+                  Compare All Life Insurers
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* COLUMN 2: HEALTH INSURANCE */}
+          {(activeCategory === 'all' || activeCategory === 'health') && (
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between">
+              <div>
+                <div className="bg-[#0f2b48] text-white p-5 flex items-center justify-between border-b-2 border-emerald-400">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold">
+                      <HeartPulse className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-black tracking-wide font-heading">
+                        HEALTH INSURANCE
+                      </h3>
+                      <p className="text-[11px] text-emerald-200">Mediclaim, GMC, GPA & Senior Care</p>
+                    </div>
+                  </div>
+                  <span className="text-xs bg-emerald-900/80 px-2 py-0.5 rounded text-emerald-200 font-semibold">
+                    {healthCompanies.length} Partners
+                  </span>
+                </div>
+
+                <div className="p-4 divide-y divide-slate-100">
+                  {healthCompanies.map((company, idx) => (
+                    <div
+                      key={idx}
+                      className="py-3 px-2 flex items-center justify-between hover:bg-slate-50 rounded-lg transition-colors group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                        <div>
+                          <div className="text-xs font-extrabold text-slate-900 group-hover:text-emerald-900 transition-colors">
+                            {company.name}
+                          </div>
+                          <div className="text-[10px] text-slate-500">
+                            {company.speciality} {company.claimSettlementRatio ? `• CSR: ${company.claimSettlementRatio}` : ''}
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => onQuoteRequest(`${company.name} (Health Insurance)`)}
+                        className="text-[11px] font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded transition-colors"
+                      >
+                        Quote
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
+                <button
+                  onClick={() => onQuoteRequest('Health Insurance Cashless Comparison')}
+                  className="w-full py-2 rounded-lg bg-emerald-800 text-white text-xs font-bold hover:bg-emerald-900 transition-colors"
+                >
+                  Find Cashless Hospitals Near You
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* COLUMN 3: GENERAL INSURANCE */}
+          {(activeCategory === 'all' || activeCategory === 'general') && (
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between">
+              <div>
+                <div className="bg-[#0f2b48] text-white p-5 flex items-center justify-between border-b-2 border-amber-500">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold">
+                      <Umbrella className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-black tracking-wide font-heading">
+                        GENERAL INSURANCE
+                      </h3>
+                      <p className="text-[11px] text-amber-200">Motor, Fire, Marine, WC & D&O</p>
+                    </div>
+                  </div>
+                  <span className="text-xs bg-amber-900/80 px-2 py-0.5 rounded text-amber-200 font-semibold">
+                    {generalCompanies.length} Partners
+                  </span>
+                </div>
+
+                <div className="p-4 divide-y divide-slate-100">
+                  {generalCompanies.map((company, idx) => (
+                    <div
+                      key={idx}
+                      className="py-3 px-2 flex items-center justify-between hover:bg-slate-50 rounded-lg transition-colors group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                        <div>
+                          <div className="text-xs font-extrabold text-slate-900 group-hover:text-amber-900 transition-colors">
+                            {company.name}
+                          </div>
+                          <div className="text-[10px] text-slate-500">
+                            {company.speciality}
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => onQuoteRequest(`${company.name} (General Insurance)`)}
+                        className="text-[11px] font-bold text-amber-800 hover:text-amber-900 bg-amber-50 hover:bg-amber-100 px-2.5 py-1 rounded transition-colors"
+                      >
+                        Quote
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
+                <button
+                  onClick={() => onQuoteRequest('Commercial & Liability Insurance')}
+                  className="w-full py-2 rounded-lg bg-amber-700 text-white text-xs font-bold hover:bg-amber-800 transition-colors"
+                >
+                  Protect Business & Commercial Assets
+                </button>
+              </div>
+            </div>
+          )}
+
+        </div>
+
+        {/* Claim Assistance Guarantee Bar */}
+        <div className="mt-12 rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+              <LifeBuoy className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="text-base font-bold text-slate-900 font-heading">
+                Dedicated 24/7 Claim Concierge Desk
+              </h4>
+              <p className="text-xs text-slate-600 mt-1 max-w-xl">
+                When an emergency strikes, you never stand alone against the insurance company. Horizon Secure Investments provides on-ground hospital coordination, documentation assistance, and rapid claim settlement advocacy.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href="tel:18002098899"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs font-bold transition-all"
+            >
+              <PhoneCall className="w-4 h-4 text-amber-600" />
+              <span>Claims Helpline: 1800 209 8899</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
