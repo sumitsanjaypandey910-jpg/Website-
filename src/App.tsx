@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './components/ScrollToTop';
 import { TopBar } from './components/TopBar';
 import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
-import { TrustPillars } from './components/TrustPillars';
-import { ProductCatalog } from './components/ProductCatalog';
-import { Calculators } from './components/Calculators';
-import { InsurancePartners } from './components/InsurancePartners';
-import { PartnerBenefits } from './components/PartnerBenefits';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ConsultationModal } from './components/ConsultationModal';
 import { PartnerApplicationModal } from './components/PartnerApplicationModal';
 import { FloatingActions } from './components/FloatingActions';
+import { AiChatBot } from './components/AiChatBot';
+
+// Pages
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { PortfolioPage } from './pages/PortfolioPage';
+import { ContactPage } from './pages/ContactPage';
+import { FaqPage } from './pages/FaqPage';
 
 export default function App() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
@@ -36,70 +40,110 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans selection:bg-amber-200 selection:text-slate-900">
+    <BrowserRouter>
+      <ScrollToTop />
       
-      {/* WordPress-style Top Announcement / Regulatory Bar */}
-      <TopBar onOpenConsultation={handleOpenConsultation} />
-
-      {/* Main Sticky Header */}
-      <Navbar
-        onOpenConsultation={handleOpenConsultation}
-        onOpenPartnerModal={handleOpenPartnerModal}
-      />
-
-      {/* Main Page Layout */}
-      <main className="flex-1">
+      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans selection:bg-amber-200 selection:text-slate-900">
         
-        {/* Hero Section */}
-        <HeroSection
+        {/* Top Regulatory & Contact Ribbon */}
+        <TopBar onOpenConsultation={handleOpenConsultation} />
+
+        {/* Responsive Sticky Navigation Bar */}
+        <Navbar
           onOpenConsultation={handleOpenConsultation}
           onOpenPartnerModal={handleOpenPartnerModal}
         />
 
-        {/* 4 Core Pillars from Brochure Footer */}
-        <TrustPillars />
+        {/* Dynamic Route Pages */}
+        <main className="flex-1">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  onOpenConsultation={handleOpenConsultation}
+                  onOpenPartnerModal={handleOpenPartnerModal}
+                />
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <AboutPage
+                  onOpenConsultation={handleOpenConsultation}
+                  onOpenPartnerModal={handleOpenPartnerModal}
+                />
+              }
+            />
+            <Route
+              path="/services"
+              element={
+                <ServicesPage
+                  onOpenConsultation={handleOpenConsultation}
+                />
+              }
+            />
+            <Route
+              path="/portfolio"
+              element={
+                <PortfolioPage
+                  onOpenConsultation={handleOpenConsultation}
+                />
+              }
+            />
+            <Route
+              path="/contact"
+              element={<ContactPage />}
+            />
+            <Route
+              path="/faq"
+              element={
+                <FaqPage
+                  onOpenConsultation={handleOpenConsultation}
+                />
+              }
+            />
+            {/* Fallback to Home */}
+            <Route
+              path="*"
+              element={
+                <HomePage
+                  onOpenConsultation={handleOpenConsultation}
+                  onOpenPartnerModal={handleOpenPartnerModal}
+                />
+              }
+            />
+          </Routes>
+        </main>
 
-        {/* Comprehensive Product Catalog (Brochure Pages 2 & 3) */}
-        <ProductCatalog onSelectProduct={handleOpenConsultation} />
+        {/* Comprehensive Website Footer with Contact & Social Media Links */}
+        <Footer
+          onOpenConsultation={handleOpenConsultation}
+          onOpenPartnerModal={handleOpenPartnerModal}
+        />
 
-        {/* Financial Planning & Wealth Calculators */}
-        <Calculators onPlanGoal={handleOpenConsultation} />
+        {/* Global Modals & Interactive Overlays */}
+        <ConsultationModal
+          isOpen={isConsultationOpen}
+          onClose={handleCloseConsultation}
+          prefilledProduct={selectedProductForModal}
+        />
 
-        {/* Nature of Work - 25+ Insurance Tie-Ups (Brochure Page 4) */}
-        <InsurancePartners onQuoteRequest={handleOpenConsultation} />
+        <PartnerApplicationModal
+          isOpen={isPartnerModalOpen}
+          onClose={handleClosePartnerModal}
+        />
 
-        {/* Partner's Benefits & Leadership Track (Brochure Page 5) */}
-        <PartnerBenefits onApplyPartner={handleOpenPartnerModal} />
+        {/* WhatsApp & Quick Floating Actions */}
+        <FloatingActions
+          onOpenConsultation={() => handleOpenConsultation()}
+          onOpenPartnerModal={handleOpenPartnerModal}
+        />
 
-        {/* WordPress-Style Contact & Consultation Desk */}
-        <ContactSection />
+        {/* Interactive AI Wealth Advisor Chatbot */}
+        <AiChatBot onOpenConsultation={handleOpenConsultation} />
 
-      </main>
-
-      {/* Comprehensive Corporate Footer */}
-      <Footer
-        onOpenConsultation={handleOpenConsultation}
-        onOpenPartnerModal={handleOpenPartnerModal}
-      />
-
-      {/* Floating Action Elements (WhatsApp & Advisory) */}
-      <FloatingActions
-        onOpenConsultation={() => handleOpenConsultation()}
-        onOpenPartnerModal={handleOpenPartnerModal}
-      />
-
-      {/* Interactive Modals */}
-      <ConsultationModal
-        isOpen={isConsultationOpen}
-        onClose={handleCloseConsultation}
-        prefilledProduct={selectedProductForModal}
-      />
-
-      <PartnerApplicationModal
-        isOpen={isPartnerModalOpen}
-        onClose={handleClosePartnerModal}
-      />
-
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
