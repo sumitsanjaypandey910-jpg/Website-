@@ -100,7 +100,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wide transition-all ${
                   activeTab === tab.id
-                    ? 'bg-[#0b192c] text-white shadow-sm'
+                    ? 'bg-[#0a192f] text-white shadow-sm border border-[#0a192f]'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
@@ -117,7 +117,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
               placeholder="Search SIP, ULIP, LAP, Bonds..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500"
+              className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
             />
             {searchQuery && (
               <button
@@ -136,12 +136,12 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="wp-card flex flex-col justify-between bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:border-amber-400 transition-all group"
+              className="wp-card flex flex-col justify-between bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:border-orange-400 transition-all group"
             >
               <div>
                 {/* Card Top: Icon & Category Badge */}
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center shadow-md">
+                  <div className="w-12 h-12 rounded-xl bg-[#0a192f] text-orange-400 flex items-center justify-center shadow-md">
                     {getCategoryIcon(product.iconName, "w-6 h-6")}
                   </div>
                   <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold border ${product.colorScheme.badgeBg}`}>
@@ -150,7 +150,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-black text-slate-900 tracking-wide font-heading">
+                <h3 className="text-lg font-black text-[#0a192f] tracking-wide font-heading">
                   {product.title}
                 </h3>
 
@@ -168,7 +168,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
                     {product.subtypes.map((sub, sIdx) => (
                       <span
                         key={sIdx}
-                        className="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-amber-50 border border-slate-200/80 text-[11px] font-bold text-slate-800 transition-colors"
+                        className="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-orange-50 border border-slate-200/80 hover:border-orange-300 text-[11px] font-bold text-slate-800 transition-colors"
                       >
                         {sub}
                       </span>
@@ -180,7 +180,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
                 <div className="mt-4 space-y-1.5 text-xs text-slate-700">
                   {product.keyBenefits.slice(0, 3).map((benefit, bIdx) => (
                     <div key={bIdx} className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 text-orange-600 shrink-0 mt-0.5" />
                       <span className="line-clamp-1">{benefit}</span>
                     </div>
                   ))}
@@ -191,7 +191,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
               <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
                 <button
                   onClick={() => setSelectedProductDetail(product)}
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-colors cursor-pointer"
                 >
                   <Info className="w-3.5 h-3.5 text-slate-500" />
                   <span>Learn More</span>
@@ -199,10 +199,10 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
 
                 <button
                   onClick={() => onSelectProduct(product.title)}
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#0b192c] hover:bg-[#152e4e] text-white text-xs font-bold transition-colors shadow-sm"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-xs font-bold transition-colors shadow-sm cursor-pointer"
                 >
                   <span>Enquire</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+                  <ArrowRight className="w-3.5 h-3.5 text-orange-200" />
                 </button>
               </div>
 
@@ -218,7 +218,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
             <p className="text-xs text-slate-500 mt-1">Try searching for SIP, Insurance, Bonds, LAP, or Property.</p>
             <button
               onClick={() => { setSearchQuery(''); setActiveTab('all'); }}
-              className="mt-4 px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-bold"
+              className="mt-4 px-4 py-2 rounded-lg bg-[#0a192f] text-white text-xs font-bold cursor-pointer"
             >
               Reset Filters
             </button>
@@ -228,7 +228,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
         {/* Brochure Highlight Callout */}
         <div className="mt-12 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <h4 className="text-base font-bold text-slate-900 font-heading">
+            <h4 className="text-base font-bold text-[#0a192f] font-heading">
               Need Help Choosing the Right Product Mix?
             </h4>
             <p className="text-xs text-slate-600 mt-1">
@@ -237,7 +237,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
           </div>
           <button
             onClick={() => onSelectProduct('General Portfolio Advisory')}
-            className="shrink-0 px-5 py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs shadow-md transition-all"
+            className="shrink-0 px-5 py-2.5 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-xs shadow-md shadow-orange-500/20 transition-all cursor-pointer"
           >
             Get Personalized Allocation Plan
           </button>

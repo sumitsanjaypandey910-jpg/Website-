@@ -13,18 +13,21 @@
   }
 }
 
-.text-gold-gradient {
-  background: linear-gradient(135deg, #d4af37 0%, #f6e6b4 45%, #b38728 100%);
+.text-gold-gradient,
+.text-orange-gradient {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 45%, #ea580c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.bg-gold-gradient {
-  background: linear-gradient(135deg, #d4af37 0%, #f6e6b4 45%, #b38728 100%);
+.bg-gold-gradient,
+.bg-orange-gradient {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 45%, #ea580c 100%);
 }
 
-.border-gold {
-  border-color: #d4af37;
+.border-gold,
+.border-orange {
+  border-color: #f97316;
 }
 
 /* WordPress-style smooth transitions and card shadows */

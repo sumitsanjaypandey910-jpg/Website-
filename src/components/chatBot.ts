@@ -1,4 +1,6 @@
-import { openConsultationModal } from '../main';
+const openConsultationModal = (product?: string) => {
+  window.dispatchEvent(new CustomEvent('open-consultation-modal', { detail: { product } }));
+};
 
 interface ChatMessage {
   id: string;

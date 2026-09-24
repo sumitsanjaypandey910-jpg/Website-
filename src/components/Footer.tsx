@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/hsiData';
 import { HsiLogo } from './HsiLogo';
+import { useSiteContent } from '../context/SiteContentContext';
+import { Lock } from 'lucide-react';
 
 interface FooterProps {
   onOpenConsultation: (product?: string) => void;
@@ -19,12 +21,14 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartnerModal }) => {
+  const { contact, about, footer } = useSiteContent();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-[#071220] text-slate-300 border-t-2 border-amber-500/30 pt-16 pb-12">
+    <footer className="bg-[#071220] text-slate-300 border-t-2 border-orange-500/40 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Footer Grid */}
@@ -37,22 +41,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
             </Link>
             
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm pt-2">
-              Horizon Secure Investments (HSI) is India's premier certified multi-asset wealth and risk management firm. Empowering 18,500+ families and business owners to build, protect, and pass on generational wealth.
+              {footer?.aboutText || "Horizon Secure Investments (HSI) is India's premier certified multi-asset wealth and risk management firm. Empowering 18,500+ families and business owners to build, protect, and pass on generational wealth."}
             </p>
 
-            <div className="pt-1 text-xs font-heading font-bold text-amber-400">
-              "{COMPANY_INFO.motto}"
+            <div className="pt-1 text-xs font-heading font-bold text-orange-400">
+              "{footer?.tagline || about.motto || COMPANY_INFO.motto}"
             </div>
 
             {/* Regulatory Registrations */}
             <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px]">
-              <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-amber-500/30 text-amber-400 font-bold">
-                AMFI: {COMPANY_INFO.amfiRegNo}
+              <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-orange-500/30 text-orange-400 font-bold">
+                AMFI: {footer?.amfiRegNumber || COMPANY_INFO.amfiRegNo}
               </span>
               <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 font-bold">
-                IRDAI: {COMPANY_INFO.irdaiRegNo}
+                IRDAI: {footer?.irdaiLicenseNumber || COMPANY_INFO.irdaiRegNo}
               </span>
             </div>
+
 
             {/* Social Media Links */}
             <div className="pt-3">
@@ -149,38 +154,44 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
 
           {/* Column 2: Website Pages Navigation (2.5 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-amber-400 font-heading">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400 font-heading">
               Company Pages
             </h4>
             <ul className="space-y-2 text-xs text-slate-400 font-medium">
               <li>
-                <Link to="/" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <Link to="/" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
                   <span>Home</span>
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <Link to="/about" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
                   <span>About Us & Trust</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <Link to="/services" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
                   <span>Advisory Services</span>
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <Link to="/portfolio" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
                   <span>Model Portfolios</span>
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <Link to="/faq" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
                   <span>FAQ & Knowledge Base</span>
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <Link to="/contact" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
                   <span>Contact & BKC Office</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/admin" className="text-orange-400/90 hover:text-orange-300 transition-colors flex items-center gap-1.5 font-bold">
+                  <Lock className="w-3 h-3 text-orange-400" />
+                  <span>Admin Portal</span>
                 </Link>
               </li>
             </ul>
@@ -188,37 +199,37 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
 
           {/* Column 3: Investment Solutions (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-amber-400 font-heading">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400 font-heading">
               Advisory Solutions
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <Link to="/services#mutual-funds" className="hover:text-amber-300 transition-colors">
+                <Link to="/services#mutual-funds" className="hover:text-orange-400 transition-colors">
                   Mutual Funds (SIP, Lumpsum, ELSS Tax)
                 </Link>
               </li>
               <li>
-                <Link to="/services#insurance" className="hover:text-amber-300 transition-colors">
+                <Link to="/services#insurance" className="hover:text-orange-400 transition-colors">
                   Life & Term Protection (25+ Insurers)
                 </Link>
               </li>
               <li>
-                <Link to="/services#health" className="hover:text-amber-300 transition-colors">
+                <Link to="/services#health" className="hover:text-orange-400 transition-colors">
                   Family Health & 1-Crore Mediclaim
                 </Link>
               </li>
               <li>
-                <Link to="/services#real-estate" className="hover:text-amber-300 transition-colors">
+                <Link to="/services#real-estate" className="hover:text-orange-400 transition-colors">
                   Fractional Commercial Real Estate (CRE)
                 </Link>
               </li>
               <li>
-                <Link to="/services#bonds" className="hover:text-amber-300 transition-colors">
+                <Link to="/services#bonds" className="hover:text-orange-400 transition-colors">
                   RBI Sovereign Gold Bonds & 54EC Bonds
                 </Link>
               </li>
               <li>
-                <Link to="/services#loans" className="hover:text-amber-300 transition-colors">
+                <Link to="/services#loans" className="hover:text-orange-400 transition-colors">
                   Home Loans & Loan Against Property (LAP)
                 </Link>
               </li>
@@ -227,51 +238,51 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
 
           {/* Column 4: Contact Details (3.5 cols) */}
           <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-amber-400 font-heading">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400 font-heading">
               Headquarters & Desk
             </h4>
             
             <div className="space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
                 <span className="leading-snug">
-                  {COMPANY_INFO.address}
+                  {contact.address || COMPANY_INFO.address}
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <Phone className="w-4 h-4 text-orange-400 shrink-0" />
                 <div className="flex flex-col">
-                  <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-amber-300 font-bold text-white transition-colors">
-                    {COMPANY_INFO.phone}
+                  <a href={`tel:${contact.phone}`} className="hover:text-orange-300 font-bold text-white transition-colors">
+                    {contact.phone || COMPANY_INFO.phone}
                   </a>
-                  <span className="text-[11px] text-slate-500">Toll-Free: {COMPANY_INFO.tollFree}</span>
+                  <span className="text-[11px] text-slate-500">Toll-Free: {contact.tollFree || COMPANY_INFO.tollFree}</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-amber-300 transition-colors truncate">
-                  {COMPANY_INFO.email}
+                <Mail className="w-4 h-4 text-orange-400 shrink-0" />
+                <a href={`mailto:${contact.email}`} className="hover:text-orange-300 transition-colors truncate">
+                  {contact.email || COMPANY_INFO.email}
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>{COMPANY_INFO.operatingHours} IST</span>
+                <Clock className="w-4 h-4 text-orange-400 shrink-0" />
+                <span>{contact.operatingHours || COMPANY_INFO.operatingHours} IST</span>
               </div>
             </div>
 
             <div className="pt-2 flex flex-col gap-2">
               <button
                 onClick={() => onOpenConsultation()}
-                className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-600 hover:to-yellow-500 text-slate-950 font-black text-xs transition-all shadow-sm cursor-pointer text-center"
+                className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs transition-all shadow-sm cursor-pointer text-center"
               >
                 Schedule Free Portfolio Audit
               </button>
               <button
                 onClick={onOpenPartnerModal}
-                className="w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/30 font-bold text-xs transition-colors cursor-pointer text-center"
+                className="w-full py-2.5 px-3 rounded-xl bg-[#0a192f] hover:bg-slate-800 text-orange-300 border border-orange-500/30 font-bold text-xs transition-colors cursor-pointer text-center"
               >
                 Join as Partner / Leader &rarr;
               </button>
@@ -283,26 +294,26 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
         {/* Regulatory Disclaimers Box */}
         <div className="py-6 text-[11px] text-slate-500 leading-relaxed space-y-2 border-b border-slate-800/80">
           <p>
-            <strong className="text-slate-400">Regulatory Disclaimers & Compliance:</strong> Horizon Secure Investments (HSI) is a registered AMFI Mutual Fund Distributor (ARN: {COMPANY_INFO.amfiRegNo}) and authorized Insurance Corporate Channel Partner (IRDAI: {COMPANY_INFO.irdaiRegNo}). Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns.
+            <strong className="text-slate-400">Regulatory Disclaimers & Compliance:</strong> {footer?.complianceNote || `Horizon Secure Investments (HSI) is a registered AMFI Mutual Fund Distributor (ARN: ${footer?.amfiRegNumber || COMPANY_INFO.amfiRegNo}) and authorized Insurance Corporate Channel Partner (IRDAI: ${footer?.irdaiLicenseNumber || COMPANY_INFO.irdaiRegNo}).`}
           </p>
           <p>
-            Insurance is the subject matter of solicitation. Policy terms, exclusions, and claim settlement are governed by respective insurance underwriters (25+ institutional partners). Loan approvals, interest rates, and loan-to-value ratios are subject to sanction by partner banks and NBFCs.
+            {footer?.disclaimer || "Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Insurance is the subject matter of solicitation."}
           </p>
         </div>
 
         {/* Copyright Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © {new Date().getFullYear()} Horizon Secure Investments. All Rights Reserved.
+            {footer?.copyrightText || `© ${new Date().getFullYear()} Horizon Secure Investments. All Rights Reserved.`}
           </div>
-          <div className="font-heading tracking-wider font-bold text-amber-400">
-            {COMPANY_INFO.slogan}
+          <div className="font-heading tracking-wider font-bold text-orange-400">
+            {footer?.tagline || COMPANY_INFO.slogan}
           </div>
           <button
             onClick={scrollToTop}
             className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors cursor-pointer"
           >
-            <ArrowUp className="w-3.5 h-3.5 text-amber-400" />
+            <ArrowUp className="w-3.5 h-3.5 text-orange-400" />
             <span>Back to Top</span>
           </button>
         </div>

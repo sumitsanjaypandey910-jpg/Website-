@@ -19,12 +19,14 @@ import {
 } from 'lucide-react';
 import { PRODUCTS } from '../data/hsiData';
 import { ProductItem } from '../types';
+import { useSiteContent } from '../context/SiteContentContext';
 
 interface ServicesPageProps {
   onOpenConsultation: (serviceName?: string) => void;
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }) => {
+  const { services: dynamicServices } = useSiteContent();
   const [selectedVertical, setSelectedVertical] = useState<string>('all');
 
   const detailedServices = [
@@ -156,30 +158,44 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
     }
   ];
 
+  const mergedServices = detailedServices.map((ds) => {
+    const override = dynamicServices.find((s) => s.id === ds.id);
+    if (override) {
+      return {
+        ...ds,
+        title: override.title,
+        badge: override.badge,
+        description: override.description,
+        keyBenefits: override.keyBenefits && override.keyBenefits.length > 0 ? override.keyBenefits : ds.keyBenefits
+      };
+    }
+    return ds;
+  });
+
   const filteredServices = selectedVertical === 'all'
-    ? detailedServices
-    : detailedServices.filter(s => s.category === selectedVertical);
+    ? mergedServices
+    : mergedServices.filter(s => s.category === selectedVertical);
 
   return (
     <div className="bg-white">
       
       {/* Page Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#081220] via-[#0d1e34] to-[#0a182b] text-white py-16 md:py-24 border-b-2 border-amber-400">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#071325] via-[#0b1c36] to-[#0a192f] text-white py-16 md:py-24 border-b-2 border-orange-500">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-xs font-bold text-amber-300/90 mb-4">
+            <div className="flex items-center gap-2 text-xs font-bold text-orange-300/90 mb-4">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <span className="text-white">Advisory Services</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-bold mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-400/40 text-orange-300 text-xs font-bold mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-orange-400" />
               <span>Multi-Asset Wealth & Risk Advisory</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black font-heading tracking-tight leading-tight">
-              Institutional Advisory for <span className="text-gold-gradient">Every Financial Horizon</span>
+              Institutional Advisory for <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Every Financial Horizon</span>
             </h1>
 
             <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed font-medium">
@@ -189,7 +205,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
             <div className="pt-6 flex flex-wrap gap-3">
               <button
                 onClick={() => onOpenConsultation('Comprehensive Advisory Overview')}
-                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-black text-xs sm:text-sm shadow-md hover:scale-105 transition-all cursor-pointer"
+                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs sm:text-sm shadow-md hover:scale-105 transition-all cursor-pointer"
               >
                 Schedule Free Portfolio Consultation
               </button>
@@ -222,7 +238,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                 onClick={() => setSelectedVertical(tab.id)}
                 className={`px-3 py-1.5 rounded-xl shrink-0 transition-all cursor-pointer ${
                   selectedVertical === tab.id
-                    ? 'bg-amber-100 text-amber-950 border-2 border-amber-400 font-black shadow-xs'
+                    ? 'bg-[#0a192f] text-orange-400 border-2 border-orange-500 font-black shadow-xs'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
@@ -243,7 +259,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
               <div 
                 key={service.id} 
                 id={service.id}
-                className="p-6 sm:p-8 rounded-3xl bg-white border-2 border-amber-200 shadow-sm hover:shadow-md transition-all duration-300"
+                className="p-6 sm:p-8 rounded-3xl bg-white border-2 border-slate-200 hover:border-orange-400 shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                   <div className="flex items-start gap-4">
@@ -251,7 +267,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                       <Icon className="w-7 h-7" />
                     </div>
                     <div className="space-y-1">
-                      <span className="inline-block px-3 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-black uppercase tracking-wide">
+                      <span className="inline-block px-3 py-0.5 rounded-full bg-orange-100 text-orange-950 text-[11px] font-black uppercase tracking-wide">
                         {service.badge}
                       </span>
                       <h2 className="text-xl sm:text-2xl font-black text-slate-900 font-heading">
@@ -266,7 +282,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                   <div className="shrink-0 flex items-center gap-2">
                     <button
                       onClick={() => onOpenConsultation(service.title)}
-                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-600 hover:to-yellow-500 text-slate-950 font-black text-xs transition-all shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs transition-all shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
                     >
                       <span>Plan This Service</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -276,17 +292,17 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
 
                 {/* Sub-Offerings Grid */}
                 <div className="mt-6">
-                  <h3 className="text-xs font-black uppercase tracking-wider text-amber-900 mb-3">
+                  <h3 className="text-xs font-black uppercase tracking-wider text-orange-900 mb-3">
                     Key Offerings & Solutions Under This Vertical:
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                     {service.subtypes.map((sub, sIdx) => (
                       <div 
                         key={sIdx}
-                        className="p-4 rounded-xl bg-amber-50/40 border border-amber-200/80 hover:bg-amber-50 transition-colors"
+                        className="p-4 rounded-xl bg-slate-50/80 border border-slate-200 hover:border-orange-300 hover:bg-white transition-colors"
                       >
                         <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
                           <span>{sub.name}</span>
                         </div>
                         <p className="text-[11px] text-slate-600 mt-1 leading-snug">
@@ -301,7 +317,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                 <div className="mt-6 pt-5 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   {service.keyBenefits.map((benefit, bIdx) => (
                     <div key={bIdx} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-1.5 shrink-0" />
                       <span>{benefit}</span>
                     </div>
                   ))}
@@ -318,7 +334,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0a192f] text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
               <span>Scientific Approach</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
@@ -354,10 +370,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
             ].map((p, i) => (
               <div 
                 key={i}
-                className="p-6 rounded-2xl bg-amber-50/50 border-2 border-amber-200 flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-orange-400 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="text-3xl font-black text-amber-600 font-heading mb-3">
+                  <div className="text-3xl font-black text-orange-600 font-heading mb-3">
                     {p.step}
                   </div>
                   <h3 className="text-base font-bold text-slate-900 font-heading">
@@ -367,7 +383,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                     {p.desc}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-amber-200/60 text-[11px] font-bold text-amber-800">
+                <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] font-bold text-orange-800">
                   Step {i + 1} of 4
                 </div>
               </div>
@@ -377,18 +393,18 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       </section>
 
       {/* Call to Action */}
-      <section className="py-14 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950">
+      <section className="py-14 bg-gradient-to-r from-[#071325] via-[#0b1c36] to-[#0a192f] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <h2 className="text-2xl sm:text-3xl font-black font-heading">
             Need Guidance on the Best Product Combination?
           </h2>
-          <p className="text-xs sm:text-sm font-semibold max-w-xl mx-auto text-amber-950">
+          <p className="text-xs sm:text-sm font-semibold max-w-xl mx-auto text-slate-300">
             Our Certified Financial Planners evaluate your current portfolio free of cost. Get an objective, independent second opinion.
           </p>
           <div className="pt-2">
             <button
               onClick={() => onOpenConsultation('Comprehensive Asset Advisory')}
-              className="px-6 py-3 rounded-xl bg-slate-950 hover:bg-slate-900 text-amber-300 font-black text-xs sm:text-sm shadow-md hover:scale-105 transition-all cursor-pointer"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs sm:text-sm shadow-md hover:scale-105 transition-all cursor-pointer"
             >
               Request Free Portfolio Audit &rarr;
             </button>

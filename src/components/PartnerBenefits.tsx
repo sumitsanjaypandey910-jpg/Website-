@@ -34,11 +34,11 @@ export const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({ onApplyPartner
         
         {/* Header from Brochure Page 5 */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <Users className="w-3.5 h-3.5 text-amber-600" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <Users className="w-3.5 h-3.5 text-orange-600" />
             <span>Entrepreneurial Advisory Career</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0a192f] tracking-tight font-heading">
             PARTNER’S BENEFITS
           </h2>
           <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium">
@@ -51,25 +51,25 @@ export const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({ onApplyPartner
           {PARTNER_BENEFITS.map((item) => (
             <div
               key={item.step}
-              className="wp-card p-6 sm:p-7 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row items-start sm:items-center gap-6 group"
+              className="wp-card p-6 sm:p-7 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-orange-400 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row items-start sm:items-center gap-6 group"
             >
               {/* Number Badge */}
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0b192c] to-[#15345a] text-white flex items-center justify-center font-black text-2xl font-heading shadow-md shrink-0 border border-amber-500/30 group-hover:scale-105 transition-transform">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0a192f] to-[#162f56] text-white flex items-center justify-center font-black text-2xl font-heading shadow-md shrink-0 border border-orange-500/40 group-hover:scale-105 transition-transform">
                 {item.step}
               </div>
 
               {/* Details */}
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-2 mb-1">
-                  <h3 className="text-lg font-black text-slate-900 font-heading tracking-wide">
+                  <h3 className="text-lg font-black text-[#0a192f] font-heading tracking-wide">
                     {item.title}
                   </h3>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200">
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-950 border border-orange-200">
                     {item.badge}
                   </span>
                 </div>
 
-                <div className="text-xs font-bold text-amber-700 mb-2">
+                <div className="text-xs font-bold text-orange-600 mb-2">
                   {item.subtitle}
                 </div>
 
@@ -92,7 +92,7 @@ export const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({ onApplyPartner
               <div className="shrink-0 w-full sm:w-auto mt-2 sm:mt-0">
                 <button
                   onClick={onApplyPartner}
-                  className="w-full sm:w-auto px-4 py-2 rounded-lg bg-white group-hover:bg-slate-900 text-slate-800 group-hover:text-white border border-slate-300 group-hover:border-slate-900 text-xs font-bold transition-all"
+                  className="w-full sm:w-auto px-4 py-2 rounded-lg bg-white group-hover:bg-[#0a192f] text-slate-800 group-hover:text-white border border-slate-300 group-hover:border-[#0a192f] text-xs font-bold transition-all cursor-pointer"
                 >
                   Join Role &rarr;
                 </button>
@@ -103,10 +103,10 @@ export const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({ onApplyPartner
         </div>
 
         {/* Big Banner from Brochure Page 5: GROW WITH HORIZON */}
-        <div className="mt-14 max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-[#081220] via-[#0d223c] to-[#081220] p-8 sm:p-10 text-white text-center shadow-2xl border-2 border-amber-500/40 relative overflow-hidden">
+        <div className="mt-14 max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-[#071325] via-[#0b1c36] to-[#071325] p-8 sm:p-10 text-white text-center shadow-2xl border border-slate-700 relative overflow-hidden">
           
           <div className="relative z-10 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-amber-400">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-orange-400">
               HSI Entrepreneurial Network
             </span>
             
@@ -114,7 +114,7 @@ export const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({ onApplyPartner
               GROW WITH HORIZON
             </h3>
             
-            <p className="text-sm sm:text-base font-semibold tracking-wide text-amber-200">
+            <p className="text-sm sm:text-base font-semibold tracking-wide text-orange-200">
               Partner • Lead • Generate • Build a Long-Term Horizon
             </p>
 
@@ -125,7 +125,7 @@ export const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({ onApplyPartner
             <div className="pt-4">
               <button
                 onClick={onApplyPartner}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-slate-950 font-black text-sm tracking-wide shadow-xl shadow-amber-500/20 hover:scale-105 transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-black text-sm tracking-wide shadow-xl shadow-orange-500/25 hover:scale-105 transition-all cursor-pointer"
               >
                 <span>Submit Partner / Leadership Application</span>
                 <ArrowRight className="w-4 h-4" />
@@ -134,7 +134,7 @@ export const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({ onApplyPartner
           </div>
 
           {/* Background subtle elements */}
-          <div className="absolute -bottom-16 -right-16 w-60 h-60 bg-amber-500/10 rounded-full blur-2xl" />
+          <div className="absolute -bottom-16 -right-16 w-60 h-60 bg-orange-500/10 rounded-full blur-2xl" />
           <div className="absolute -top-16 -left-16 w-60 h-60 bg-blue-500/10 rounded-full blur-2xl" />
         </div>
 

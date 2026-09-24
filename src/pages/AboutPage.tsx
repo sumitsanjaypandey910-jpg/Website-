@@ -15,8 +15,9 @@ import {
   Compass, 
   Quote 
 } from 'lucide-react';
-import { COMPANY_INFO, TRUST_PILLARS, TESTIMONIALS } from '../data/hsiData';
+import { COMPANY_INFO, TRUST_PILLARS } from '../data/hsiData';
 import { HsiLogo } from '../components/HsiLogo';
+import { useSiteContent } from '../context/SiteContentContext';
 
 interface AboutPageProps {
   onOpenConsultation: (product?: string) => void;
@@ -27,6 +28,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   onOpenConsultation,
   onOpenPartnerModal,
 }) => {
+  const { about, testimonials, images } = useSiteContent();
   const milestones = [
     {
       year: "2009",
@@ -94,58 +96,59 @@ export const AboutPage: React.FC<AboutPageProps> = ({
     <div className="bg-white">
       
       {/* Page Header / Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#081220] via-[#0d1e34] to-[#0a182b] text-white py-16 md:py-24 border-b-2 border-amber-400">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#071325] via-[#0b1c36] to-[#0a192f] text-white py-16 md:py-24 border-b-2 border-orange-500">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 -left-40 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 -left-40 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-xs font-bold text-amber-300/90 mb-4">
+            <div className="flex items-center gap-2 text-xs font-bold text-orange-300/90 mb-4">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <span className="text-white">About Us & Trust Pillars</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-bold mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>Certified Multi-Asset Wealth Firm</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-400/40 text-orange-300 text-xs font-bold mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+              <span>{about.badge || "Certified Multi-Asset Wealth Firm"}</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black font-heading tracking-tight leading-tight">
-              Preserving & Multiplying <span className="text-gold-gradient">Generational Wealth</span>
+              {about.mainHeading || "Preserving & Multiplying"}{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">{about.highlightHeading || "Generational Wealth"}</span>
             </h1>
 
             <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed font-medium">
-              Headquartered in Mumbai's Bandra-Kurla Complex (BKC), Horizon Secure Investments brings together over 15 years of institutional financial planning, fiduciary integrity, and multi-asset advisory under one roof.
+              {about.leadDescription || "Headquartered in Mumbai's Bandra-Kurla Complex (BKC), Horizon Secure Investments brings together over 15 years of institutional financial planning, fiduciary integrity, and multi-asset advisory under one roof."}
             </p>
 
             {/* Quick Metrics Ribbon */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-700/60">
               <div>
-                <div className="text-2xl sm:text-3xl font-black text-amber-400 font-heading">
-                  {COMPANY_INFO.experienceYears}
+                <div className="text-2xl sm:text-3xl font-black text-orange-400 font-heading">
+                  {about.experienceYears || COMPANY_INFO.experienceYears}
                 </div>
                 <div className="text-xs text-slate-300 font-medium">Market Leadership</div>
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl font-black text-white font-heading">
-                  {COMPANY_INFO.aum}
+                  {about.aum || COMPANY_INFO.aum}
                 </div>
                 <div className="text-xs text-slate-300 font-medium">Assets Under Advisory</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-black text-amber-400 font-heading">
-                  {COMPANY_INFO.investorCount}
+                <div className="text-2xl sm:text-3xl font-black text-orange-400 font-heading">
+                  {about.investorCount || COMPANY_INFO.investorCount}
                 </div>
                 <div className="text-xs text-slate-300 font-medium">Happy Families</div>
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl font-black text-white font-heading">
-                  25+
+                  {about.insurancePartnerCount || "25+"}
                 </div>
                 <div className="text-xs text-slate-300 font-medium">Insurance Partners</div>
               </div>
@@ -161,8 +164,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black uppercase tracking-wider">
-                <Compass className="w-3.5 h-3.5 text-amber-700" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-950 text-xs font-black uppercase tracking-wider">
+                <Compass className="w-3.5 h-3.5 text-orange-600" />
                 <span>Our Founding Principles</span>
               </div>
 
@@ -178,8 +181,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 At Horizon Secure Investments, we engineer a <strong>balanced dual-engine model</strong>: aggressive compounding through curated equity funds and alternative real assets, paired with airtight protection policies across India's top insurers.
               </p>
 
-              <div className="p-5 rounded-2xl bg-white border-2 border-amber-300 shadow-sm space-y-3">
-                <div className="text-xs font-bold uppercase tracking-wider text-amber-800 font-heading">
+              <div className="p-5 rounded-2xl bg-white border-2 border-orange-300 shadow-sm space-y-3">
+                <div className="text-xs font-bold uppercase tracking-wider text-orange-800 font-heading">
                   Our Uncompromising Fiduciary Standard
                 </div>
                 <p className="text-xs text-slate-700 leading-relaxed font-medium">
@@ -189,9 +192,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
 
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-amber-400 transition-all shadow-xs space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
-                  <Scale className="w-5 h-5 text-amber-700" />
+              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-800 flex items-center justify-center font-bold">
+                  <Scale className="w-5 h-5 text-orange-600" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900 font-heading">Zero Hidden Charges</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
@@ -199,7 +202,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-amber-400 transition-all shadow-xs space-y-3">
+              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold">
                   <ShieldCheck className="w-5 h-5 text-blue-700" />
                 </div>
@@ -209,7 +212,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-amber-400 transition-all shadow-xs space-y-3">
+              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
                   <TrendingUp className="w-5 h-5 text-emerald-700" />
                 </div>
@@ -219,7 +222,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-amber-400 transition-all shadow-xs space-y-3">
+              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold">
                   <Globe2 className="w-5 h-5 text-purple-700" />
                 </div>
@@ -238,8 +241,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <section className="py-16 md:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider mb-2">
-              <Award className="w-3.5 h-3.5 text-amber-700" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-950 text-xs font-bold uppercase tracking-wider mb-2">
+              <Award className="w-3.5 h-3.5 text-orange-600" />
               <span>Brochure Pillars</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
@@ -254,23 +257,23 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             {TRUST_PILLARS.map((pillar, idx) => (
               <div 
                 key={idx}
-                className="p-6 rounded-2xl bg-amber-50/50 border-2 border-amber-200/80 hover:border-amber-400 hover:bg-white transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-orange-400 hover:bg-white transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black flex items-center justify-center text-lg mb-4 shadow-xs">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black flex items-center justify-center text-lg mb-4 shadow-xs">
                     0{idx + 1}
                   </div>
                   <h3 className="text-base font-black text-slate-900 font-heading">
                     {pillar.title}
                   </h3>
-                  <div className="text-xs font-bold text-amber-800 mt-1 mb-3">
+                  <div className="text-xs font-bold text-orange-800 mt-1 mb-3">
                     {pillar.subtitle}
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed font-medium">
                     {pillar.description}
                   </p>
                 </div>
-                <div className="mt-5 pt-3 border-t border-amber-200/60 flex items-center text-[11px] font-bold text-slate-700">
+                <div className="mt-5 pt-3 border-t border-slate-200 flex items-center text-[11px] font-bold text-slate-700">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-1.5 shrink-0" />
                   <span>Institutional Standard</span>
                 </div>
@@ -284,7 +287,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <section className="py-16 md:py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0a192f] text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
               <span>Growth Story</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
@@ -299,10 +302,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             {milestones.map((m, i) => (
               <div 
                 key={i}
-                className="flex flex-col sm:flex-row gap-5 p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-amber-400 transition-all shadow-xs"
+                className="flex flex-col sm:flex-row gap-5 p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs"
               >
                 <div className="sm:w-28 shrink-0 flex items-center sm:flex-col sm:items-start justify-between sm:justify-center">
-                  <span className="text-2xl sm:text-3xl font-black text-amber-700 font-heading">
+                  <span className="text-2xl sm:text-3xl font-black text-orange-600 font-heading">
                     {m.year}
                   </span>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
@@ -327,8 +330,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <section className="py-16 md:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider mb-2">
-              <Users className="w-3.5 h-3.5 text-amber-700" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-950 text-xs font-bold uppercase tracking-wider mb-2">
+              <Users className="w-3.5 h-3.5 text-orange-600" />
               <span>Leadership Committee</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
@@ -343,7 +346,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             {leadershipTeam.map((leader, i) => (
               <div 
                 key={i}
-                className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-amber-400 transition-all shadow-xs flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs flex flex-col justify-between"
               >
                 <div>
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${leader.imageBg} text-white font-black flex items-center justify-center text-xl mb-4 shadow-sm font-heading`}>
@@ -352,7 +355,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <h3 className="text-base font-black text-slate-900 font-heading">
                     {leader.name}
                   </h3>
-                  <div className="text-xs font-bold text-amber-800 mt-0.5">
+                  <div className="text-xs font-bold text-orange-800 mt-0.5">
                     {leader.role}
                   </div>
                   <div className="text-[11px] font-semibold text-slate-500 mt-2 pb-2 border-b border-slate-100">
@@ -384,13 +387,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, idx) => (
+            {testimonials.map((t, idx) => (
               <div 
-                key={idx}
-                className="p-6 rounded-2xl bg-white border-2 border-amber-200 shadow-xs flex flex-col justify-between"
+                key={t.id || idx}
+                className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-300 transition-all shadow-xs flex flex-col justify-between"
               >
                 <div>
-                  <Quote className="w-8 h-8 text-amber-300 mb-3" />
+                  <Quote className="w-8 h-8 text-orange-300 mb-3" />
                   <p className="text-xs text-slate-700 leading-relaxed italic font-medium">
                     "{t.quote}"
                   </p>
@@ -398,7 +401,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <div className="mt-5 pt-3 border-t border-slate-100">
                   <div className="font-bold text-xs text-slate-900 font-heading">{t.name}</div>
                   <div className="text-[11px] text-slate-500">{t.role}</div>
-                  <div className="text-[10px] text-amber-700 font-semibold mt-0.5">{t.portfolio} • {t.city}</div>
+                  <div className="text-[10px] text-orange-700 font-semibold mt-0.5">{t.portfolio} • {t.city}</div>
                 </div>
               </div>
             ))}
@@ -407,7 +410,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       </section>
 
       {/* Call to Action Banner */}
-      <section className="py-16 bg-gradient-to-r from-[#0b192c] via-[#122845] to-[#0b192c] text-white">
+      <section className="py-16 bg-gradient-to-r from-[#071325] via-[#0b1c36] to-[#0a192f] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
           <h2 className="text-2xl sm:text-4xl font-black font-heading leading-tight">
             Ready to Build an Institutional Wealth Plan?
@@ -418,7 +421,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <button
               onClick={() => onOpenConsultation()}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-black text-xs sm:text-sm shadow-md hover:scale-105 transition-all cursor-pointer"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs sm:text-sm shadow-md hover:scale-105 transition-all cursor-pointer"
             >
               Book Complimentary Audit
             </button>

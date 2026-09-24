@@ -17,9 +17,9 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
       {/* Quick Consultation Pill */}
       <button
         onClick={onOpenConsultation}
-        className="pointer-events-auto group hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#0b192c] hover:bg-[#153154] text-white text-xs font-bold shadow-xl border border-amber-500/40 transition-all hover:scale-105"
+        className="pointer-events-auto group hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#071220] hover:bg-[#0a192f] text-white text-xs font-bold shadow-xl border border-orange-500/50 transition-all hover:scale-105 cursor-pointer"
       >
-        <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+        <Sparkles className="w-3.5 h-3.5 text-orange-400 animate-pulse" />
         <span>Free Advisory</span>
       </button>
 

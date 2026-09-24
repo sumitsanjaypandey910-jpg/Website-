@@ -78,3 +78,105 @@ export interface PartnerApplication {
   message: string;
   timestamp: string;
 }
+
+export interface HeroContent {
+  badge: string;
+  headingPrefix: string;
+  headingHighlight: string;
+  headingSuffix: string;
+  subtitle: string;
+  primaryCtaText: string;
+  secondaryCtaText: string;
+}
+
+export interface AboutContent {
+  badge: string;
+  mainHeading: string;
+  highlightHeading: string;
+  leadDescription: string;
+  fiduciaryText: string;
+  motto: string;
+  experienceYears: string;
+  aum: string;
+  investorCount: string;
+  insurancePartnerCount: string;
+  channelPartnerCount: string;
+}
+
+export interface ServiceContentItem {
+  id: string;
+  title: string;
+  badge: string;
+  category: string;
+  description: string;
+  keyBenefits: string[];
+}
+
+export interface ImagesContent {
+  logoUrl?: string;
+  heroBannerBg?: string;
+  officeBkcImg?: string;
+  advisorDefaultAvatar?: string;
+  certificateBadgeUrl?: string;
+}
+
+export interface ContactContent {
+  address: string;
+  phone: string;
+  tollFree: string;
+  emergencyClaims: string;
+  email: string;
+  advisoryEmail: string;
+  careersEmail: string;
+  operatingHours: string;
+  whatsappNumber: string;
+}
+
+export interface TestimonialItem {
+  id?: string;
+  name: string;
+  role: string;
+  quote: string;
+  portfolio: string;
+  city: string;
+  avatarUrl?: string;
+  rating?: number;
+}
+
+export interface PortfolioAllocationItem {
+  label: string;
+  percent: number;
+  color?: string;
+}
+
+export interface PortfolioModelItem {
+  id: string;
+  title: string;
+  badge: string;
+  horizon: string;
+  targetReturn: string;
+  riskLevel: string;
+  description: string;
+  allocation: PortfolioAllocationItem[];
+  idealFor: string;
+  imageUrl?: string;
+}
+
+export interface PortfolioContent {
+  badge: string;
+  title: string;
+  subtitle: string;
+  models: PortfolioModelItem[];
+}
+
+export interface FooterContent {
+  companyName: string;
+  tagline: string;
+  aboutText: string;
+  amfiRegNumber: string;
+  irdaiLicenseNumber: string;
+  copyrightText: string;
+  disclaimer: string;
+  complianceNote: string;
+}
+

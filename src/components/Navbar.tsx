@@ -64,16 +64,16 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `px-3 py-2 text-xs xl:text-sm font-bold rounded-xl transition-all duration-200 ${
       isActive
-        ? 'text-amber-900 bg-amber-100/90 shadow-2xs font-extrabold border border-amber-300/80'
-        : 'text-slate-700 hover:text-amber-800 hover:bg-amber-50/70'
+        ? 'text-orange-600 bg-orange-50 shadow-2xs font-extrabold border border-orange-200'
+        : 'text-slate-700 hover:text-orange-600 hover:bg-slate-100'
     }`;
 
   return (
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md border-b-2 border-amber-300 py-2.5'
-          : 'bg-white border-b-2 border-amber-200 py-3.5'
+          ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-slate-200 py-2.5'
+          : 'bg-white border-b border-slate-200 py-3.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,19 +110,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               >
                 <div className="flex items-center gap-1">
                   <span>Services</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-amber-600' : ''}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-orange-600' : ''}`} />
                 </div>
               </NavLink>
 
               {/* Mega Dropdown */}
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 w-84 bg-white rounded-2xl shadow-2xl border-2 border-amber-200 py-3 px-2 z-50 grid gap-1 animate-in fade-in-50 slide-in-from-top-2 duration-150">
-                  <div className="px-3 py-1.5 text-[10.5px] font-black uppercase tracking-wider text-amber-900 border-b border-amber-100 flex items-center justify-between">
+                <div className="absolute top-full left-0 w-84 bg-white rounded-2xl shadow-2xl border border-slate-200 py-3 px-2 z-50 grid gap-1 animate-in fade-in-50 slide-in-from-top-2 duration-150">
+                  <div className="px-3 py-1.5 text-[10.5px] font-black uppercase tracking-wider text-[#0a192f] border-b border-slate-100 flex items-center justify-between">
                     <span>Advisory Verticals (Brochure)</span>
                     <Link 
                       to="/services" 
                       onClick={() => setServicesDropdownOpen(false)}
-                      className="text-amber-700 hover:underline font-bold text-[10px]"
+                      className="text-orange-600 hover:underline font-bold text-[10px]"
                     >
                       View All &rarr;
                     </Link>
@@ -131,13 +131,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Link
                     to="/services#mutual-funds"
                     onClick={() => setServicesDropdownOpen(false)}
-                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/80 transition-colors text-left"
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors text-left"
                   >
                     <div className="p-2 rounded-lg bg-blue-100 text-blue-800 shrink-0">
                       <TrendingUp className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-900">Mutual Funds & SIP</div>
+                      <div className="text-xs font-bold text-[#0a192f]">Mutual Funds & SIP</div>
                       <div className="text-[11px] text-slate-500 leading-snug">Wealth creation, ELSS tax saving, SWP pension cashflow</div>
                     </div>
                   </Link>
@@ -145,13 +145,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Link
                     to="/services#insurance"
                     onClick={() => setServicesDropdownOpen(false)}
-                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/80 transition-colors text-left"
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors text-left"
                   >
-                    <div className="p-2 rounded-lg bg-emerald-100 text-emerald-800 shrink-0">
+                    <div className="p-2 rounded-lg bg-orange-100 text-orange-800 shrink-0">
                       <Shield className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-900">Life & Health Protection</div>
+                      <div className="text-xs font-bold text-[#0a192f]">Life & Health Protection</div>
                       <div className="text-[11px] text-slate-500 leading-snug">Term insurance, Mediclaim across 25+ insurers</div>
                     </div>
                   </Link>
@@ -159,13 +159,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Link
                     to="/services#real-estate"
                     onClick={() => setServicesDropdownOpen(false)}
-                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/80 transition-colors text-left"
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors text-left"
                   >
                     <div className="p-2 rounded-lg bg-purple-100 text-purple-800 shrink-0">
                       <Building2 className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-900">Fractional Real Estate & Bonds</div>
+                      <div className="text-xs font-bold text-[#0a192f]">Fractional Real Estate & Bonds</div>
                       <div className="text-[11px] text-slate-500 leading-snug">8-10% pre-leased CRE yield & RBI Sovereign Gold Bonds</div>
                     </div>
                   </Link>
@@ -173,13 +173,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Link
                     to="/services#loans"
                     onClick={() => setServicesDropdownOpen(false)}
-                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/80 transition-colors text-left"
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors text-left"
                   >
-                    <div className="p-2 rounded-lg bg-amber-100 text-amber-800 shrink-0">
+                    <div className="p-2 rounded-lg bg-slate-200 text-slate-800 shrink-0">
                       <HeartHandshake className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-900">Institutional Loans</div>
+                      <div className="text-xs font-bold text-[#0a192f]">Institutional Loans</div>
                       <div className="text-[11px] text-slate-500 leading-snug">Home loans from 8.40%, LAP & Project Funding</div>
                     </div>
                   </Link>
@@ -205,19 +205,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* AI Advisor Button */}
             <button
               onClick={handleOpenAi}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-yellow-50 text-amber-950 text-xs font-extrabold border-2 border-amber-300 shadow-2xs hover:scale-[1.02] transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-[#0a192f] text-xs font-extrabold border border-slate-300 shadow-2xs hover:scale-[1.02] transition-all cursor-pointer"
               title="Chat with Horizon AI Financial Advisor"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>✨ Ask AI Advisor</span>
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              <span>Ask AI Advisor</span>
             </button>
 
             {/* Free Consultation CTA */}
             <button
               onClick={() => onOpenConsultation()}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 hover:from-amber-600 hover:to-yellow-500 text-slate-950 text-xs font-black shadow-md shadow-amber-300/30 hover:scale-[1.02] transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-xs font-black shadow-md shadow-orange-500/20 hover:scale-[1.02] transition-all cursor-pointer"
             >
-              <Sparkles className="w-3.5 h-3.5 text-slate-950" />
+              <Sparkles className="w-3.5 h-3.5 text-orange-200" />
               <span>Book Free Advisory</span>
             </button>
           </div>
@@ -225,10 +225,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-800 hover:bg-amber-100 focus:outline-none cursor-pointer border border-amber-300"
+            className="lg:hidden p-2 rounded-xl text-slate-800 hover:bg-slate-100 focus:outline-none cursor-pointer border border-slate-300"
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-amber-900" /> : <Menu className="w-6 h-6 text-amber-900" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-[#0a192f]" /> : <Menu className="w-6 h-6 text-[#0a192f]" />}
           </button>
 
         </div>
@@ -236,14 +236,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b-2 border-amber-300 px-4 pt-3 pb-6 space-y-2.5 animate-in slide-in-from-top-4 duration-200 shadow-xl">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-2.5 animate-in slide-in-from-top-4 duration-200 shadow-xl">
           <div className="flex flex-col space-y-1">
             <NavLink
               to="/"
               onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `px-3 py-2 rounded-xl text-sm font-bold ${
-                  isActive ? 'bg-amber-100 text-amber-950 font-black' : 'text-slate-700 hover:bg-amber-50'
+                  isActive ? 'bg-orange-50 text-orange-600 font-black' : 'text-slate-700 hover:bg-slate-100'
                 }`
               }
             >
@@ -255,7 +255,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `px-3 py-2 rounded-xl text-sm font-bold ${
-                  isActive ? 'bg-amber-100 text-amber-950 font-black' : 'text-slate-700 hover:bg-amber-50'
+                  isActive ? 'bg-orange-50 text-orange-600 font-black' : 'text-slate-700 hover:bg-slate-100'
                 }`
               }
             >
@@ -267,7 +267,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `px-3 py-2 rounded-xl text-sm font-bold ${
-                  isActive ? 'bg-amber-100 text-amber-950 font-black' : 'text-slate-700 hover:bg-amber-50'
+                  isActive ? 'bg-orange-50 text-orange-600 font-black' : 'text-slate-700 hover:bg-slate-100'
                 }`
               }
             >
@@ -279,7 +279,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `px-3 py-2 rounded-xl text-sm font-bold ${
-                  isActive ? 'bg-amber-100 text-amber-950 font-black' : 'text-slate-700 hover:bg-amber-50'
+                  isActive ? 'bg-orange-50 text-orange-600 font-black' : 'text-slate-700 hover:bg-slate-100'
                 }`
               }
             >
@@ -291,7 +291,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `px-3 py-2 rounded-xl text-sm font-bold ${
-                  isActive ? 'bg-amber-100 text-amber-950 font-black' : 'text-slate-700 hover:bg-amber-50'
+                  isActive ? 'bg-orange-50 text-orange-600 font-black' : 'text-slate-700 hover:bg-slate-100'
                 }`
               }
             >
@@ -303,7 +303,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `px-3 py-2 rounded-xl text-sm font-bold ${
-                  isActive ? 'bg-amber-100 text-amber-950 font-black' : 'text-slate-700 hover:bg-amber-50'
+                  isActive ? 'bg-orange-50 text-orange-600 font-black' : 'text-slate-700 hover:bg-slate-100'
                 }`
               }
             >
@@ -312,13 +312,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Action Buttons in Mobile Drawer */}
-          <div className="pt-3 border-t border-amber-200 flex flex-col gap-2">
+          <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
             <button
               onClick={handleOpenAi}
-              className="w-full py-2.5 rounded-xl bg-white border-2 border-amber-400 text-amber-950 font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+              className="w-full py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-[#0a192f] font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>✨ Ask AI Financial Advisor (24/7)</span>
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              <span>Ask AI Financial Advisor (24/7)</span>
             </button>
 
             <button
@@ -326,9 +326,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 closeMobileMenu();
                 onOpenConsultation();
               }}
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-black text-xs shadow-sm flex items-center justify-center gap-1.5"
+              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white font-black text-xs shadow-sm flex items-center justify-center gap-1.5"
             >
-              <Sparkles className="w-3.5 h-3.5" />
+              <Sparkles className="w-3.5 h-3.5 text-orange-200" />
               <span>Book Free Advisory Session</span>
             </button>
 
@@ -337,9 +337,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 closeMobileMenu();
                 onOpenPartnerModal();
               }}
-              className="w-full py-2.5 rounded-xl border-2 border-amber-300 text-amber-900 font-bold text-xs bg-amber-50 hover:bg-amber-100 flex items-center justify-center gap-1.5"
+              className="w-full py-2.5 rounded-xl border border-slate-300 text-[#0a192f] font-bold text-xs bg-slate-50 hover:bg-slate-100 flex items-center justify-center gap-1.5"
             >
-              <Users className="w-3.5 h-3.5" />
+              <Users className="w-3.5 h-3.5 text-orange-500" />
               <span>Join as Partner / Agency Leader</span>
             </button>
           </div>

@@ -20,14 +20,14 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
         
         {/* Header from Brochure Page 4 */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0a192f] text-orange-400 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Official Institutional Alliances</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a192f] tracking-tight font-heading">
             NATURE OF WORK
           </h2>
-          <p className="mt-2 text-base sm:text-lg font-bold text-amber-700">
+          <p className="mt-2 text-base sm:text-lg font-bold text-orange-600">
             Dealing with all Major Insurance Companies
           </p>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
@@ -42,7 +42,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
               onClick={() => setActiveCategory('all')}
               className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                 activeCategory === 'all'
-                  ? 'bg-[#0b192c] text-white shadow-sm'
+                  ? 'bg-[#0a192f] text-white shadow-sm'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -72,7 +72,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
               onClick={() => setActiveCategory('general')}
               className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                 activeCategory === 'general'
-                  ? 'bg-amber-900 text-white shadow-sm'
+                  ? 'bg-[#0a192f] text-white shadow-sm'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -88,9 +88,9 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
           {(activeCategory === 'all' || activeCategory === 'life') && (
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between">
               <div>
-                <div className="bg-[#0f2b48] text-white p-5 flex items-center justify-between border-b-2 border-amber-400">
+                <div className="bg-[#0a192f] text-white p-5 flex items-center justify-between border-b-2 border-orange-500">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center font-bold">
+                    <div className="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold">
                       <ShieldCheck className="w-5 h-5" />
                     </div>
                     <div>
@@ -112,9 +112,9 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                       className="py-3 px-2 flex items-center justify-between hover:bg-slate-50 rounded-lg transition-colors group"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                        <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0" />
                         <div>
-                          <div className="text-xs font-extrabold text-slate-900 group-hover:text-blue-900 transition-colors">
+                          <div className="text-xs font-extrabold text-slate-900 group-hover:text-orange-600 transition-colors">
                             {company.name}
                           </div>
                           <div className="text-[10px] text-slate-500">
@@ -124,7 +124,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                       </div>
                       <button
                         onClick={() => onQuoteRequest(`${company.name} (Life Insurance)`)}
-                        className="text-[11px] font-bold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 px-2.5 py-1 rounded transition-colors"
+                        className="text-[11px] font-bold text-orange-700 hover:text-orange-900 bg-orange-50 hover:bg-orange-100 border border-orange-200 px-2.5 py-1 rounded transition-colors cursor-pointer"
                       >
                         Quote
                       </button>
@@ -136,7 +136,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
               <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
                 <button
                   onClick={() => onQuoteRequest('Life Insurance Comparison')}
-                  className="w-full py-2 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-colors"
+                  className="w-full py-2.5 rounded-lg bg-[#0a192f] text-white text-xs font-bold hover:bg-[#162f56] transition-colors cursor-pointer"
                 >
                   Compare All Life Insurers
                 </button>
@@ -148,7 +148,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
           {(activeCategory === 'all' || activeCategory === 'health') && (
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between">
               <div>
-                <div className="bg-[#0f2b48] text-white p-5 flex items-center justify-between border-b-2 border-emerald-400">
+                <div className="bg-[#0a192f] text-white p-5 flex items-center justify-between border-b-2 border-emerald-500">
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold">
                       <HeartPulse className="w-5 h-5" />
@@ -184,7 +184,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                       </div>
                       <button
                         onClick={() => onQuoteRequest(`${company.name} (Health Insurance)`)}
-                        className="text-[11px] font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded transition-colors"
+                        className="text-[11px] font-bold text-orange-700 hover:text-orange-900 bg-orange-50 hover:bg-orange-100 border border-orange-200 px-2.5 py-1 rounded transition-colors cursor-pointer"
                       >
                         Quote
                       </button>
@@ -196,7 +196,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
               <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
                 <button
                   onClick={() => onQuoteRequest('Health Insurance Cashless Comparison')}
-                  className="w-full py-2 rounded-lg bg-emerald-800 text-white text-xs font-bold hover:bg-emerald-900 transition-colors"
+                  className="w-full py-2.5 rounded-lg bg-[#0a192f] text-white text-xs font-bold hover:bg-[#162f56] transition-colors cursor-pointer"
                 >
                   Find Cashless Hospitals Near You
                 </button>
@@ -208,19 +208,19 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
           {(activeCategory === 'all' || activeCategory === 'general') && (
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between">
               <div>
-                <div className="bg-[#0f2b48] text-white p-5 flex items-center justify-between border-b-2 border-amber-500">
+                <div className="bg-[#0a192f] text-white p-5 flex items-center justify-between border-b-2 border-orange-500">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold">
+                    <div className="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold">
                       <Umbrella className="w-5 h-5" />
                     </div>
                     <div>
                       <h3 className="text-base font-black tracking-wide font-heading">
                         GENERAL INSURANCE
                       </h3>
-                      <p className="text-[11px] text-amber-200">Motor, Fire, Marine, WC & D&O</p>
+                      <p className="text-[11px] text-orange-200">Motor, Fire, Marine, WC & D&O</p>
                     </div>
                   </div>
-                  <span className="text-xs bg-amber-900/80 px-2 py-0.5 rounded text-amber-200 font-semibold">
+                  <span className="text-xs bg-slate-800 px-2 py-0.5 rounded text-orange-200 font-semibold">
                     {generalCompanies.length} Partners
                   </span>
                 </div>
@@ -232,9 +232,9 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                       className="py-3 px-2 flex items-center justify-between hover:bg-slate-50 rounded-lg transition-colors group"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                        <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0" />
                         <div>
-                          <div className="text-xs font-extrabold text-slate-900 group-hover:text-amber-900 transition-colors">
+                          <div className="text-xs font-extrabold text-slate-900 group-hover:text-orange-600 transition-colors">
                             {company.name}
                           </div>
                           <div className="text-[10px] text-slate-500">
@@ -244,7 +244,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                       </div>
                       <button
                         onClick={() => onQuoteRequest(`${company.name} (General Insurance)`)}
-                        className="text-[11px] font-bold text-amber-800 hover:text-amber-900 bg-amber-50 hover:bg-amber-100 px-2.5 py-1 rounded transition-colors"
+                        className="text-[11px] font-bold text-orange-700 hover:text-orange-900 bg-orange-50 hover:bg-orange-100 border border-orange-200 px-2.5 py-1 rounded transition-colors cursor-pointer"
                       >
                         Quote
                       </button>
@@ -256,7 +256,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
               <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
                 <button
                   onClick={() => onQuoteRequest('Commercial & Liability Insurance')}
-                  className="w-full py-2 rounded-lg bg-amber-700 text-white text-xs font-bold hover:bg-amber-800 transition-colors"
+                  className="w-full py-2.5 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-xs font-bold shadow-sm transition-colors cursor-pointer"
                 >
                   Protect Business & Commercial Assets
                 </button>
@@ -269,11 +269,11 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
         {/* Claim Assistance Guarantee Bar */}
         <div className="mt-12 rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
               <LifeBuoy className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-base font-bold text-slate-900 font-heading">
+              <h4 className="text-base font-bold text-[#0a192f] font-heading">
                 Dedicated 24/7 Claim Concierge Desk
               </h4>
               <p className="text-xs text-slate-600 mt-1 max-w-xl">
@@ -287,7 +287,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
               href="tel:18002098899"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs font-bold transition-all"
             >
-              <PhoneCall className="w-4 h-4 text-amber-600" />
+              <PhoneCall className="w-4 h-4 text-orange-600" />
               <span>Claims Helpline: 1800 209 8899</span>
             </a>
           </div>

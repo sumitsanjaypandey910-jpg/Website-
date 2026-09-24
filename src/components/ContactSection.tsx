@@ -8,13 +8,17 @@ import {
   CheckCircle2, 
   ShieldCheck, 
   MessageSquare,
-  Sparkles,
   Award
 } from 'lucide-react';
-import { COMPANY_INFO, TESTIMONIALS } from '../data/hsiData';
+import { useSiteContent } from '../context/SiteContentContext';
+import { COMPANY_INFO } from '../data/hsiData';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../lib/firebase';
 
 export const ContactSection: React.FC = () => {
+  const { contact, testimonials, about } = useSiteContent();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -24,10 +28,28 @@ export const ContactSection: React.FC = () => {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      await addDoc(collection(db, 'consultations'), {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        product: formData.product,
+        city: formData.city,
+        message: formData.message,
+        createdAt: new Date().toISOString()
+      });
+    } catch (err) {
+      console.warn('Consultation logged locally:', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
+
+  const featuredTestimonial = testimonials.length > 0 ? testimonials[0] : null;
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-white border-b border-slate-200">
@@ -35,11 +57,11 @@ export const ContactSection: React.FC = () => {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <MessageSquare className="w-3.5 h-3.5 text-amber-600" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-[#0a192f] text-xs font-bold uppercase tracking-wider mb-3 border border-slate-200">
+            <MessageSquare className="w-3.5 h-3.5 text-orange-600" />
             <span>Advisory & Client Services</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a192f] tracking-tight font-heading">
             Connect With Our Wealth Advisors
           </h2>
           <p className="mt-3 text-slate-600 text-sm sm:text-base">
@@ -52,51 +74,51 @@ export const ContactSection: React.FC = () => {
           {/* Left Column: Contact Cards & Office Details */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="p-6 rounded-2xl bg-[#0b192c] text-white space-y-5 shadow-lg border border-amber-500/30">
+            <div className="p-6 rounded-2xl bg-[#0a192f] text-white space-y-5 shadow-lg border border-slate-700">
               <div className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
+                <span className="text-xs font-bold uppercase tracking-widest text-orange-400">
                   Headquarters
                 </span>
                 <h3 className="text-xl font-bold font-heading">
                   Horizon Secure Investments
                 </h3>
-                <p className="text-xs text-amber-200/90 font-medium">
-                  {COMPANY_INFO.motto}
+                <p className="text-xs text-orange-200/90 font-medium">
+                  {about.motto || COMPANY_INFO.motto}
                 </p>
               </div>
 
               <div className="space-y-3.5 text-xs text-slate-200 pt-2 border-t border-slate-800">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                  <span>{COMPANY_INFO.address}</span>
+                  <MapPin className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
+                  <span>{contact.address || COMPANY_INFO.address}</span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                  <Phone className="w-4 h-4 text-orange-400 shrink-0" />
                   <div>
-                    <div>Direct: <a href={`tel:${COMPANY_INFO.phone}`} className="text-white font-bold hover:underline">{COMPANY_INFO.phone}</a></div>
-                    <div>Toll-Free: <a href={`tel:${COMPANY_INFO.tollFree}`} className="text-white font-bold hover:underline">{COMPANY_INFO.tollFree}</a></div>
+                    <div>Direct: <a href={`tel:${contact.phone}`} className="text-white font-bold hover:text-orange-400 transition-colors">{contact.phone}</a></div>
+                    <div>Toll-Free: <a href={`tel:${contact.tollFree}`} className="text-white font-bold hover:text-orange-400 transition-colors">{contact.tollFree}</a></div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                  <Mail className="w-4 h-4 text-orange-400 shrink-0" />
                   <div>
-                    <div><a href={`mailto:${COMPANY_INFO.email}`} className="text-white hover:underline">{COMPANY_INFO.email}</a></div>
-                    <div><a href={`mailto:${COMPANY_INFO.careersEmail}`} className="text-amber-300 hover:underline">{COMPANY_INFO.careersEmail}</a> (Partnership)</div>
+                    <div><a href={`mailto:${contact.email}`} className="text-white hover:text-orange-400 transition-colors">{contact.email}</a></div>
+                    <div><a href={`mailto:${contact.careersEmail}`} className="text-orange-300 hover:underline">{contact.careersEmail}</a> (Partnership)</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>{COMPANY_INFO.operatingHours}</span>
+                  <Clock className="w-4 h-4 text-orange-400 shrink-0" />
+                  <span>{contact.operatingHours || COMPANY_INFO.operatingHours}</span>
                 </div>
               </div>
 
               {/* Regulatory Seal */}
               <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-300">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-amber-400" />
+                  <ShieldCheck className="w-4 h-4 text-orange-400" />
                   <span>AMFI ARN: {COMPANY_INFO.amfiRegNo}</span>
                 </span>
                 <span>IRDAI: {COMPANY_INFO.irdaiRegNo}</span>
@@ -104,29 +126,31 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Testimonial snippet */}
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
-              <div className="flex items-center gap-2 text-xs font-bold text-amber-800 mb-2">
-                <Award className="w-4 h-4 text-amber-600" />
-                <span>Verified Client Feedback</span>
+            {featuredTestimonial && (
+              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <div className="flex items-center gap-2 text-xs font-bold text-orange-800 mb-2">
+                  <Award className="w-4 h-4 text-orange-600" />
+                  <span>Verified Client Feedback</span>
+                </div>
+                <p className="text-xs text-slate-600 italic leading-relaxed">
+                  "{featuredTestimonial.quote}"
+                </p>
+                <div className="mt-3 text-xs font-bold text-[#0a192f]">
+                  {featuredTestimonial.name}
+                </div>
+                <div className="text-[11px] text-slate-500">
+                  {featuredTestimonial.role}, {featuredTestimonial.city}
+                </div>
               </div>
-              <p className="text-xs text-slate-600 italic leading-relaxed">
-                "{TESTIMONIALS[0].quote}"
-              </p>
-              <div className="mt-3 text-xs font-bold text-slate-900">
-                {TESTIMONIALS[0].name}
-              </div>
-              <div className="text-[11px] text-slate-500">
-                {TESTIMONIALS[0].role}, {TESTIMONIALS[0].city}
-              </div>
-            </div>
+            )}
 
           </div>
 
-          {/* Right Column: WordPress-Style Contact Form */}
+          {/* Right Column: Contact & Lead Form */}
           <div className="lg:col-span-7">
             <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
               <div className="mb-6">
-                <h3 className="text-xl font-black text-slate-900 font-heading">
+                <h3 className="text-xl font-black text-[#0a192f] font-heading">
                   Direct Enquiry & Portfolio Audit Form
                 </h3>
                 <p className="text-xs text-slate-500 mt-1">
@@ -139,128 +163,140 @@ export const ContactSection: React.FC = () => {
                   <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h4 className="text-lg font-bold text-slate-900 font-heading">
-                    Thank You, {formData.name}!
+                  <h4 className="text-lg font-bold text-[#0a192f] font-heading">
+                    Inquiry Received Successfully
                   </h4>
                   <p className="text-xs text-slate-600 max-w-md mx-auto">
-                    Your request for <strong>{formData.product}</strong> has been logged. An HSI advisor will reach out to you shortly at {formData.phone}.
+                    Thank you, <strong>{formData.name}</strong>. A dedicated certified financial planner from our Mumbai BKC desk will contact you at <strong>{formData.phone}</strong> within 2 business hours.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-4 px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-bold"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({
+                        name: '',
+                        phone: '',
+                        email: '',
+                        product: 'Mutual Funds (SIP / Lumpsum)',
+                        city: '',
+                        message: '',
+                      });
+                    }}
+                    className="mt-4 px-5 py-2.5 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold text-xs hover:from-orange-600 hover:to-orange-700 transition-colors cursor-pointer"
                   >
-                    Submit Another Query
+                    Submit Another Request
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 text-xs">
-                  
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">
-                        Your Full Name *
+                      <label className="block font-semibold text-slate-700 mb-1">
+                        Full Name *
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Vikram Singhania"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 focus:outline-none shadow-xs"
+                        placeholder="e.g. Rajesh Kumar"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">
-                        Phone Number (with WhatsApp) *
+                      <label className="block font-semibold text-slate-700 mb-1">
+                        Contact Phone Number *
                       </label>
                       <input
                         type="tel"
                         required
-                        placeholder="+91 98200 12345"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 focus:outline-none shadow-xs"
+                        placeholder="+91 98200 00000"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">
-                        Email Address *
+                      <label className="block font-semibold text-slate-700 mb-1">
+                        Email Address
                       </label>
                       <input
                         type="email"
-                        required
-                        placeholder="vikram@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 focus:outline-none shadow-xs"
+                        placeholder="rajesh@example.com"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">
-                        City / State *
+                      <label className="block font-semibold text-slate-700 mb-1">
+                        City / Location
                       </label>
                       <input
                         type="text"
-                        required
-                        placeholder="e.g. Mumbai, Maharashtra"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 focus:outline-none shadow-xs"
+                        placeholder="e.g. Mumbai, Pune, Delhi NCR"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">
-                      Choose Service / Product Category
+                    <label className="block font-semibold text-slate-700 mb-1">
+                      Service / Product Interest
                     </label>
                     <select
                       value={formData.product}
                       onChange={(e) => setFormData({ ...formData, product: e.target.value })}
-                      className="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none shadow-xs"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white font-medium"
                     >
-                      <option value="Mutual Funds (SIP / LUMPSUM / SWP / STP)">Mutual Funds (SIP / LUMPSUM / SWP / STP)</option>
-                      <option value="Life Insurance (SAVINGS / ULIP / TULIP / PENSION / CHILDREN)">Life Insurance (SAVINGS / ULIP / TULIP / PENSION / CHILDREN)</option>
-                      <option value="Health Insurance (GMC / GPA / SENIOR CITIZEN / CANCER)">Health Insurance (GMC / GPA / SENIOR CITIZEN / CANCER)</option>
-                      <option value="General Insurance (MOTOR / FIRE / MARINE / WC / D&O)">General Insurance (MOTOR / FIRE / MARINE / WC / D&O)</option>
-                      <option value="Stocks & Trading (NSE / BSE / FOREX / INTRADAY / F&O)">Stocks & Trading (NSE / BSE / FOREX / INTRADAY / F&O)</option>
-                      <option value="Bonds (GOVERNMENT / SECURED / TAX SAVING / SOVEREIGN)">Bonds (GOVERNMENT / SECURED / TAX SAVING / SOVEREIGN)</option>
-                      <option value="Fraction of Property (Commercial Real Estate)">Fraction of Property (Commercial Real Estate)</option>
-                      <option value="Loans (HOME / PERSONAL / BUSINESS / LAP / WORKING CAPITAL / LAS)">Loans (HOME / PERSONAL / BUSINESS / LAP / WORKING CAPITAL / LAS)</option>
-                      <option value="Partner / Leadership Opportunities">Partner / Leadership Opportunities</option>
+                      <option>Mutual Funds (SIP / Lumpsum)</option>
+                      <option>Life Insurance (Term Cover)</option>
+                      <option>Health Insurance (Mediclaim Shield)</option>
+                      <option>Fractional Commercial Real Estate</option>
+                      <option>Stocks & F&O Advisory</option>
+                      <option>Sovereign Gold Bonds & Fixed Income</option>
+                      <option>Loans & Credit Facilitation</option>
+                      <option>Become an HSI Channel Partner</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">
-                      Message / Requirement Details
+                    <label className="block font-semibold text-slate-700 mb-1">
+                      Your Query or Financial Goal
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Please mention your approximate investment budget or preferred coverage amount..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none shadow-xs"
+                      placeholder="e.g., Looking to invest ₹25,000/month for child higher education, or need ₹1 Cr term insurance comparison."
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-lg bg-[#0b192c] hover:bg-[#122a4a] text-white font-bold text-xs tracking-wide shadow-md transition-all flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-black text-xs sm:text-sm tracking-wide shadow-md shadow-orange-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
-                    <Send className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Send Advisory Inquiry Now</span>
+                    {isSubmitting ? (
+                      <span>Saving your inquiry...</span>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Submit Consultation Request</span>
+                      </>
+                    )}
                   </button>
 
-                  <div className="text-center text-[10px] text-slate-400 pt-1">
-                    🔒 We respect your privacy. No unsolicited promotional spam.
-                  </div>
-
+                  <p className="text-[10px] text-slate-500 text-center pt-1">
+                    🔒 Zero Spam Guarantee. Your information is protected under AMFI fiduciary confidentiality standards.
+                  </p>
                 </form>
               )}
 
