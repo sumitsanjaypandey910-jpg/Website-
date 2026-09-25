@@ -141,7 +141,7 @@ export const ContactPage: React.FC = () => {
                 {/* Direct WhatsApp Action */}
                 <div className="pt-2">
                   <a
-                    href={`https://wa.me/${(contact.whatsappNumber || '+91 98200 12345').replace(/[^0-9]/g, '')}?text=Hello%20Horizon%20Secure%20Investments%2C%20I%20would%20like%20to%20schedule%20a%20wealth%20consultation.`}
+                    href="https://wa.me/917977661896?text=Hello%20Horizon%20Secure%20Investments%2C%20I%20would%20like%20to%20schedule%20a%20wealth%20consultation."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20b858] text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
@@ -362,7 +362,7 @@ export const ContactPage: React.FC = () => {
                     </div>
 
                     <p className="text-[10px] text-slate-500 text-center pt-1">
-                      🔒 Zero spam guarantee. We respect your privacy. All details are kept confidential under AMFI & IRDAI compliance guidelines.
+                      🔒 Zero spam guarantee. We respect your privacy. All details are kept strictly confidential and secure.
                     </p>
 
                   </form>

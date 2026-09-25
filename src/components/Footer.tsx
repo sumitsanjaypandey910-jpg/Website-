@@ -51,10 +51,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
             {/* Regulatory Registrations */}
             <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px]">
               <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-orange-500/30 text-orange-400 font-bold">
-                AMFI: {footer?.amfiRegNumber || COMPANY_INFO.amfiRegNo}
+                Protect. Invest. Grow.
               </span>
               <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 font-bold">
-                IRDAI: {footer?.irdaiLicenseNumber || COMPANY_INFO.irdaiRegNo}
+                Partnered with Major Companies
               </span>
             </div>
 
@@ -294,7 +294,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
         {/* Regulatory Disclaimers Box */}
         <div className="py-6 text-[11px] text-slate-500 leading-relaxed space-y-2 border-b border-slate-800/80">
           <p>
-            <strong className="text-slate-400">Regulatory Disclaimers & Compliance:</strong> {footer?.complianceNote || `Horizon Secure Investments (HSI) is a registered AMFI Mutual Fund Distributor (ARN: ${footer?.amfiRegNumber || COMPANY_INFO.amfiRegNo}) and authorized Insurance Corporate Channel Partner (IRDAI: ${footer?.irdaiLicenseNumber || COMPANY_INFO.irdaiRegNo}).`}
+            <strong className="text-slate-400">Important Disclaimer:</strong> {footer?.complianceNote || "Insurance and investment products are subject to their respective terms, conditions, exclusions, charges and applicable regulations. Market-linked investments are subject to market risks, and returns are not guaranteed unless specifically stated by the product/provider."}
           </p>
           <p>
             {footer?.disclaimer || "Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Insurance is the subject matter of solicitation."}

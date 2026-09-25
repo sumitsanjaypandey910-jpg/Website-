@@ -115,13 +115,13 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Regulatory Seal */}
+              {/* Trust Badge */}
               <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-300">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-orange-400" />
-                  <span>AMFI ARN: {COMPANY_INFO.amfiRegNo}</span>
+                  <span>Protect. Invest. Grow.</span>
                 </span>
-                <span>IRDAI: {COMPANY_INFO.irdaiRegNo}</span>
+                <span className="text-orange-300">Dealing with Major Companies</span>
               </div>
             </div>
 

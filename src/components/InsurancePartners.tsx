@@ -22,7 +22,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0a192f] text-orange-400 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Official Institutional Alliances</span>
+            <span>Institutional Industry Alliances</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a192f] tracking-tight font-heading">
             NATURE OF WORK
@@ -31,7 +31,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
             Dealing with all Major Insurance Companies
           </p>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
-            We are not tied to a single insurer. We compare policies across India's premier life, health, and general insurance corporations to guarantee the highest coverage at the lowest premium.
+            We work in partnership with India's major and leading insurance companies across Life, Health, and General Insurance. We compare policies across major providers to guarantee optimal coverage, transparent terms, and maximum claim support for your family and business.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              All 25+ Insurers (Brochure View)
+              All Major Insurers
             </button>
             <button
               onClick={() => setActiveCategory('life')}
@@ -56,7 +56,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Life Insurance ({lifeCompanies.length})
+              Life Insurance
             </button>
             <button
               onClick={() => setActiveCategory('health')}
@@ -66,7 +66,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Health Insurance ({healthCompanies.length})
+              Health Insurance
             </button>
             <button
               onClick={() => setActiveCategory('general')}
@@ -76,7 +76,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              General Insurance ({generalCompanies.length})
+              General Insurance
             </button>
           </div>
         </div>
@@ -101,7 +101,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                     </div>
                   </div>
                   <span className="text-xs bg-blue-900/80 px-2 py-0.5 rounded text-blue-200 font-semibold">
-                    {lifeCompanies.length} Partners
+                    Major Companies
                   </span>
                 </div>
 
@@ -126,7 +126,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                         onClick={() => onQuoteRequest(`${company.name} (Life Insurance)`)}
                         className="text-[11px] font-bold text-orange-700 hover:text-orange-900 bg-orange-50 hover:bg-orange-100 border border-orange-200 px-2.5 py-1 rounded transition-colors cursor-pointer"
                       >
-                        Quote
+                        Inquire
                       </button>
                     </div>
                   ))}
@@ -135,10 +135,10 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
 
               <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
                 <button
-                  onClick={() => onQuoteRequest('Life Insurance Comparison')}
+                  onClick={() => onQuoteRequest('Life Insurance Comparison with Major Companies')}
                   className="w-full py-2.5 rounded-lg bg-[#0a192f] text-white text-xs font-bold hover:bg-[#162f56] transition-colors cursor-pointer"
                 >
-                  Compare All Life Insurers
+                  Compare Plans Across Major Companies
                 </button>
               </div>
             </div>
@@ -161,7 +161,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                     </div>
                   </div>
                   <span className="text-xs bg-emerald-900/80 px-2 py-0.5 rounded text-emerald-200 font-semibold">
-                    {healthCompanies.length} Partners
+                    Major Companies
                   </span>
                 </div>
 
@@ -186,7 +186,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                         onClick={() => onQuoteRequest(`${company.name} (Health Insurance)`)}
                         className="text-[11px] font-bold text-orange-700 hover:text-orange-900 bg-orange-50 hover:bg-orange-100 border border-orange-200 px-2.5 py-1 rounded transition-colors cursor-pointer"
                       >
-                        Quote
+                        Inquire
                       </button>
                     </div>
                   ))}
@@ -198,7 +198,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                   onClick={() => onQuoteRequest('Health Insurance Cashless Comparison')}
                   className="w-full py-2.5 rounded-lg bg-[#0a192f] text-white text-xs font-bold hover:bg-[#162f56] transition-colors cursor-pointer"
                 >
-                  Find Cashless Hospitals Near You
+                  Cashless Networks Across Major Companies
                 </button>
               </div>
             </div>
@@ -221,7 +221,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                     </div>
                   </div>
                   <span className="text-xs bg-slate-800 px-2 py-0.5 rounded text-orange-200 font-semibold">
-                    {generalCompanies.length} Partners
+                    Major Companies
                   </span>
                 </div>
 
@@ -246,7 +246,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                         onClick={() => onQuoteRequest(`${company.name} (General Insurance)`)}
                         className="text-[11px] font-bold text-orange-700 hover:text-orange-900 bg-orange-50 hover:bg-orange-100 border border-orange-200 px-2.5 py-1 rounded transition-colors cursor-pointer"
                       >
-                        Quote
+                        Inquire
                       </button>
                     </div>
                   ))}
@@ -258,7 +258,7 @@ export const InsurancePartners: React.FC<InsurancePartnersProps> = ({ onQuoteReq
                   onClick={() => onQuoteRequest('Commercial & Liability Insurance')}
                   className="w-full py-2.5 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-xs font-bold shadow-sm transition-colors cursor-pointer"
                 >
-                  Protect Business & Commercial Assets
+                  Protect Business & Commercial Assets with Major Insurers
                 </button>
               </div>
             </div>

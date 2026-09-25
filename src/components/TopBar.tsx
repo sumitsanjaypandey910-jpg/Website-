@@ -11,15 +11,15 @@ export const TopBar: React.FC<TopBarProps> = ({ onOpenConsultation }) => {
     <div className="bg-[#071220] text-slate-300 text-xs py-2.5 border-b border-slate-800/90 hidden sm:block">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
         
-        {/* Left Side: Regulatory & Trust Credentials */}
+        {/* Left Side: Trust Credentials */}
         <div className="flex items-center gap-4 text-[11px] tracking-wide">
           <div className="flex items-center gap-1.5 text-orange-400 font-bold">
             <ShieldCheck className="w-3.5 h-3.5 text-orange-500" />
-            <span>AMFI Reg: {COMPANY_INFO.amfiRegNo}</span>
+            <span>Protect. Invest. Grow.</span>
           </div>
           <span className="text-slate-700">|</span>
           <div className="flex items-center gap-1 text-slate-300">
-            <span>IRDAI No: {COMPANY_INFO.irdaiRegNo}</span>
+            <span>Partnered with Major Companies</span>
           </div>
           <span className="text-slate-700 hidden md:inline">|</span>
           <div className="items-center gap-1 text-slate-400 hidden md:flex">

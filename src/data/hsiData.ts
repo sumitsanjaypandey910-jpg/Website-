@@ -4,17 +4,16 @@ export const COMPANY_INFO = {
   name: "HORIZON SECURE INVESTMENTS",
   shortName: "HSI",
   tagline: "Securing Tomorrow's Wealth",
-  motto: "Plan Today. Protect Tomorrow. Prosper Always.",
+  motto: "Building Financial Confidence. Protecting What Matters. Creating Long-Term Opportunities.",
   slogan: "YOUR TRUST, OUR COMMITMENT.",
-  phone: "+91 98200 12345",
+  phone: "+91 79776 61896",
+  whatsappNumber: "7977661896",
   tollFree: "1800 209 8899",
   email: "contact@horizonsecureinvestments.com",
   advisoryEmail: "wealth@horizonsecureinvestments.com",
   careersEmail: "partner@horizonsecureinvestments.com",
   address: "Horizon Financial Tower, 4th Floor, Financial District, Bandra-Kurla Complex (BKC), Mumbai, Maharashtra - 400051",
   operatingHours: "Monday – Saturday: 9:30 AM – 6:30 PM",
-  amfiRegNo: "ARN-284910",
-  irdaiRegNo: "CA-0821/2022",
   experienceYears: "15+",
   aum: "₹650+ Crores",
   investorCount: "18,500+",
@@ -261,224 +260,86 @@ export const PRODUCTS: ProductItem[] = [
 export const INSURANCE_PARTNERS: InsuranceCompany[] = [
   // Life Insurance
   {
-    name: "Bajaj Life Insurance Co. Ltd.",
+    name: "Major Life Insurance Companies",
     category: "life",
     categoryName: "Life Insurance",
-    logoPlaceholder: "Bajaj Life",
-    claimSettlementRatio: "99.04%",
-    speciality: "Savings, Term & ULIPs",
-    highlights: ["Instant Term Quotes", "Guaranteed Income Plans", "Digital Claim Assist"]
+    logoPlaceholder: "Major Life Insurers",
+    claimSettlementRatio: "99%+",
+    speciality: "Pure Term, Savings & Guaranteed Income",
+    highlights: ["High Sum Assured Term Covers", "Guaranteed Pension Annuities", "Comprehensive Critical Illness Riders"]
   },
   {
-    name: "Kotak Life Insurance Co. Ltd.",
+    name: "Major Term & Savings Insurers",
     category: "life",
     categoryName: "Life Insurance",
-    logoPlaceholder: "Kotak Life",
-    claimSettlementRatio: "98.82%",
-    speciality: "Wealth & Pension Solutions",
-    highlights: ["Retirement Annuities", "Child Future Plans", "High Non-Medical Limits"]
+    logoPlaceholder: "Leading Life Partners",
+    claimSettlementRatio: "98.8%+",
+    speciality: "ULIP, TULIP & Wealth Accumulation",
+    highlights: ["Tax-Efficient Wealth Creation", "Child Higher Education Funds", "Digital Claim Concierge"]
   },
   {
-    name: "Axis Max Life Insurance",
+    name: "Major Retirement & Annuity Insurers",
     category: "life",
     categoryName: "Life Insurance",
-    logoPlaceholder: "Max Life",
-    claimSettlementRatio: "99.51%",
-    speciality: "Pure Term & Critical Illness",
-    highlights: ["24-hour Claim Payout", "InstaConfirm Underwriting", "Return of Premium Option"]
-  },
-  {
-    name: "Tata AIA",
-    category: "life",
-    categoryName: "Life Insurance",
-    logoPlaceholder: "Tata AIA",
-    claimSettlementRatio: "99.13%",
-    speciality: "Comprehensive Protection",
-    highlights: ["Vitality Wellness Rewards", "Whole Life 100 Years Cover", "Express Processing"]
-  },
-  {
-    name: "ICICI Prudential Life Insurance",
-    category: "life",
-    categoryName: "Life Insurance",
-    logoPlaceholder: "ICICI Pru",
-    claimSettlementRatio: "99.17%",
-    speciality: "ULIP & Capital Growth",
-    highlights: ["Top Performing Equity Funds", "Guaranteed Returns", "Paperless Onboarding"]
-  },
-  {
-    name: "HDFC Life Insurance",
-    category: "life",
-    categoryName: "Life Insurance",
-    logoPlaceholder: "HDFC Life",
-    claimSettlementRatio: "99.39%",
-    speciality: "Retirement & Savings",
-    highlights: ["Industry Benchmark Brand", "Flexible Payout Modes", "International Coverage"]
-  },
-  {
-    name: "Godigit Life Insurance",
-    category: "life",
-    categoryName: "Life Insurance",
-    logoPlaceholder: "GoDigit Life",
-    claimSettlementRatio: "98.50%",
-    speciality: "Tech-First Digital Term",
-    highlights: ["Zero Jargon Terms", "Quick Smartphone KYC", "Affordable Youth Covers"]
-  },
-  {
-    name: "LIC (Life Insurance Corporation)",
-    category: "life",
-    categoryName: "Life Insurance",
-    logoPlaceholder: "LIC India",
-    claimSettlementRatio: "98.52%",
-    speciality: "Sovereign Trust & Endowments",
-    highlights: ["Sovereign Guarantee", "Traditional Endowment Plans", "Deep Rural Reach"]
+    logoPlaceholder: "Retirement Partners",
+    claimSettlementRatio: "99.2%+",
+    speciality: "Lifelong Guaranteed Pension",
+    highlights: ["Return of Purchase Price Options", "Joint Life Protection", "Immediate & Deferred Annuities"]
   },
 
   // Health Insurance
   {
-    name: "Niva Bupa Health Insurance",
+    name: "Major Health Insurance Companies",
     category: "health",
     categoryName: "Health Insurance",
-    logoPlaceholder: "Niva Bupa",
-    claimSettlementRatio: "91.60%",
-    speciality: "ReAssure Unlimited Restore",
-    highlights: ["No Claim Bonus Lock", "Cashless OPD Benefits", "10,000+ Hospitals"]
+    logoPlaceholder: "Major Health Insurers",
+    claimSettlementRatio: "95%+",
+    speciality: "1-Crore Comprehensive Family Mediclaim",
+    highlights: ["12,000+ Cashless Network Hospitals", "Zero Room Rent Restrictions", "No Claim Bonus Multiplier"]
   },
   {
-    name: "Prudential Health Insurance",
+    name: "Major Corporate & Group Health Insurers",
     category: "health",
     categoryName: "Health Insurance",
-    logoPlaceholder: "Prudential",
-    claimSettlementRatio: "92.10%",
-    speciality: "Global Health Protection",
-    highlights: ["Worldwide Emergency Cover", "Second Medical Opinion", "Executive Wellness"]
+    logoPlaceholder: "Group Mediclaim",
+    claimSettlementRatio: "97%+",
+    speciality: "GMC & GPA for MSMEs and Enterprises",
+    highlights: ["Pre-existing Disease Cover Day 1", "Maternity & Infant Protection", "24/7 Cashless Approvals"]
   },
   {
-    name: "ICICI Lombard",
+    name: "Major Critical Illness & Senior Care Insurers",
     category: "health",
     categoryName: "Health Insurance",
-    logoPlaceholder: "ICICI Lombard",
-    claimSettlementRatio: "97.20%",
-    speciality: "Complete Health Shield",
-    highlights: ["Any Hospital Cashless", "Zero Room Rent Capping", "Air Ambulance Cover"]
-  },
-  {
-    name: "Tata AIG",
-    category: "health",
-    categoryName: "Health Insurance",
-    logoPlaceholder: "Tata AIG Health",
-    claimSettlementRatio: "94.50%",
-    speciality: "MediCare & Top-Up Covers",
-    highlights: ["Global Treatment Benefit", "Cumulative Bonus Booster", "AYUSH Hospitalization"]
-  },
-  {
-    name: "HDFC Ergo",
-    category: "health",
-    categoryName: "Health Insurance",
-    logoPlaceholder: "HDFC ERGO",
-    claimSettlementRatio: "97.50%",
-    speciality: "Optima Secure 4X Cover",
-    highlights: ["Instant Cashless Approval", "Pre-existing Disease Waiver", "Zero Deductible"]
-  },
-  {
-    name: "Star Health Insurance",
-    category: "health",
-    categoryName: "Health Insurance",
-    logoPlaceholder: "Star Health",
-    claimSettlementRatio: "89.90%",
-    speciality: "Specialist Health & Cardiac",
-    highlights: ["Diabetic & Cardiac Special", "Senior Citizen Red Carpet", "In-house TPA claims"]
-  },
-  {
-    name: "Care Health Insurance",
-    category: "health",
-    categoryName: "Health Insurance",
-    logoPlaceholder: "Care Health",
-    claimSettlementRatio: "95.20%",
-    speciality: "Care Supreme & Critical Care",
-    highlights: ["Unlimited Recharge", "No Claim Bonus Super", "Annual Health Checkups"]
-  },
-  {
-    name: "Bajaj General Insurance",
-    category: "health",
-    categoryName: "Health Insurance",
-    logoPlaceholder: "Bajaj Allianz",
-    claimSettlementRatio: "98.00%",
-    speciality: "Health Guard & GMC",
-    highlights: ["Corporate Employee Baskets", "Maternity & Newborn Cover", "20-minute Fast Cashless"]
+    logoPlaceholder: "Senior & Critical Care",
+    claimSettlementRatio: "94%+",
+    speciality: "Cardiac, Cancer & Senior Citizen Shields",
+    highlights: ["Lump-Sum Critical Payouts", "Reduced Waiting Periods", "Global Emergency Medical Assistance"]
   },
 
   // General Insurance
   {
-    name: "IndusInd Nippon GIC",
+    name: "Major General Insurance Companies",
     category: "general",
     categoryName: "General Insurance",
-    logoPlaceholder: "Nippon GIC",
-    speciality: "Commercial & Motor Protection",
-    highlights: ["Quick Commercial Fleet Covers", "Transit & Marine Shield", "Property Insurance"]
+    logoPlaceholder: "Major General Insurers",
+    speciality: "Commercial Assets, Plant & Machinery",
+    highlights: ["Standard Fire & Special Perils", "Industrial All Risk (IAR)", "Business Interruption Loss Cover"]
   },
   {
-    name: "Tata AIG General",
+    name: "Major Corporate Liability Insurers",
     category: "general",
     categoryName: "General Insurance",
-    logoPlaceholder: "Tata AIG Gen",
-    speciality: "Fire, Marine & D&O Liability",
-    highlights: ["Industrial All Risk", "Director & Officer Protection", "Cyber Crime Shield"]
+    logoPlaceholder: "Liability Partners",
+    speciality: "Directors & Officers (D&O) & WC Policies",
+    highlights: ["Statutory Workmen Compensation", "Professional Indemnity Covers", "Cyber Crime & Data Breach Liability"]
   },
   {
-    name: "Royal Sundaram GIC",
+    name: "Major Motor & Marine Logistics Insurers",
     category: "general",
     categoryName: "General Insurance",
-    logoPlaceholder: "Royal Sundaram",
-    speciality: "Motor & Factory Assets",
-    highlights: ["Car Shield Zero Dep", "Commercial Property Loss", "Marine Cargo"]
-  },
-  {
-    name: "Bajaj General Insurance",
-    category: "general",
-    categoryName: "General Insurance",
-    logoPlaceholder: "Bajaj Allianz Gen",
-    speciality: "Workmen Compensation & Plant",
-    highlights: ["Statutory WC Policy", "Breakdown of Machinery", "Customs Bonded Warehouse"]
-  },
-  {
-    name: "Kotak GIC",
-    category: "general",
-    categoryName: "General Insurance",
-    logoPlaceholder: "Kotak General",
-    speciality: "Commercial Liability & Fleets",
-    highlights: ["Public Liability Act", "Commercial Fleet Packages", "E-commerce Cargo"]
-  },
-  {
-    name: "Godigit General Insurance",
-    category: "general",
-    categoryName: "General Insurance",
-    logoPlaceholder: "GoDigit Gen",
-    speciality: "Digital Motor & Travel",
-    highlights: ["Self-Inspection App Claims", "Zero Paperwork Claims", "Affordable Micro-covers"]
-  },
-  {
-    name: "New India Assurance Co. Ltd.",
-    category: "general",
-    categoryName: "General Insurance",
-    logoPlaceholder: "New India",
-    speciality: "Govt-backed Mega Risk & Aviation",
-    highlights: ["Largest Public Sector Insurer", "Mega Infrastructure Projects", "Marine Hull & Cargo"]
-  },
-  {
-    name: "Oriental Insurance",
-    category: "general",
-    categoryName: "General Insurance",
-    logoPlaceholder: "Oriental Ins",
-    speciality: "Fire, Engineering & Transit",
-    highlights: ["Heavy Machinery Policies", "Sovereign Heritage", "Extensive Branch Network"]
-  },
-  {
-    name: "SBI GIC",
-    category: "general",
-    categoryName: "General Insurance",
-    logoPlaceholder: "SBI General",
-    speciality: "Comprehensive Retail & SME",
-    highlights: ["SME Business Package", "Home & Content Security", "Nationwide Service Guarantee"]
+    logoPlaceholder: "Transit & Fleet Insurers",
+    speciality: "Commercial Fleets & Inland/Export Cargo",
+    highlights: ["Zero-Depreciation Fleet Covers", "Door-to-Door Marine Transit", "Rapid On-Site Survey & Claim Support"]
   }
 ];
 

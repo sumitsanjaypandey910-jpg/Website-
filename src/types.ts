@@ -173,8 +173,8 @@ export interface FooterContent {
   companyName: string;
   tagline: string;
   aboutText: string;
-  amfiRegNumber: string;
-  irdaiLicenseNumber: string;
+  amfiRegNumber?: string;
+  irdaiLicenseNumber?: string;
   copyrightText: string;
   disclaimer: string;
   complianceNote: string;
