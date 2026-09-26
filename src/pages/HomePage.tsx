@@ -87,10 +87,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <Award className="w-5 h-5 text-orange-600" />
                 </div>
                 <h3 className="text-base font-black text-slate-900 font-heading group-hover:text-orange-600 transition-colors">
-                  Our 15-Year Legacy
+                  About Horizon Secure Investments
                 </h3>
                 <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
-                  Learn about our leadership committee, fiduciary code of ethics, and 18,500+ satisfied families.
+                  Building Financial Confidence. Protecting What Matters. Creating Long-Term Opportunities.
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-black text-orange-700 group-hover:translate-x-1 transition-transform">

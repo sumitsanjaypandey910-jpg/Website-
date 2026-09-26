@@ -114,7 +114,7 @@ export const AdminHeroSection: React.FC<AdminHeroSectionProps> = ({
           )}
           <div className="relative z-10 space-y-3 max-w-2xl">
             <span className="inline-block px-3 py-1 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-xs font-bold">
-              {data.badge || 'AMFI Registered • IRDAI Certified'}
+              {data.badge || 'Protect. Invest. Grow. • Mulund, Mumbai'}
             </span>
             <h3 className="text-xl sm:text-2xl font-black font-heading leading-tight">
               {data.headingPrefix} <span className="text-orange-400">{data.headingHighlight}</span>{data.headingSuffix}
@@ -145,7 +145,7 @@ export const AdminHeroSection: React.FC<AdminHeroSectionProps> = ({
               type="text"
               value={data.badge || ''}
               onChange={(e) => setData({ ...data, badge: e.target.value })}
-              placeholder="e.g. AMFI Registered • IRDAI Certified • Mumbai BKC"
+              placeholder="e.g. Protect. Invest. Grow. • Mulund, Mumbai"
               className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-300 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
             />
           </div>

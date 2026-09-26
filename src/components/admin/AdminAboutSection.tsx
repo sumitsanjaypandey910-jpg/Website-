@@ -128,7 +128,7 @@ export const AdminAboutSection: React.FC<AdminAboutSectionProps> = ({
               type="text"
               value={data.badge || ''}
               onChange={(e) => setData({ ...data, badge: e.target.value })}
-              placeholder="e.g. Certified Multi-Asset Wealth Firm"
+              placeholder="e.g. Financial Services & Wealth Solutions Firm"
               className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-300 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
             />
           </div>

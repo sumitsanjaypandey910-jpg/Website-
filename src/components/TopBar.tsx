@@ -33,9 +33,20 @@ export const TopBar: React.FC<TopBarProps> = ({ onOpenConsultation }) => {
           <a
             href={`tel:${COMPANY_INFO.phone}`}
             className="flex items-center gap-1.5 hover:text-orange-400 transition-colors"
+            title="Call Us"
           >
             <Phone className="w-3.5 h-3.5 text-orange-400" />
-            <span className="font-semibold text-slate-200">{COMPANY_INFO.phone}</span>
+            <span className="font-bold text-white">{COMPANY_INFO.phone}</span>
+          </a>
+
+          <a
+            href={`https://wa.me/91${COMPANY_INFO.whatsappNumber}`}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden md:flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors"
+            title="WhatsApp Us"
+          >
+            <span className="text-emerald-400 font-bold">WhatsApp: {COMPANY_INFO.whatsappNumber}</span>
           </a>
 
           <a

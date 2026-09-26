@@ -30,8 +30,8 @@ export const FaqPage: React.FC<FaqPageProps> = ({ onOpenConsultation, onOpenChat
       id: "faq-1",
       category: "general",
       categoryLabel: "Getting Started & Trust",
-      question: "Is Horizon Secure Investments (HSI) an AMFI and IRDAI registered firm?",
-      answer: "Yes, absolutely. Horizon Secure Investments is an accredited Mutual Fund Distributor registered with the Association of Mutual Funds in India under ARN-284910, and an authorized Insurance Corporate Channel Partner certified under IRDAI Registration No. CA-0821/2022. All client investments, folios, and policies are held directly under your name with the respective SEBI-regulated fund houses and IRDAI-regulated insurance underwriters."
+      question: "How does Horizon Secure Investments (HSI) operate with regulatory bodies?",
+      answer: "Horizon Secure Investments operates in strict compliance with applicable regulatory frameworks in India. All client investments, folios, and policies are held directly under your name with the respective regulated fund houses and insurance underwriters, ensuring maximum institutional safety and investor protection."
     },
     {
       id: "faq-2",

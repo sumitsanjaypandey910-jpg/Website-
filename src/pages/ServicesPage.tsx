@@ -67,7 +67,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
         { name: "Guaranteed Savings & Annuity", desc: "Lock in fixed, tax-free annual returns and lifetime pension annuities backed by top insurers." }
       ],
       keyBenefits: [
-        "Tie-ups with HDFC Life, ICICI Prudential, Tata AIA, Max Life, and 15+ others",
+        "Partnered with all major regulated life and health insurance companies",
         "Average Claim Settlement Ratio (CSR) of our partners exceeds 99.1%",
         "Dedicated in-house claim settlement assistance team for family support",
         "Tax benefits under Section 80C and Section 10(10D)"
@@ -399,7 +399,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
             Need Guidance on the Best Product Combination?
           </h2>
           <p className="text-xs sm:text-sm font-semibold max-w-xl mx-auto text-slate-300">
-            Our Certified Financial Planners evaluate your current portfolio free of cost. Get an objective, independent second opinion.
+            Our experienced wealth advisors evaluate your current portfolio free of cost. Get an objective, independent second opinion.
           </p>
           <div className="pt-2">
             <button

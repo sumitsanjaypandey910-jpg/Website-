@@ -96,16 +96,15 @@ export const ContactSection: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-orange-400 shrink-0" />
                   <div>
-                    <div>Direct: <a href={`tel:${contact.phone}`} className="text-white font-bold hover:text-orange-400 transition-colors">{contact.phone}</a></div>
-                    <div>Toll-Free: <a href={`tel:${contact.tollFree}`} className="text-white font-bold hover:text-orange-400 transition-colors">{contact.tollFree}</a></div>
+                    <div>Mobile: <a href="tel:+919619973551" className="text-white font-bold hover:text-orange-400 transition-colors">+91 96199 73551</a></div>
+                    <div>Director (Nikhil Bagwe): <a href="tel:+917977661896" className="text-orange-300 font-bold hover:text-white transition-colors">+91-7977661896</a></div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-orange-400 shrink-0" />
                   <div>
-                    <div><a href={`mailto:${contact.email}`} className="text-white hover:text-orange-400 transition-colors">{contact.email}</a></div>
-                    <div><a href={`mailto:${contact.careersEmail}`} className="text-orange-300 hover:underline">{contact.careersEmail}</a> (Partnership)</div>
+                    <div><a href="mailto:hsinvest2026@gmail.com" className="text-white hover:text-orange-400 transition-colors">hsinvest2026@gmail.com</a></div>
                   </div>
                 </div>
 
@@ -167,7 +166,7 @@ export const ContactSection: React.FC = () => {
                     Inquiry Received Successfully
                   </h4>
                   <p className="text-xs text-slate-600 max-w-md mx-auto">
-                    Thank you, <strong>{formData.name}</strong>. A dedicated certified financial planner from our Mumbai BKC desk will contact you at <strong>{formData.phone}</strong> within 2 business hours.
+                    Thank you, <strong>{formData.name}</strong>. An advisor from our team will contact you at <strong>{formData.phone}</strong> promptly.
                   </p>
                   <button
                     onClick={() => {

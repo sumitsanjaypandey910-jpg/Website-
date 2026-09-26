@@ -1,23 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Award, 
   ShieldCheck, 
   TrendingUp, 
   Users, 
-  Building2, 
   Sparkles, 
   CheckCircle2, 
   ArrowRight, 
-  FileCheck2, 
-  Scale, 
-  Globe2, 
   Compass, 
-  Quote 
+  Phone, 
+  Mail, 
+  MapPin,
+  ExternalLink,
+  Target,
+  Eye,
+  HeartHandshake,
+  Layers,
+  Award,
+  Clock
 } from 'lucide-react';
-import { COMPANY_INFO, TRUST_PILLARS } from '../data/hsiData';
+import { COMPANY_INFO } from '../data/hsiData';
 import { HsiLogo } from '../components/HsiLogo';
-import { useSiteContent } from '../context/SiteContentContext';
 
 interface AboutPageProps {
   onOpenConsultation: (product?: string) => void;
@@ -28,70 +31,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   onOpenConsultation,
   onOpenPartnerModal,
 }) => {
-  const { about, testimonials, images } = useSiteContent();
-  const milestones = [
-    {
-      year: "2009",
-      title: "Foundation in Mumbai",
-      description: "Established in Mumbai's financial center with a vision to provide conflict-free, research-backed financial planning for salaried professionals and business families."
-    },
-    {
-      year: "2014",
-      title: "AMFI Registration & ₹100 Cr AUM",
-      description: "Received official AMFI ARN accreditation and crossed our inaugural landmark of ₹100 Crores in client Assets Under Management."
-    },
-    {
-      year: "2018",
-      title: "IRDAI Corporate Alliances",
-      description: "Formally partnered with top 25+ Life, Health, and General Insurance companies to offer end-to-end multi-insurer claim assistance."
-    },
-    {
-      year: "2022",
-      title: "Expansion to Alternative Assets",
-      description: "Integrated Grade-A Fractional Commercial Real Estate and RBI Sovereign Gold Bonds to empower retail investors with institutional yields."
-    },
-    {
-      year: "2026",
-      title: "₹650+ Crores & AI Advisory",
-      description: "Serving over 18,500 families nationwide with an institutional advisory desk, 350+ channel partners, and real-time AI wealth intelligence."
-    }
-  ];
-
-  const leadershipTeam = [
-    {
-      name: "Rajeshwar Sengupta",
-      role: "Founder & Chief Investment Strategist",
-      credentials: "CFP®, MBA (Finance - JBIMS), Ex-Chief Investment Advisor",
-      experience: "22+ Years Market Experience",
-      focus: "Macro asset allocation, equity compounding baskets & high-net-worth portfolio preservation.",
-      imageBg: "from-amber-600 to-yellow-500"
-    },
-    {
-      name: "Ananya Deshmukh",
-      role: "Head of Insurance & Risk Protection",
-      credentials: "Fellow of Insurance Institute of India (FIII), Actuarial Science Associate",
-      experience: "16+ Years Experience",
-      focus: "Comprehensive family health shields, 1-Crore term structures, and rapid corporate group claim settlement.",
-      imageBg: "from-blue-600 to-indigo-700"
-    },
-    {
-      name: "Vikramaditya Kulkarni",
-      role: "Director of Alternative Assets & Real Estate",
-      credentials: "CA, CFA Level III, RICS Accredited",
-      experience: "14+ Years Experience",
-      focus: "Pre-leased Grade-A commercial office due diligence, 8-10% rental yields, and 54EC capital gains optimization.",
-      imageBg: "from-emerald-600 to-teal-700"
-    },
-    {
-      name: "Meera Krishnan",
-      role: "Head of Partner Growth & Channel Network",
-      credentials: "M.Com, Certified Financial Planner (CFP)",
-      experience: "12+ Years Experience",
-      focus: "Mentoring 350+ financial advisors, agency leadership development, and digital client relationship systems.",
-      imageBg: "from-purple-600 to-violet-700"
-    }
-  ];
-
   return (
     <div className="bg-white">
       
@@ -109,127 +48,122 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="flex items-center gap-2 text-xs font-bold text-orange-300/90 mb-4">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <span className="text-white">About Us & Trust Pillars</span>
+              <span className="text-white">About Us</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-400/40 text-orange-300 text-xs font-bold mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/20 border border-orange-400/40 text-orange-300 text-xs font-bold mb-4">
               <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-              <span>{about.badge || "Certified Multi-Asset Wealth Firm"}</span>
+              <span>Financial Services & Wealth Solutions Firm</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black font-heading tracking-tight leading-tight">
-              {about.mainHeading || "Preserving & Multiplying"}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">{about.highlightHeading || "Generational Wealth"}</span>
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Horizon Secure Investments</span>
             </h1>
 
-            <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed font-medium">
-              {about.leadDescription || "Headquartered in Mumbai's Bandra-Kurla Complex (BKC), Horizon Secure Investments brings together over 15 years of institutional financial planning, fiduciary integrity, and multi-asset advisory under one roof."}
+            <p className="mt-4 text-orange-400 font-bold text-lg sm:text-xl font-heading">
+              Building Financial Confidence. Protecting What Matters. Creating Long-Term Opportunities.
             </p>
 
-            {/* Quick Metrics Ribbon */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-700/60">
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-orange-400 font-heading">
-                  {about.experienceYears || COMPANY_INFO.experienceYears}
-                </div>
-                <div className="text-xs text-slate-300 font-medium">Market Leadership</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-white font-heading">
-                  {about.aum || COMPANY_INFO.aum}
-                </div>
-                <div className="text-xs text-slate-300 font-medium">Assets Under Advisory</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-orange-400 font-heading">
-                  {about.investorCount || COMPANY_INFO.investorCount}
-                </div>
-                <div className="text-xs text-slate-300 font-medium">Happy Families</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-white font-heading">
-                  {about.insurancePartnerCount || "25+"}
-                </div>
-                <div className="text-xs text-slate-300 font-medium">Insurance Partners</div>
-              </div>
+            <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+              Horizon Secure Investments (HSI) is a financial services and wealth solutions firm committed to helping individuals, families and businesses make informed decisions about their protection, investments and financial future.
+            </p>
+
+            {/* Quick Contact Ribbon */}
+            <div className="mt-6 pt-6 border-t border-slate-700/60 flex flex-wrap items-center gap-4 text-xs font-semibold">
+              <a
+                href="tel:+919619973551"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                <span>Call: +91 96199 73551</span>
+              </a>
+              <a
+                href={`https://wa.me/91${COMPANY_INFO.whatsappNumber}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-colors"
+              >
+                <span>WhatsApp: {COMPANY_INFO.whatsappNumber}</span>
+              </a>
+              <span className="text-slate-400">Mulund - West, Mumbai</span>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* Mission, Vision & Core Philosophy */}
+      {/* Firm Overview Section */}
       <section className="py-16 md:py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-950 text-xs font-black uppercase tracking-wider">
                 <Compass className="w-3.5 h-3.5 text-orange-600" />
-                <span>Our Founding Principles</span>
+                <span>One Integrated Platform</span>
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading leading-tight">
-                "Plan Today. Protect Tomorrow. Prosper Always."
+                Comprehensive Protection + Investment + Financial Planning
               </h2>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Too many families suffer from one of two financial mistakes: either chasing speculative returns without protective life and health shields, or parking hard-earned money in low-yield traditional savings that fail to beat inflation.
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                We bring together solutions across <strong>Life Insurance, Health Insurance, General Insurance, Mutual Funds, Stock Markets, Bonds, Gold, ETFs, Forex and Financial Planning</strong>, giving our clients access to a broad range of financial products and solutions under one platform.
               </p>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                At Horizon Secure Investments, we engineer a <strong>balanced dual-engine model</strong>: aggressive compounding through curated equity funds and alternative real assets, paired with airtight protection policies across India's top insurers.
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                At HSI, we believe that financial planning is not simply about investing money. It is about understanding where you are today, identifying where you want to go and creating a disciplined financial approach to help you work towards your goals.
               </p>
 
-              <div className="p-5 rounded-2xl bg-white border-2 border-orange-300 shadow-sm space-y-3">
+              <div className="p-6 rounded-2xl bg-white border-2 border-orange-300 shadow-sm space-y-2">
                 <div className="text-xs font-bold uppercase tracking-wider text-orange-800 font-heading">
-                  Our Uncompromising Fiduciary Standard
+                  Our Fundamental Ethos
                 </div>
-                <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                  We maintain zero conflict of interest. Your investment folios remain directly in your own name with SEBI-registered depositories and respective Asset Management Companies (AMCs). We act strictly as your personal financial fiduciary.
+                <p className="text-sm font-semibold text-slate-800 italic">
+                  "Clarity, transparency, diversification and long-term relationships rather than a one-size-fits-all approach."
                 </p>
               </div>
             </div>
 
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-800 flex items-center justify-center font-bold">
-                  <Scale className="w-5 h-5 text-orange-600" />
+            <div className="lg:col-span-5">
+              <div className="p-8 rounded-3xl bg-[#071325] text-white space-y-5 border border-slate-700 shadow-xl">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold">
+                    <Layers className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Horizon Secure Investments</h3>
+                    <p className="text-xs text-orange-300">Protect. Invest. Grow.</p>
+                  </div>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 font-heading">Zero Hidden Charges</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Complete fee transparency across all products. Every expense ratio, exit load, and tax implication is laid out in plain English.
-                </p>
-              </div>
 
-              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold">
-                  <ShieldCheck className="w-5 h-5 text-blue-700" />
+                <div className="space-y-3 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+                    <span>Life, Health & General Insurance Solutions</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+                    <span>Mutual Funds, Stock Markets & Bonds</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+                    <span>Gold, ETFs, Forex & Alternate Assets</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+                    <span>Disciplined Lifecycle Financial Planning</span>
+                  </div>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 font-heading">Claim Advocacy</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Dedicated in-house claims desk standing beside your family during medical emergencies or life settlements to guarantee rapid payouts.
-                </p>
-              </div>
 
-              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-                  <TrendingUp className="w-5 h-5 text-emerald-700" />
+                <div className="pt-2">
+                  <button
+                    onClick={() => onOpenConsultation()}
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-xs shadow-md transition-all cursor-pointer"
+                  >
+                    Request Free Financial Consultation
+                  </button>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 font-heading">Active Rebalancing</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  We don't sell and disappear. We conduct quarterly portfolio reviews and rebalance asset allocations based on macroeconomic shifts.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold">
-                  <Globe2 className="w-5 h-5 text-purple-700" />
-                </div>
-                <h3 className="text-base font-bold text-slate-900 font-heading">NRI & Corporate Desk</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Specialized solutions for Non-Resident Indians (NRIs) and MSME corporate treasuries managing surplus capital and Group Mediclaim.
-                </p>
               </div>
             </div>
 
@@ -237,136 +171,344 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </section>
 
-      {/* 4 Core Pillars of Excellence (Detailed) */}
+      {/* Our Approach Section */}
+      <section className="py-16 md:py-20 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-950 text-xs font-bold uppercase tracking-wider mb-2">
+              <Compass className="w-3.5 h-3.5 text-orange-600" />
+              <span>Tailored Process</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
+              Our Approach
+            </h2>
+            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+              Every individual and business has different financial priorities. Some may be looking for family protection and insurance, while others may be focused on wealth creation, retirement planning, children's future, regular income or portfolio diversification.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="p-8 rounded-3xl bg-slate-50 border-2 border-slate-200 space-y-6">
+              <h3 className="text-lg font-black text-[#0a192f] font-heading">
+                Our approach begins with understanding the client's:
+              </h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: "Financial Goals", desc: "Short, medium and long-term milestones for you and your family." },
+                  { title: "Current Financial Position", desc: "Assets, liabilities, cashflows and existing portfolio balance." },
+                  { title: "Investment Horizon", desc: "Duration of investment aligned with liquidity needs." },
+                  { title: "Protection Requirements", desc: "Adequate life, health and general insurance coverage." },
+                  { title: "Risk Considerations", desc: "Risk tolerance and appropriate asset class volatility tolerance." },
+                  { title: "Liquidity Requirements", desc: "Emergency reserves and immediate capital access." },
+                  { title: "Long-term Priorities", desc: "Retirement security, wealth preservation and generational legacy." }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                    <CheckCircle2 className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-4 border-t border-slate-200">
+                <p className="text-xs text-slate-700 leading-relaxed font-medium">
+                  Based on these considerations, we help clients understand different financial solutions and make informed decisions. We believe in clarity, transparency, diversification and long-term relationships rather than a one-size-fits-all approach.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Leadership Section */}
+      <section className="py-16 md:py-20 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-950 text-xs font-bold uppercase tracking-wider mb-2">
+              <Users className="w-3.5 h-3.5 text-orange-600" />
+              <span>Executive Management</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
+              Our Leadership
+            </h2>
+            <p className="mt-2 text-slate-600 text-sm sm:text-base">
+              Experienced leaders combining financial expertise, entrepreneurial vision, and market discipline.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            
+            {/* Nikhil Bagwe */}
+            <div className="p-8 rounded-3xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-sm space-y-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 text-white font-black flex items-center justify-center text-2xl shadow-md font-heading">
+                      NB
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black text-slate-900 font-heading">
+                        Nikhil Bagwe
+                      </h3>
+                      <div className="text-sm font-bold text-orange-600">
+                        Director
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Direct Contact Links */}
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="tel:+917977661896"
+                      className="p-2 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 border border-orange-200 transition-colors"
+                      title="Direct Phone Call"
+                    >
+                      <Phone className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="mailto:hsinvest2026@gmail.com"
+                      className="p-2 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 border border-orange-200 transition-colors"
+                      title="Direct Email"
+                    >
+                      <Mail className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://x.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 transition-colors font-bold text-xs"
+                      title="Social Profile on X"
+                    >
+                      X
+                    </a>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1 mb-4">
+                  <div><strong>Phone:</strong> <a href="tel:+917977661896" className="text-orange-600 font-bold hover:underline">+91-7977661896</a></div>
+                  <div><strong>Email:</strong> <a href="mailto:hsinvest2026@gmail.com" className="text-orange-600 font-bold hover:underline">hsinvest2026@gmail.com</a></div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  Nikhil Bagwe is an experienced financial services professional and successful entrepreneur with exposure to various segments of the financial industry.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mt-3">
+                  He has worked with reputed organizations including <strong>Bajaj Life Insurance Co., Reliance Nippon Life Insurance Co., Bajaj Allianz General Insurance Co., Cholamandalam GIC and Policybazaar</strong>, gaining experience across insurance and financial services.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mt-3">
+                  Since 2018, Nikhil has been actively involved in Mutual Funds, Stock Markets and Bonds, developing practical exposure to investment products and market dynamics.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mt-3">
+                  At Horizon Secure Investments, he focuses on business development, client relationships, financial solutions and long-term wealth-oriented strategies. His experience across insurance and investment products enables HSI to take a broader view of clients' financial requirements.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                <span>Director • Horizon Secure Investments</span>
+                <span className="font-bold text-orange-600">Client Solutions & Growth</span>
+              </div>
+            </div>
+
+            {/* Sumegh Shejwal */}
+            <div className="p-8 rounded-3xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-sm space-y-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0a192f] to-blue-900 text-white font-black flex items-center justify-center text-2xl shadow-md font-heading">
+                      SS
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black text-slate-900 font-heading">
+                        Sumegh Shejwal
+                      </h3>
+                      <div className="text-sm font-bold text-orange-600">
+                        Director
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Direct Contact Links */}
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="mailto:hsinvest2026@gmail.com"
+                      className="p-2 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 border border-orange-200 transition-colors"
+                      title="Direct Email"
+                    >
+                      <Mail className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1 mb-4">
+                  <div><strong>Email:</strong> <a href="mailto:hsinvest2026@gmail.com" className="text-orange-600 font-bold hover:underline">hsinvest2026@gmail.com</a></div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  Sumegh Shejwal is a successful entrepreneur and businessman with experience in the manufacturing sector and exposure to import and export businesses.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mt-3">
+                  His entrepreneurial background has provided him with valuable experience in business operations, commercial decision-making and market dynamics.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mt-3">
+                  He is also actively involved in <strong>Forex, Gold, ETFs, Mutual Funds and Stock Market investments</strong>. Sumegh follows market movements through charts, price movements and technical analysis, studying market trends and patterns to better understand market behaviour.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mt-3">
+                  At Horizon Secure Investments, he contributes his entrepreneurial experience, business perspective and market-oriented approach to the firm's growth and development.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                <span>Director • Horizon Secure Investments</span>
+                <span className="font-bold text-orange-600">Market Dynamics & Strategy</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Our Strength Section */}
       <section className="py-16 md:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-950 text-xs font-bold uppercase tracking-wider mb-2">
               <Award className="w-3.5 h-3.5 text-orange-600" />
-              <span>Brochure Pillars</span>
+              <span>Core Capabilities</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
-              Our 4 Pillars of Excellence
+              Our Strength
             </h2>
-            <p className="mt-2 text-slate-600 text-sm sm:text-base">
-              The cornerstone values that have guided our firm through volatile bull runs and global corrections since 2009.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TRUST_PILLARS.map((pillar, idx) => (
-              <div 
-                key={idx}
-                className="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-orange-400 hover:bg-white transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black flex items-center justify-center text-lg mb-4 shadow-xs">
-                    0{idx + 1}
-                  </div>
-                  <h3 className="text-base font-black text-slate-900 font-heading">
-                    {pillar.title}
-                  </h3>
-                  <div className="text-xs font-bold text-orange-800 mt-1 mb-3">
-                    {pillar.subtitle}
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                    {pillar.description}
-                  </p>
-                </div>
-                <div className="mt-5 pt-3 border-t border-slate-200 flex items-center text-[11px] font-bold text-slate-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-1.5 shrink-0" />
-                  <span>Institutional Standard</span>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-orange-400 transition-all shadow-2xs space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-800 flex items-center justify-center font-bold">
+                <Users className="w-5 h-5 text-orange-600" />
               </div>
-            ))}
+              <h3 className="text-base font-bold text-slate-900 font-heading">Diverse Financial Experience</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Our leadership combines experience across insurance, investments, entrepreneurship and financial markets, allowing HSI to approach financial requirements from multiple perspectives.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-orange-400 transition-all shadow-2xs space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold">
+                <Layers className="w-5 h-5 text-blue-700" />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 font-heading">Comprehensive Solutions</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                HSI brings together protection and investment solutions under one platform, covering insurance, investments and financial planning.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-orange-400 transition-all shadow-2xs space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+                <Target className="w-5 h-5 text-emerald-700" />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 font-heading">Client-Centric Thinking</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                We understand that every client has different financial circumstances and goals. Our focus is on helping clients understand available options and their associated risks before making decisions.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-orange-400 transition-all shadow-2xs space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold">
+                <TrendingUp className="w-5 h-5 text-purple-700" />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 font-heading">Long-Term Perspective</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                We believe meaningful financial progress is generally built over time through discipline, appropriate diversification, regular review and informed decision-making.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-orange-400 transition-all shadow-2xs space-y-3 md:col-span-2">
+              <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+                <HeartHandshake className="w-5 h-5 text-amber-700" />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 font-heading">Relationship-Driven Service</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Our objective is to develop long-term relationships with clients and remain a trusted financial partner through different stages of their financial journey.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Historical Milestones Journey */}
+      {/* Vision & Mission Section */}
       <section className="py-16 md:py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0a192f] text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <span>Growth Story</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
-              A Decade and a Half of Measured Growth
-            </h2>
-            <p className="mt-2 text-slate-600 text-sm sm:text-base">
-              How a boutique advisory firm grew into one of Western India's most trusted wealth partners.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-6">
-            {milestones.map((m, i) => (
-              <div 
-                key={i}
-                className="flex flex-col sm:flex-row gap-5 p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs"
-              >
-                <div className="sm:w-28 shrink-0 flex items-center sm:flex-col sm:items-start justify-between sm:justify-center">
-                  <span className="text-2xl sm:text-3xl font-black text-orange-600 font-heading">
-                    {m.year}
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                    Milestone {i + 1}
-                  </span>
-                </div>
-                <div className="sm:border-l-2 sm:border-slate-200 sm:pl-6 flex-1 space-y-1">
-                  <h3 className="text-base font-bold text-slate-900 font-heading">
-                    {m.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                    {m.description}
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            <div className="p-8 rounded-3xl bg-white border-2 border-slate-200 shadow-sm space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center">
+                <Eye className="w-6 h-6" />
               </div>
-            ))}
+              <h3 className="text-xl font-black text-slate-900 font-heading">Our Vision</h3>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                To build a trusted and professionally driven financial services platform that helps individuals, families and businesses protect their financial interests, invest thoughtfully and work towards their long-term financial goals.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-white border-2 border-slate-200 shadow-sm space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center">
+                <Target className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-black text-slate-900 font-heading">Our Mission</h3>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                To provide clients with accessible, transparent and comprehensive financial solutions, supported by professional knowledge, market understanding and long-term relationship management.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Leadership & Advisory Committee */}
+      {/* What We Believe Section */}
       <section className="py-16 md:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-950 text-xs font-bold uppercase tracking-wider mb-2">
-              <Users className="w-3.5 h-3.5 text-orange-600" />
-              <span>Leadership Committee</span>
-            </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
-              Certified Financial Planners & Actuaries
+              What We Believe
             </h2>
-            <p className="mt-2 text-slate-600 text-sm sm:text-base">
-              Our core committee brings decades of combined capital markets, actuarial risk, and estate planning expertise.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {leadershipTeam.map((leader, i) => (
-              <div 
-                key={i}
-                className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-400 transition-all shadow-xs flex flex-col justify-between"
-              >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
+            {[
+              {
+                title: "Protection comes first.",
+                desc: "A strong financial plan should consider appropriate protection against life's uncertainties."
+              },
+              {
+                title: "Investing requires discipline.",
+                desc: "Long-term financial goals require patience, consistency and an understanding of risk."
+              },
+              {
+                title: "Diversification matters.",
+                desc: "Different asset classes can play different roles within a financial strategy."
+              },
+              {
+                title: "Every client is different.",
+                desc: "Financial solutions should be considered in the context of individual goals, circumstances and risk considerations."
+              },
+              {
+                title: "Relationships matter.",
+                desc: "We aim to be a long-term financial partner rather than simply a product provider."
+              }
+            ].map((b, i) => (
+              <div key={i} className="p-5 rounded-2xl bg-slate-50 border-2 border-slate-200 flex flex-col justify-between">
                 <div>
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${leader.imageBg} text-white font-black flex items-center justify-center text-xl mb-4 shadow-sm font-heading`}>
-                    {leader.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <h3 className="text-base font-black text-slate-900 font-heading">
-                    {leader.name}
-                  </h3>
-                  <div className="text-xs font-bold text-orange-800 mt-0.5">
-                    {leader.role}
-                  </div>
-                  <div className="text-[11px] font-semibold text-slate-500 mt-2 pb-2 border-b border-slate-100">
-                    {leader.credentials}
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed mt-3 font-medium">
-                    {leader.focus}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-slate-500">
-                  {leader.experience}
+                  <div className="text-xs font-black text-orange-600 mb-2">0{i + 1}</div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">{b.title}</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -374,64 +516,56 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </section>
 
-      {/* Trust & Testimonials */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading">
-              What Our Investors Say
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm mt-1">
-              Real stories from business families, IT professionals, and senior citizens who trust HSI.
+      {/* Our Promise & Registered Office */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-[#071325] via-[#0b1c36] to-[#071325] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+          
+          <div className="space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-orange-400">Our Commitment</span>
+            <h2 className="text-2xl sm:text-4xl font-black font-heading">Our Promise</h2>
+            <p className="max-w-3xl mx-auto text-xs sm:text-base text-slate-300 leading-relaxed">
+              At Horizon Secure Investments, our goal is to simplify the financial journey by bringing together <strong>Protection + Investment + Planning</strong>. We strive to help our clients understand their choices, evaluate the associated risks and make informed financial decisions for their future.
             </p>
+            <div className="text-xl sm:text-2xl font-black text-orange-400 tracking-wide pt-2">
+              Horizon Secure Investments • Protect. Invest. Grow.
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, idx) => (
-              <div 
-                key={t.id || idx}
-                className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-orange-300 transition-all shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <Quote className="w-8 h-8 text-orange-300 mb-3" />
-                  <p className="text-xs text-slate-700 leading-relaxed italic font-medium">
-                    "{t.quote}"
-                  </p>
-                </div>
-                <div className="mt-5 pt-3 border-t border-slate-100">
-                  <div className="font-bold text-xs text-slate-900 font-heading">{t.name}</div>
-                  <div className="text-[11px] text-slate-500">{t.role}</div>
-                  <div className="text-[10px] text-orange-700 font-semibold mt-0.5">{t.portfolio} • {t.city}</div>
-                </div>
-              </div>
-            ))}
+          {/* Registered Office Box */}
+          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-700 text-left max-w-3xl mx-auto space-y-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-orange-400 uppercase tracking-wider">
+              <MapPin className="w-4 h-4 text-orange-400" />
+              <span>Office Address:</span>
+            </div>
+            <p className="text-sm text-slate-200 font-semibold leading-relaxed">
+              {COMPANY_INFO.address}
+            </p>
+            <div className="pt-2 border-t border-slate-800 flex flex-wrap items-center gap-4 text-xs text-slate-300">
+              <div><strong>Mobile:</strong> <a href="tel:+919619973551" className="text-white hover:text-orange-400 font-bold">+91 96199 73551</a></div>
+              <div><strong>WhatsApp:</strong> <span className="text-emerald-400 font-bold">{COMPANY_INFO.whatsappNumber}</span></div>
+              <div><strong>Email:</strong> <a href="mailto:hsinvest2026@gmail.com" className="text-white hover:text-orange-400">hsinvest2026@gmail.com</a></div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Call to Action Banner */}
-      <section className="py-16 bg-gradient-to-r from-[#071325] via-[#0b1c36] to-[#0a192f] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
-          <h2 className="text-2xl sm:text-4xl font-black font-heading leading-tight">
-            Ready to Build an Institutional Wealth Plan?
-          </h2>
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
-            Schedule a 45-minute confidential portfolio audit with an HSI certified financial planner. In-person at our BKC Mumbai office or via secure video call.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={() => onOpenConsultation()}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs sm:text-sm shadow-md hover:scale-105 transition-all cursor-pointer"
+              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-sm shadow-lg transition-all cursor-pointer"
             >
-              Book Complimentary Audit
+              Book Free Consultation
             </button>
-            <Link
-              to="/contact"
-              className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm transition-all"
+            <button
+              onClick={() => onOpenPartnerModal()}
+              className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-600 transition-all cursor-pointer"
             >
-              Visit BKC Headquarters &rarr;
-            </Link>
+              Partner With Us
+            </button>
           </div>
+
+          <p className="text-[11px] text-slate-400 max-w-3xl mx-auto pt-6 border-t border-slate-800">
+            Insurance and investment products are subject to their respective terms, conditions, exclusions, charges and applicable regulations. Market-linked investments are subject to market risks, and returns are not guaranteed unless specifically stated by the product/provider.
+          </p>
+
         </div>
       </section>
 

@@ -202,14 +202,24 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Right Action Buttons */}
           <div className="hidden sm:flex items-center gap-2.5">
-            {/* AI Advisor Button */}
+            {/* Direct Phone Call */}
+            <a
+              href="tel:+919619973551"
+              className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-700 hover:text-orange-600 hover:bg-orange-50 border border-slate-200 transition-colors"
+              title="Call Us Now"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-orange-600" />
+              <span>+91 96199 73551</span>
+            </a>
+
+            {/* Reopen Chatbot Assistant Button */}
             <button
               onClick={handleOpenAi}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-[#0a192f] text-xs font-extrabold border border-slate-300 shadow-2xs hover:scale-[1.02] transition-all cursor-pointer"
-              title="Chat with Horizon AI Financial Advisor"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-[#0a192f] text-xs font-extrabold border border-slate-300 shadow-2xs hover:scale-[1.02] transition-all cursor-pointer"
+              title="Open Horizon Auto-Reply Assistant"
             >
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-              <span>Ask AI Advisor</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>💬 Reopen Chatbot</span>
             </button>
 
             {/* Free Consultation CTA */}
@@ -307,18 +317,26 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }`
               }
             >
-              📍 Contact & BKC Office
+              📍 Contact Us
             </NavLink>
           </div>
 
           {/* Action Buttons in Mobile Drawer */}
           <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
+            <a
+              href="tel:+919619973551"
+              className="w-full py-2.5 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Call: +91 96199 73551</span>
+            </a>
+
             <button
               onClick={handleOpenAi}
               className="w-full py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-[#0a192f] font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
             >
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-              <span>Ask AI Financial Advisor (24/7)</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>💬 Reopen Chatbot Assistant</span>
             </button>
 
             <button
@@ -345,7 +363,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="pt-2 text-center text-[11px] text-slate-500 font-semibold">
-            <span>AMFI: ARN-284910 • IRDAI: CA-0821/2022</span>
+            <span>Mulund - West, Mumbai • Protect. Invest. Grow.</span>
           </div>
         </div>
       )}

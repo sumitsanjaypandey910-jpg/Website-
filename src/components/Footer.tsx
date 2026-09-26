@@ -41,14 +41,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
             </Link>
             
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm pt-2">
-              {footer?.aboutText || "Horizon Secure Investments (HSI) is India's premier certified multi-asset wealth and risk management firm. Empowering 18,500+ families and business owners to build, protect, and pass on generational wealth."}
+              {footer?.aboutText || "Horizon Secure Investments (HSI) is a financial services and wealth solutions firm committed to helping individuals, families and businesses make informed decisions about their protection, investments and financial future."}
             </p>
 
             <div className="pt-1 text-xs font-heading font-bold text-orange-400">
               "{footer?.tagline || about.motto || COMPANY_INFO.motto}"
             </div>
 
-            {/* Regulatory Registrations */}
+            {/* Regulatory & Service Statement */}
             <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px]">
               <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-orange-500/30 text-orange-400 font-bold">
                 Protect. Invest. Grow.
@@ -56,6 +56,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
               <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 font-bold">
                 Partnered with Major Companies
               </span>
+            </div>
+
+            {/* Director Details in Footer */}
+            <div className="pt-2 p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-1">
+              <div className="font-bold text-white text-xs">Director: Nikhil Bagwe</div>
+              <div>Phone: <a href="tel:+917977661896" className="text-orange-400 font-semibold hover:underline">+91-7977661896</a></div>
+              <div>Email: <a href="mailto:hsinvest2026@gmail.com" className="text-orange-400 hover:underline">hsinvest2026@gmail.com</a></div>
             </div>
 
 
@@ -137,7 +144,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
 
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/919820012345?text=Hello%20Horizon%20Secure%20Investments%2C%20I%20would%20like%20to%20know%20more%20about%20your%20wealth%20and%20insurance%20advisory."
+                  href={`https://wa.me/91${COMPANY_INFO.whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-xl bg-slate-900 hover:bg-[#25D366] border border-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-xs"
@@ -165,7 +172,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
               </li>
               <li>
                 <Link to="/about" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
-                  <span>About Us & Trust</span>
+                  <span>About Us</span>
                 </Link>
               </li>
               <li>
@@ -185,7 +192,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
               </li>
               <li>
                 <Link to="/contact" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
-                  <span>Contact & BKC Office</span>
+                  <span>Contact Us</span>
                 </Link>
               </li>
               <li>
@@ -210,7 +217,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
               </li>
               <li>
                 <Link to="/services#insurance" className="hover:text-orange-400 transition-colors">
-                  Life & Term Protection (25+ Insurers)
+                  Life & Term Protection (Major Companies)
                 </Link>
               </li>
               <li>
@@ -239,37 +246,37 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onOpenPartne
           {/* Column 4: Contact Details (3.5 cols) */}
           <div className="lg:col-span-3 space-y-3.5">
             <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400 font-heading">
-              Headquarters & Desk
+              Office & Desk
             </h4>
             
             <div className="space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
                 <span className="leading-snug">
-                  {contact.address || COMPANY_INFO.address}
+                  {COMPANY_INFO.address}
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-orange-400 shrink-0" />
                 <div className="flex flex-col">
-                  <a href={`tel:${contact.phone}`} className="hover:text-orange-300 font-bold text-white transition-colors">
-                    {contact.phone || COMPANY_INFO.phone}
+                  <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-orange-300 font-bold text-white transition-colors">
+                    {COMPANY_INFO.phone}
                   </a>
-                  <span className="text-[11px] text-slate-500">Toll-Free: {contact.tollFree || COMPANY_INFO.tollFree}</span>
+                  <span className="text-[11px] text-emerald-400 font-medium">WhatsApp: {COMPANY_INFO.whatsappNumber}</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-orange-400 shrink-0" />
-                <a href={`mailto:${contact.email}`} className="hover:text-orange-300 transition-colors truncate">
-                  {contact.email || COMPANY_INFO.email}
+                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-orange-300 transition-colors truncate">
+                  {COMPANY_INFO.email}
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-orange-400 shrink-0" />
-                <span>{contact.operatingHours || COMPANY_INFO.operatingHours} IST</span>
+                <span>{COMPANY_INFO.operatingHours} IST</span>
               </div>
             </div>
 

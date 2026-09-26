@@ -80,7 +80,7 @@ export function initChatBot() {
               <h3 class="text-sm font-black font-heading leading-tight tracking-wide">Horizon AI Advisor</h3>
               <span class="text-[9px] bg-amber-950 text-yellow-300 px-1.5 py-0.2 rounded-md font-bold uppercase tracking-wider">Gemini</span>
             </div>
-            <p class="text-[10.5px] text-amber-950 font-semibold leading-tight mt-0.5">BKC Certified Wealth & Risk Assistant</p>
+            <p class="text-[10.5px] text-amber-950 font-semibold leading-tight mt-0.5">Protect. Invest. Grow. Assistant</p>
           </div>
         </div>
 
@@ -149,7 +149,7 @@ export function initChatBot() {
         </form>
 
         <div class="mt-2 flex items-center justify-between text-[10px] text-slate-600 px-1 font-medium">
-          <span>Informational estimates • ARN-284910</span>
+          <span>Informational estimates • Protect. Invest. Grow.</span>
           <button id="chatConsultShortcutBtn" class="text-amber-800 font-bold hover:underline cursor-pointer">
             Book Human Advisor →
           </button>
@@ -406,7 +406,7 @@ export function initChatBot() {
       const fallbackMsg: ChatMessage = {
         id: 'msg-err-' + Date.now(),
         role: 'model',
-        text: `Thank you for asking about "${userText}".\n\nOur certified AMFI ARN-284910 and IRDAI advisors can personally review your portfolio requirements and provide customized projections. Would you like to schedule a quick consultation?`,
+        text: `Thank you for asking about "${userText}".\n\nOur advisors can personally review your portfolio requirements and provide customized projections. Would you like to schedule a quick consultation?`,
         time: getCurrentTime(),
         actions: [
           {

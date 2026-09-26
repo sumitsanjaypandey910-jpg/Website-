@@ -15,27 +15,27 @@ import { COMPANY_INFO, TESTIMONIALS } from '../data/hsiData';
 
 // Default content seed
 export const DEFAULT_HERO: HeroContent = {
-  badge: "AMFI Registered • IRDAI Certified • Mumbai BKC",
+  badge: "Protect. Invest. Grow. • Mulund, Mumbai",
   headingPrefix: "Securing Tomorrow's",
   headingHighlight: "Wealth",
   headingSuffix: ", Today.",
-  subtitle: "15+ Years of trusted financial planning, multi-asset wealth compounding, and 25+ insurance corporate tie-ups under one roof.",
+  subtitle: "Comprehensive financial solutions across Mutual Funds, Insurance (Life, Health, General), Stocks, Bonds, Gold, ETFs, and Strategic Planning.",
   primaryCtaText: "Book Free Wealth Audit",
   secondaryCtaText: "Partner With Us"
 };
 
 export const DEFAULT_ABOUT: AboutContent = {
-  badge: "Certified Multi-Asset Wealth Firm",
-  mainHeading: "Preserving & Multiplying",
-  highlightHeading: "Generational Wealth",
-  leadDescription: "Headquartered in Mumbai's Bandra-Kurla Complex (BKC), Horizon Secure Investments brings together over 15 years of institutional financial planning, fiduciary integrity, and multi-asset advisory under one roof.",
-  fiduciaryText: "We maintain zero conflict of interest. Your investment folios remain directly in your own name with SEBI-registered depositories and respective Asset Management Companies (AMCs). We act strictly as your personal financial fiduciary.",
+  badge: "Financial Services & Wealth Solutions Firm",
+  mainHeading: "Building Financial Confidence.",
+  highlightHeading: "Protecting What Matters.",
+  leadDescription: "Horizon Secure Investments (HSI) is a financial services and wealth solutions firm committed to helping individuals, families and businesses make informed decisions about their protection, investments and financial future.",
+  fiduciaryText: "We believe that financial planning is not simply about investing money. It is about understanding where you are today, identifying where you want to go and creating a disciplined financial approach to help you work towards your goals.",
   motto: COMPANY_INFO.motto,
-  experienceYears: COMPANY_INFO.experienceYears,
-  aum: COMPANY_INFO.aum,
-  investorCount: COMPANY_INFO.investorCount,
-  insurancePartnerCount: "25+",
-  channelPartnerCount: COMPANY_INFO.partnerCount
+  experienceYears: "",
+  aum: "",
+  investorCount: "",
+  insurancePartnerCount: "Major Companies",
+  channelPartnerCount: ""
 };
 
 export const DEFAULT_SERVICES: ServiceContentItem[] = [
@@ -59,7 +59,7 @@ export const DEFAULT_SERVICES: ServiceContentItem[] = [
     category: "insurance",
     description: "Safeguard your family against life's greatest uncertainties with high-cover, low-cost pure term plans and tailored savings solutions from 25+ certified insurance tie-ups.",
     keyBenefits: [
-      "Tie-ups with HDFC Life, ICICI Prudential, Tata AIA, Max Life, and 15+ others",
+      "Partnered with all major regulated life and health insurance companies",
       "Average Claim Settlement Ratio (CSR) of our partners exceeds 99.1%",
       "Dedicated in-house claim settlement assistance team for family support",
       "Tax benefits under Section 80C and Section 10(10D)"
@@ -205,24 +205,24 @@ export const DEFAULT_IMAGES: ImagesContent = {
 export const DEFAULT_CONTACT: ContactContent = {
   address: COMPANY_INFO.address,
   phone: COMPANY_INFO.phone,
-  tollFree: COMPANY_INFO.tollFree,
-  emergencyClaims: "+91 98200 99999",
+  tollFree: COMPANY_INFO.phone,
+  emergencyClaims: COMPANY_INFO.phone,
   email: COMPANY_INFO.email,
   advisoryEmail: COMPANY_INFO.advisoryEmail,
   careersEmail: COMPANY_INFO.careersEmail,
   operatingHours: COMPANY_INFO.operatingHours,
-  whatsappNumber: "919820012345"
+  whatsappNumber: "7977661896"
 };
 
 export const DEFAULT_FOOTER: FooterContent = {
   companyName: "Horizon Secure Investments",
-  tagline: "Securing Tomorrow's Wealth, Today",
-  aboutText: "Horizon Secure Investments (HSI) is India's premier certified multi-asset wealth and risk management firm. Empowering 18,500+ families and business owners to build, protect, and pass on generational wealth.",
-  amfiRegNumber: COMPANY_INFO.amfiRegNo,
-  irdaiLicenseNumber: COMPANY_INFO.irdaiRegNo,
+  tagline: "Protect. Invest. Grow.",
+  aboutText: "Horizon Secure Investments (HSI) is a financial services and wealth solutions firm committed to helping individuals, families and businesses make informed decisions about their protection, investments and financial future.",
+  amfiRegNumber: "",
+  irdaiLicenseNumber: "",
   copyrightText: "© 2026 Horizon Secure Investments. All rights reserved.",
-  disclaimer: "Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Insurance is a subject matter of solicitation.",
-  complianceNote: "AMFI Registered Mutual Fund Distributor | IRDAI Approved Corporate Agent | Regulated by SEBI & IRDAI"
+  disclaimer: "Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Insurance and investment products are subject to their respective terms, conditions, exclusions, charges and applicable regulations.",
+  complianceNote: "Insurance and investment products are subject to their respective terms, conditions, exclusions, charges and applicable regulations. Market-linked investments are subject to market risks, and returns are not guaranteed unless specifically stated by the product/provider."
 };
 
 export const DEFAULT_TESTIMONIALS: TestimonialItem[] = TESTIMONIALS.map((t, index) => ({

@@ -3,27 +3,29 @@ import { ProductItem, InsuranceCompany, PartnerBenefit, TrustPillar } from '../t
 export const COMPANY_INFO = {
   name: "HORIZON SECURE INVESTMENTS",
   shortName: "HSI",
-  tagline: "Securing Tomorrow's Wealth",
+  tagline: "Protect. Invest. Grow.",
   motto: "Building Financial Confidence. Protecting What Matters. Creating Long-Term Opportunities.",
-  slogan: "YOUR TRUST, OUR COMMITMENT.",
-  phone: "+91 79776 61896",
+  slogan: "PROTECT. INVEST. GROW.",
+  phone: "+91 96199 73551",
   whatsappNumber: "7977661896",
-  tollFree: "1800 209 8899",
-  email: "contact@horizonsecureinvestments.com",
-  advisoryEmail: "wealth@horizonsecureinvestments.com",
-  careersEmail: "partner@horizonsecureinvestments.com",
-  address: "Horizon Financial Tower, 4th Floor, Financial District, Bandra-Kurla Complex (BKC), Mumbai, Maharashtra - 400051",
+  email: "hsinvest2026@gmail.com",
+  advisoryEmail: "hsinvest2026@gmail.com",
+  careersEmail: "hsinvest2026@gmail.com",
+  address: "Office No. 124, 1st Floor, Shree Shankar Niwas, LBS ROAD, Near Mulund Check Naka, Mulund - West. Mumbai 400080. India.",
   operatingHours: "Monday – Saturday: 9:30 AM – 6:30 PM",
-  experienceYears: "15+",
-  aum: "₹650+ Crores",
-  investorCount: "18,500+",
-  partnerCount: "350+"
+  director: {
+    name: "Nikhil Bagwe",
+    role: "Director",
+    phone: "+91-7977661896",
+    social: "X",
+    email: "hsinvest2026@gmail.com"
+  }
 };
 
 export const TRUST_PILLARS: TrustPillar[] = [
   {
     title: "EXPERT ADVICE",
-    subtitle: "Certified Financial Specialists",
+    subtitle: "Experienced Financial Specialists",
     description: "Personalized portfolio guidance curated by seasoned investment advisors and wealth managers.",
     iconName: "GraduationCap"
   },
@@ -351,7 +353,7 @@ export const PARTNER_BENEFITS: PartnerBenefit[] = [
     description: "Take command of your career as an equity-style business associate. You are not an employee — you operate as an entrepreneurial leader with full access to HSI's brand, licensed infrastructure, and institutional contracts.",
     perks: [
       "Leadership autonomy with no arbitrary sales targets",
-      "Full institutional backing under AMFI & IRDAI regulatory umbrellas",
+      "Full institutional backing with major financial and insurance institutions",
       "Executive mentorship from top financial leaders and fund managers",
       "Access to proprietary wealth CRM and digital customer onboarding tools"
     ],

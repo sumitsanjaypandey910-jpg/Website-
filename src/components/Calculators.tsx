@@ -912,7 +912,7 @@ export const Calculators: React.FC<CalculatorsProps> = ({ onPlanGoal }) => {
                         </div>
                         <div className="flex justify-between text-slate-300 border-t border-slate-800/80 pt-2 text-[11px]">
                           <span>Partner Insurers</span>
-                          <span className="text-slate-400">HDFC Life, Tata AIA, ICICI Pru, Max Life</span>
+                          <span className="text-slate-300 font-semibold">Major Regulated Insurers</span>
                         </div>
                       </div>
                     </div>

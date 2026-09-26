@@ -38,10 +38,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation, on
           {/* Left Column: Core Value Proposition */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
-            {/* Regulatory Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-300 text-xs font-semibold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-              <span>{hero.badge || "AMFI Registered • IRDAI Certified • Mumbai BKC"}</span>
+            {/* Regulatory Badge & Direct Phone Contact */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-300 text-xs font-semibold tracking-wide">
+                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+                <span>{hero.badge || "Protect. Invest. Grow. • Mulund, Mumbai"}</span>
+              </div>
+              <a
+                href="tel:+919619973551"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition-colors"
+              >
+                <span>📞 Call: +91 96199 73551</span>
+              </a>
             </div>
 
             {/* Main Headline */}
@@ -152,22 +160,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation, on
                 )}
               </div>
 
-              {/* Verified Partner Status Bar */}
+              {/* Value Focus Bar */}
               <div className="mt-6 pt-6 border-t border-slate-800 grid grid-cols-2 gap-3 text-center">
                 <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
-                  <div className="text-xl font-bold text-orange-400">{about.insurancePartnerCount || "25+"}</div>
-                  <div className="text-[11px] text-slate-300 uppercase tracking-wider font-medium">Insurance Partners</div>
+                  <div className="text-sm font-bold text-orange-400">Protection</div>
+                  <div className="text-[11px] text-slate-300 uppercase tracking-wider font-medium">Life & Health</div>
                 </div>
                 <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
-                  <div className="text-xl font-bold text-orange-400">100%</div>
-                  <div className="text-[11px] text-slate-300 uppercase tracking-wider font-medium">Fiduciary Advice</div>
+                  <div className="text-sm font-bold text-orange-400">Growth</div>
+                  <div className="text-[11px] text-slate-300 uppercase tracking-wider font-medium">Invest & Plan</div>
                 </div>
               </div>
 
               {/* Quick Quote Highlight */}
               <div className="mt-4 p-3 rounded-lg bg-orange-500/10 border border-orange-500/20 text-center">
                 <div className="text-xs text-orange-200 font-semibold">
-                  Dealing with All Major Life, Health & General Insurers
+                  Partnered with all Major Regulated Companies
                 </div>
                 <button
                   onClick={() => scrollToSection('insurance-partners')}
@@ -180,26 +188,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation, on
             </div>
           </div>
 
-        </div>
-
-        {/* Bottom Trust Stat Bar */}
-        <div className="mt-16 pt-8 border-t border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-white">{about.experienceYears || "15+"}</div>
-            <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Years of Wealth Leadership</div>
-          </div>
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-orange-400">{about.aum || "₹650+ Cr"}</div>
-            <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Advisory Assets (AUM)</div>
-          </div>
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-white">{about.investorCount || "18,500+"}</div>
-            <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Satisfied Families & HNIs</div>
-          </div>
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-orange-400">{about.insurancePartnerCount || "25+"}</div>
-            <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Insurance & AMC Tie-ups</div>
-          </div>
         </div>
 
       </div>
